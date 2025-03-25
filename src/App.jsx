@@ -34,9 +34,9 @@ export default function App() {
                     <Routes>
                         <Route path='/' element={<HomePage />} />
                         <Route path='/catalog' element={<Catalog />} />
+                        <Route path='/memes/:memeId/details' element={<MemeDetail />} />
                         <Route element={<AuthGuard />}>
                             <Route path='/create' element={<MemeGenerator />} />
-                            <Route path='/memes/:memeId/details' element={<MemeDetail />} />
                             <Route path='/memes/:memeId/edit' element={<MemeEdit />} />
                             <Route path='/logout' element={<Logout />} />
                         </Route>
