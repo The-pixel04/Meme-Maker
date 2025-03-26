@@ -7,7 +7,6 @@ import MemeEdit from "./components/memeEdit/MemeEdit.jsx";
 import Catalog from "./components/catalog/Catalog.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import { UserContext } from "./contexts/UserContext.js";
-import { useState } from "react";
 import Register from "./components/register/register.jsx";
 import Login from "./components/login/Login.jsx";
 import usePersistedState from "./hooks/usePersistedSate.js";

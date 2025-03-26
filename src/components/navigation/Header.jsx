@@ -1,4 +1,3 @@
-import React from 'react';
 import { Menu } from 'antd';
 import { HomeOutlined, UserOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Link } from 'react-router';

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Row, Col, Spin } from 'antd';
+import { Spin } from 'antd';
 import { useMemes } from '../../api/memeApi.js';
 import MemeCard from '../memeCard/MemeCard.jsx';
 import styles from './Catalog.module.css'

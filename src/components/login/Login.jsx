@@ -1,4 +1,4 @@
-import { Input, Button, Typography, Checkbox } from 'antd';
+import { Input, Button, Typography} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router';
 import { useActionState, useContext } from 'react';
@@ -65,7 +65,7 @@ export default function Login() {
                 </Button>
 
                 <div className={styles["register-link"]}>
-                    Don't have an account? <a href="/register">Sign up</a>
+                    Don not have an account? <a href="/register">Sign up</a>
                 </div>
             </form>
         </div>
