@@ -1,11 +1,12 @@
 .register-container {
     max-width: 500px;
     margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
     padding: 24px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    padding: 20px 20px;
 }
 
 .form-title {
