@@ -2,15 +2,16 @@ import { Button, Row, Col, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import { useLast3Memes } from '../../api/memeApi.js';
 import MemeCard from '../memeCard/MemeCard';
+import styles from './HomePage.module.css'
 
 export default function HomePage() {
     const { last3Memes, loading } = useLast3Memes();
 
     return (
-        <div className="home-page">
+        <div className={styles["home-page"]}>
 
             {/* Hero Section */}
-            <section className="hero-section">
+            <section className={styles["hero-section"]}>
                 <h1>Create Hilarious Memes in Seconds!</h1>
                 <p>Choose an image URL, add your text, and share it with the world.</p>
                 <Button type="primary" size="large">
@@ -19,14 +20,14 @@ export default function HomePage() {
             </section>
 
             {/* Featured Memes Section */}
-            <section className="featured-memes">
+            <section className={styles["featured-memes"]}>
                 <h2>Last Memes</h2>
-                <div className="meme-grid">
+                <div className={styles["meme-grid"]}>
                     {loading
                         ? <Spin />
                         :
                         last3Memes.results?.map((meme) => (
-                            <div key={meme.objectId} className="meme-card-container">
+                            <div key={meme.objectId} className={styles["meme-card-container"]}>
                                 <MemeCard meme={meme} />
                             </div>
                         ))
@@ -36,29 +37,29 @@ export default function HomePage() {
             </section>
 
             {/* How It Works Section */}
-            <section className="how-it-works">
+            <section className={styles["how-it-works"]}>
                 <h2>How It Works</h2>
                 <Row gutter={[16, 16]}>
                     <Col xs={24} sm={12} md={6}>
-                        <div className="step">
+                        <div className={styles["step"]}>
                             <h3>1. Upload an Image</h3>
                             <p>Choose an image and use a URL.</p>
                         </div>
                     </Col>
                     <Col xs={24} sm={12} md={6}>
-                        <div className="step">
+                        <div className={styles["step"]}>
                             <h3>2. Add Text</h3>
                             <p>Add top and bottom text to your meme.</p>
                         </div>
                     </Col>
                     <Col xs={24} sm={12} md={6}>
-                        <div className="step">
+                        <div className={styles["step"]}>
                             <h3>3. Customize</h3>
                             <p>Adjust text size and color.</p>
                         </div>
                     </Col>
                     <Col xs={24} sm={12} md={6}>
-                        <div className="step">
+                        <div className={styles["step"]}>
                             <h3>4. Save & Share</h3>
                             <p>Post your meme and download it.</p>
                         </div>

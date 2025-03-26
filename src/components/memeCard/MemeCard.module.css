@@ -1,0 +1,30 @@
+/* MemeCard.css */
+.meme-image {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.top-text,
+.bottom-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px black;
+    width: 90%;
+    padding: 0 8px;
+    white-space: normal;
+    overflow: visible;
+    word-wrap: break-word;
+}
+
+.top-text {
+    top: 10px;
+}
+
+.bottom-text {
+    bottom: 10px;
+}

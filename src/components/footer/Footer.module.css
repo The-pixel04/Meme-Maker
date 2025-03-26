@@ -1,0 +1,16 @@
+.footer {
+    background-color: #0b2946;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.quick-links a {
+    margin: 0 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.copyright {
+    margin-top: 16px;
+}

@@ -1,0 +1,68 @@
+/* HomePage.css */
+.home-page {
+    padding: 0px;
+    text-align: center;
+}
+
+.home-page h1 {
+    margin-bottom: 24px;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 64px 16px;
+    background-color: #1890ff;
+    color: white;
+}
+
+.featured-memes {
+    padding: 32px;
+    background-color: #ffffff; /* White background for contrast */
+    text-align: center;
+}
+
+.featured-memes h2 {
+    margin-bottom: 24px;
+    font-size: 28px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    display: inline-block; 
+    color: #141f4d;
+    font-weight: 500;
+}
+
+.featured-memes .meme-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between memes */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+
+.featured-memes .meme-card-container {
+    flex: 1 1 calc(33.33% - 16px); /* 3 memes per row */
+    max-width: calc(33.33% - 16px);
+    height: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.how-it-works {
+    padding: 32px;
+    background-color: #f0f2f5;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    /* margin-bottom: 32px; */
+}
+
+.step {
+    text-align: center;
+    padding: 16px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

@@ -1,23 +1,24 @@
 import { Card } from 'antd';
+import styles from './MemePreview.module.css'
 
-export default function MemePreviw({imageUrl, textSize, topText, topTextColor, bottomText, bottomTextColor}) {
+export default function MemePreviw({ imageUrl, textSize, topText, topTextColor, bottomText, bottomTextColor }) {
     return (
-        <Card className="preview-card">
+        <Card className={styles["preview-card"]}>
             {imageUrl && (
-                <div  className="meme-preview">
+                <div className="meme-preview">
                     <img
                         src={imageUrl}
                         alt="Meme Preview"
-                        className="meme-image"
+                        className={styles["meme-image"]}
                     />
                     <div
-                        className="top-text"
+                        className={styles["top-text"]}
                         style={{ fontSize: `${textSize}px`, color: topTextColor }}
                     >
                         {topText}
                     </div>
                     <div
-                        className="bottom-text"
+                        className={styles["bottom-text"]}
                         style={{ fontSize: `${textSize}px`, color: bottomTextColor }}
                     >
                         {bottomText}

@@ -1,0 +1,21 @@
+.meme-catalog {
+    padding: 20px;
+    text-align: center;
+}
+
+.meme-catalog h1 {
+    margin-bottom: 24px;
+}
+
+.meme-card-container {
+    flex: 1 1 calc(33.33% - 16px);
+    max-width: calc(33.33% - 16px);
+}
+
+.meme-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 40px;
+}

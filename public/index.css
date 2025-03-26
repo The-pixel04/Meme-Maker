@@ -1,357 +1,93 @@
- :root {
-   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-   line-height: 1.5;
-   font-weight: 400;
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-   color-scheme: light dark;
-   color: rgba(255, 255, 255, 0.87);
-   background-color: #242424;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 
-   font-synthesis: none;
-   text-rendering: optimizeLegibility;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
- }
-
- #root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
- main {
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Full viewport height */
+}
+
+main {
   flex-grow: 1;
 }
 
- a {
-   font-weight: 500;
-   color: #646cff;
-   text-decoration: inherit;
- }
-
- a:hover {
-   color: #535bf2;
- }
-
-body, html {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
 
- h1 {
-   font-size: 3.2em;
-   line-height: 1.1;
- }
+a:hover {
+  color: #535bf2;
+}
 
- button {
-   border-radius: 8px;
-   border: 1px solid transparent;
-   padding: 0.6em 1.2em;
-   font-size: 1em;
-   font-weight: 400;
-   font-family: inherit;
-   background-color: #1a1a1a;
-   cursor: pointer;
-   transition: border-color 0.25s;
- }
-
- button:hover {
-   border-color: #646cff;
- }
-
- button:focus,
- button:focus-visible {
-   outline: 4px auto -webkit-focus-ring-color;
- }
-
- @media (prefers-color-scheme: light) {
-   :root {
-     color: #213547;
-     background-color: #ffffff;
-   }
-
-   a:hover {
-     color: #747bff;
-   }
-
-   button {
-     background-color: #f9f9f9;
-   }
- }
-
- .meme-generator-container {
-   display: flex;
-   flex-direction: row;
-   gap: 16px;
-   padding: 16px;
-   width: 100%;
-   height: 90vh;
- }
-
- .controls-card {
-   width: 20%;
-   padding: 16px;
- }
-
- .controls-container {
-   display: flex;
-   flex-direction: column;
-   gap: 16px;
- }
-
- .preview-card {
-   width: 50%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding: 16px;
-   position: relative;
- }
-
- .meme-preview {
-   position: relative;
-   display: inline-block;
-   width: 100%;
-   text-align: center;
- }
-
- .meme-image {
-   max-width: 150%;
-   height: auto;
-   width: 150%;
- }
-
- .top-text,
- .bottom-text {
-   position: absolute;
-   left: 50%;
-   transform: translateX(-50%);
-   font-weight: bold;
-   text-align: center;
-   text-shadow: 2px 2px 4px black;
-   width: 100%;
- }
-
- .top-text {
-   top: 10px;
- }
-
- .bottom-text {
-   bottom: 10px;
- }
-
- .nav-container {
-   display: flex;
-   justify-content: center;
-   width: 100%;
-   /* Ensure the container takes full width */
- }
-
- .nav-menu {
-   font-size: 18px;
-   line-height: 64px;
-   width: 100%;
-   max-width: 1200px;
-   /* Adjust this value as needed */
-   display: flex;
-   justify-content: center;
-   /* Center the menu items horizontally */
- }
-
- /* HomePage.css */
-
- .header {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 16px;
-   background-color: #f0f2f5;
- }
-
- .logo {
-   font-size: 24px;
-   font-weight: bold;
- }
-
- .nav-menu a {
-   margin: 0 16px;
-   text-decoration: none;
-   color: #333;
- }
-
- .hero-section {
-   text-align: center;
-   padding: 64px 16px;
-   background-color: #1890ff;
-   color: white;
- }
-
- .hero-section h1 {
-   font-size: 48px;
-   margin-bottom: 16px;
- }
-
- .hero-section p {
-   font-size: 18px;
-   margin-bottom: 32px;
- }
-
- /* HomePage.css */
- /* HomePage.css */
- .home-page {
-   padding: 0px;
-   text-align: center;
- }
-
- .home-page h1 {
-   margin-bottom: 24px;
- }
-
- .how-it-works {
-   padding: 32px ;
-   background-color: #f0f2f5;
- }
-
- .how-it-works h2 {
-   text-align: center;
-   /* margin-bottom: 32px; */
- }
-
- .step {
-   text-align: center;
-   padding: 16px;
-   background-color: white;
-   border-radius: 8px;
-   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
- }
-
- .footer {
-  background-color: #0b2946;
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid #ddd;
- }
-
- .quick-links a {
-   margin: 0 16px;
-   color: white;
-   text-decoration: none;
- }
-
- .social-media a {
-   margin: 0 8px;
-   color: white;
-   text-decoration: none;
- }
-
- .copyright {
-   margin-top: 16px;
- }
-
- /* MemeDetail.css */
- .meme-detail-card {
-   max-width: 600px;
-   margin: 0 auto;
-   padding: 16px;
-   text-align: center;
- }
-
- .meme-preview {
-   position: relative;
-   display: inline-block;
-   margin-bottom: 16px;
- }
-
- .meme-image {
-   max-width: 80%;
-   height: auto;
- }
-
- .top-text,
- .bottom-text {
-   position: absolute;
-   left: 50%;
-   transform: translateX(-50%);
-   font-weight: bold;
-   text-align: center;
-   text-shadow: 2px 2px 4px black;
-   width: 100%;
- }
-
- .top-text {
-   top: 10px;
- }
-
- .bottom-text {
-   bottom: 10px;
- }
-
- .action-buttons {
-   margin-top: 17px;
- }
-
- .action-buttons button {
-   margin-right: 8px;
- }
-
- /* MemeCatalog.css */
- .meme-catalog {
-   padding: 20px;
-   text-align: center;
- }
-
- .meme-catalog h1 {
-   margin-bottom: 24px;
- }
-
- /* MemeCard.css */
-
- .meme-image {
-  /* max-width: 90%; */
-   width: 90%;
-   /* Ensure image takes full width of the card */
-   height: 90%;
-   /* Ensure image takes full height of the card */
-   object-fit:cover;
-   /* Maintain aspect ratio and cover the entire space */
-   border-radius: 8px;
- }
- .meme-grid {
+body,
+html {
+  height: 100%;
+  margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px; /* Adds space between cards */
-  justify-content: center; /* Center the cards horizontally */
-  margin-bottom: 40px; /* Space between cards and "How It Works" section */
+  flex-direction: column;
 }
 
-.meme-card-container {
-  flex: 1 1 calc(33.33% - 16px); /* 4 cards per row (adjust as needed) */
-  max-width: calc(33.33% - 16px); /* Ensure consistent width */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
- .top-text,
- .bottom-text {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  text-align: center;
-  text-shadow: 2px 2px 4px black;
-  width: 90%; /* Adjust width to fit within the image */
-  padding: 0 8px; /* Add padding to prevent text from touching edges */
-  white-space: normal; /* Allow text to wrap */
-  overflow: visible; /* Ensure text is not clipped */
-  word-wrap: break-word; /* Break long words rflow text */
-  /* font-size: 10px; /* Set a smaller font size 
-  line-height: 1.2; Adjust line height for better spacing */
- }
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
 
- .top-text {
-   top: 10px;
- }
+button:hover {
+  border-color: #646cff;
+}
 
- .bottom-text {
-   bottom: 10px;
- }
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.meme-generator-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 16px;
+  width: 100%;
+  height: 90vh;
+}

@@ -1,0 +1,55 @@
+.meme-detail-card {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 16px;
+    text-align: center;
+}
+
+.meme-preview {
+    position: relative;
+    display: flex; /* Use flexbox to center the image */
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.meme-image {
+    max-width: 100%; /* Ensure the image fits within the container */
+    height: auto; /* Maintain aspect ratio */
+    width: 75%;
+
+}
+
+.top-text,
+.bottom-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px black;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: 90%;
+}
+
+.top-text {
+    top: 10px;
+}
+
+.bottom-text {
+    bottom: 10px;
+}
+
+.action-buttons {
+    margin-top: 20px;
+}
+
+.action-buttons button {
+    margin-right: 8px;
+}

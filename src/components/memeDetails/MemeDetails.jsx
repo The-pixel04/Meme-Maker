@@ -4,6 +4,7 @@ import { useDeleteMeme, useMeme } from '../../api/memeApi.js';
 import saveMeme from '../../utils/saveMemeImage.js';
 import { useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext.js';
+import styles from './MemeDetails.module.css'
 
 export default function MemeDetail() {
     const navigate = useNavigate();
@@ -12,7 +13,6 @@ export default function MemeDetail() {
     const { objectId } = useContext(UserContext);
     const { deleteMeme } = useDeleteMeme();
     const isOwner = objectId === meme.ownerId;
-    console.log(isOwner)
 
     const deleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this meme?`);
@@ -26,20 +26,20 @@ export default function MemeDetail() {
         navigate('/catalog');
     };
     return (
-        <Card className="meme-detail-card">
+        <Card className={styles["meme-detail-card"]}>
             {loading ? (
                 <Spin />
             ) : (
-                <div className="meme-preview">
-                    <img src={meme.imageUrl} alt="Meme" className="meme-image" />
+                <div className={styles["meme-preview"]}>
+                    <img src={meme.imageUrl} alt="Meme" className={styles["meme-image"]} />
                     <div
-                        className="top-text"
+                        className={styles["top-text"]}
                         style={{ fontSize: `${meme.textSize}px`, color: meme.topTextColor }}
                     >
                         {meme.topText}
                     </div>
                     <div
-                        className="bottom-text"
+                        className={styles["bottom-text"]}
                         style={{ fontSize: `${meme.textSize}px`, color: meme.bottomTextColor }}
                     >
                         {meme.bottomText}
@@ -47,7 +47,7 @@ export default function MemeDetail() {
                 </div>
             )}
 
-            <div className="action-buttons">
+            <div className={styles["action-buttons"]}>
 
                 <Button type="primary" htmlType="button" onClick={() => saveMeme(meme)}>
                     Save

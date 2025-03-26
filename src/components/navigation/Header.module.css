@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #f0f2f5;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-menu a {
+    margin: 0 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* Ensure the container takes full width */
+}
+
+.nav-menu {
+    font-size: 18px;
+    line-height: 64px;
+    width: 100%;
+    max-width: 1200px;
+    /* Adjust this value as needed */
+    display: flex;
+    justify-content: center;
+    /* Center the menu items horizontally */
+}

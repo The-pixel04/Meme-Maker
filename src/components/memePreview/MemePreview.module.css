@@ -1,0 +1,40 @@
+.preview-card {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    position: relative;
+}
+
+.meme-preview {
+    position: relative;
+    display: inline-block;
+    width: 90%;
+    text-align: center;
+}
+
+.meme-image {
+    max-width: 150%;
+    height: auto;
+    width: 150%;
+}
+
+.top-text,
+.bottom-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px black;
+    width: 100%;
+}
+
+.top-text {
+    top: 10px;
+}
+
+.bottom-text {
+    bottom: 10px;
+}
