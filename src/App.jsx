@@ -12,8 +12,8 @@ import Register from "./components/register/register.jsx";
 import Login from "./components/login/Login.jsx";
 import usePersistedState from "./hooks/usePersistedSate.js";
 import Logout from "./components/logout/Logout.jsx";
-import GuestGuard from "../guards/GuestGard";
-import AuthGuard from "../guards/AuthGard";
+import AuthGuard from "./guards/AuthGard.jsx";
+import GuestGuard from "./guards/GuestGard.jsx";
 
 export default function App() {
     const [authData, setAuthData] = usePersistedState('auth', {});
