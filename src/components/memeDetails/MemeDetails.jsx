@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router';
 import { useDeleteMeme, useMeme } from '../../api/memeApi.js';
 import saveMeme from '../../utils/saveMemeImage.js';
 import { useContext } from 'react';
-import { UserContext } from '../../../contexts/UserContext.js';
+import { UserContext } from '../../contexts/UserContext.js';
 import styles from './MemeDetails.module.css'
 
 export default function MemeDetail() {

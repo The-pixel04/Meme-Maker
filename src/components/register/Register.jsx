@@ -1,7 +1,7 @@
 import { Input, Button, Typography } from 'antd';
 import { useNavigate } from 'react-router';
 import { useRegister } from '../../api/authApi.js';
-import { UserContext } from '../../../contexts/UserContext.js';
+import { UserContext } from '../../contexts/UserContext.js';
 import { useContext } from 'react';
 import styles from './Register.module.css'
 

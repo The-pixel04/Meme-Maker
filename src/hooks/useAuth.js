@@ -1,6 +1,6 @@
 import { useCallback, useContext, useMemo } from "react";
 import request from "../utils/request";
-import { UserContext } from "../../contexts/UserContext.js";
+import { UserContext } from "../contexts/UserContext.js";
 
 export default function useAuth() {
     const { sessionToken, ...authData } = useContext(UserContext);

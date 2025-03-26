@@ -3,7 +3,7 @@ import MemeForm from '../memeForm/MemeForm.jsx';
 import MemePreviw from '../MemePreview/MemePreview.jsx';
 import { useCreateMeme } from '../../api/memeApi.js';
 import { useNavigate } from 'react-router';
-import { UserContext } from '../../../contexts/UserContext.js';
+import { UserContext } from '../../contexts/UserContext.js';
 
 export default function MemeGenerator() {
   const [imageUrl, setImageUrl] = useState("");

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import request from "../utils/request.js"
 import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext.js";
+import { UserContext } from "../contexts/UserContext.js";
 
 
 const baseUrl = 'https://parseapi.back4app.com'
