@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { useActionState, useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext.js';
 import { useLogin } from '../../api/authApi.js';
+import styles from './Login.module.css'
 
 const { Title } = Typography;
 
@@ -25,11 +26,11 @@ export default function Login() {
     const [_, loginAction, isPending] = useActionState(loginHandler, { email: '', password: '' });
 
     return (
-        <div className="login-container">
-            <Title level={2} className="form-title">Welcome Back</Title>
+        <div className={styles["login-container"]}>
+            <Title level={2} className={styles["form-title"]}>Welcome Back</Title>
 
-            <form  className="login-form" action={loginAction}>
-                <div className="form-group">
+            <form  className={styles['login-form']} action={loginAction}>
+                <div className={styles["form-group"]}>
                     <label htmlFor="email">Email</label>
                     <Input
                         name="email"
@@ -41,7 +42,7 @@ export default function Login() {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className={styles["form-group"]}>
                     <label htmlFor="password">Password</label>
                     <Input.Password
                         name="password"
@@ -57,13 +58,13 @@ export default function Login() {
                     type="primary"
                     htmlType="submit"
                     block
-                    className="login-button"
+                    className={styles["login-button"]}
                     disabled={isPending}
                 >
                     Log In
                 </Button>
 
-                <div className="register-link">
+                <div className={styles["register-link"]}>
                     Don't have an account? <a href="/register">Sign up</a>
                 </div>
             </form>

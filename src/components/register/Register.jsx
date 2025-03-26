@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { useRegister } from '../../api/authApi.js';
 import { UserContext } from '../../../contexts/UserContext.js';
 import { useContext } from 'react';
+import styles from './Register.module.css'
 
 const { Title } = Typography;
 
@@ -26,11 +27,11 @@ export default function Register() {
         navigate('/');
     }
     return (
-        <div className="register-container">
-            <Title level={2} className="form-title">Create Account</Title>
+        <div className={styles["register-container"]}>
+            <Title level={2} className={styles["form-title"]}>Create Account</Title>
 
-            <form className="register-form" action={registerHandler}>
-                <div className="form-group">
+            <form className={styles["register-form"]} action={registerHandler}>
+                <div className={styles["form-group"]}>
                     <label htmlFor="username">Username</label>
                     <Input
                         name="userName"
@@ -40,7 +41,7 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className={styles["form-group"]}>
                     <label htmlFor="email">Email</label>
                     <Input
                         name="email"
@@ -51,7 +52,7 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className={styles["form-group"]}>
                     <label htmlFor="password">Password</label>
                     <Input.Password
                         name="password"
@@ -62,7 +63,7 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className={styles["form-group"]}>
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <Input.Password
                         name="confirmPassword"
@@ -75,12 +76,12 @@ export default function Register() {
                 <Button
                     type="primary"
                     htmlType="submit"
-                    className="register-button"
+                    className={styles["register-button"]}
                 >
                     Register
                 </Button>
 
-                <div className="login-link">
+                <div className={styles["login-link"]}>
                     Already have an account? <a href="/login">Login here</a>
                 </div>
             </form>
