@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import request from "../utils/request.js";
-import { Spin } from "antd";
 import useAuth from "../hooks/useAuth.js";
 const baseUrl = 'https://parseapi.back4app.com/classes'
 
@@ -44,7 +43,7 @@ export const useMeme = (memeId) => {
                 setMeme(result);
                 setLoading(false);
             });
-    }, []);
+    }, [memeId]);
 
     return {
         meme,
@@ -94,4 +93,26 @@ export const useLast3Memes = () => {
         last3Memes,
         loading
     };
-}
+};
+
+export const useUserMemes = (ownerId) => {
+    const [userMemes, setUserMemes] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const params = new URLSearchParams({
+            where: JSON.stringify({ ownerId }), // Properly stringify the query
+        });
+
+        request.get(`${baseUrl}/memes?${params.toString()}`)
+            .then(result => {
+                setUserMemes(result);
+                setLoading(false);
+            })
+    }, [ownerId]);
+
+    return {
+        userMemes,
+        loading
+    };
+};

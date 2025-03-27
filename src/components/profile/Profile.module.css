@@ -1,0 +1,43 @@
+/* Profile.css */
+.profile-container {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.user-card {
+    margin-bottom: 24px;
+}
+
+.meme-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 12px;
+    }
+
+    .meme-image {
+        height: 150px;
+    }
+}
+
+.meme-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between memes */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+.meme-card-container {
+    flex: 1 1 calc(33.33% - 16px); /* 3 memes per row */
+    max-width: calc(33.33% - 16px);
+    height: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9; 
+}

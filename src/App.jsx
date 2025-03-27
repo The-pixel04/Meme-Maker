@@ -13,6 +13,7 @@ import usePersistedState from "./hooks/usePersistedSate.js";
 import Logout from "./components/logout/Logout.jsx";
 import AuthGuard from "./guards/AuthGard.jsx";
 import GuestGuard from "./guards/GuestGard.jsx";
+import Profile from "./components/profile/Profile.jsx";
 
 export default function App() {
     const [authData, setAuthData] = usePersistedState('auth', {});
@@ -36,6 +37,7 @@ export default function App() {
                         <Route path='/memes/:memeId/details' element={<MemeDetail />} />
                         <Route element={<AuthGuard />}>
                             <Route path='/create' element={<MemeGenerator />} />
+                            <Route path='/profile' element={<Profile/>} />
                             <Route path='/memes/:memeId/edit' element={<MemeEdit />} />
                             <Route path='/logout' element={<Logout />} />
                         </Route>

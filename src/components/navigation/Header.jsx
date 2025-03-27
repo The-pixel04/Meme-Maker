@@ -1,11 +1,11 @@
 import { Menu } from 'antd';
-import { HomeOutlined, UserOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined } from '@ant-design/icons';
+import { HomeOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router';
 import useAuth from '../../hooks/useAuth.js';
 import styles from './Header.module.css'
 
 const NavigationMenu = () => {
-    const { email, isAuthenticated } = useAuth();
+    const { isAuthenticated } = useAuth();
     return (
         <header>
             <div className={styles["nav-container"]}>
@@ -17,14 +17,15 @@ const NavigationMenu = () => {
                     <Menu.Item key="home" icon={<HomeOutlined />}>
                         <Link to="/">Home</Link>
                     </Menu.Item>
-                    {/* <Menu.Item key="profile" icon={<UserOutlined />}>
-            Profile
-          </Menu.Item> */}
+
                     <Menu.Item key="catalog" icon={<BookOutlined />}>
                         <Link to="/catalog">Catalog</Link>
                     </Menu.Item>
                     {isAuthenticated
                         ? (<>
+                            <Menu.Item key="profile" icon={<UserOutlined />}>
+                            <Link to='/profile'>Profile </Link>
+                            </Menu.Item>
                             <Menu.Item key="create" icon={<FormOutlined />}>
                                 <Link to="/create">Create Meme</Link>
                             </Menu.Item>
