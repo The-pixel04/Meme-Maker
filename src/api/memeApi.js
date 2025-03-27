@@ -101,7 +101,7 @@ export const useUserMemes = (ownerId) => {
 
     useEffect(() => {
         const params = new URLSearchParams({
-            where: JSON.stringify({ ownerId }), // Properly stringify the query
+            where: JSON.stringify({ ownerId }),
         });
 
         request.get(`${baseUrl}/memes?${params.toString()}`)
