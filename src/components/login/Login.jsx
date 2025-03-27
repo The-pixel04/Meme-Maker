@@ -24,6 +24,7 @@ export default function Login() {
     };
 
     const [_, loginAction, isPending] = useActionState(loginHandler, { email: '', password: '' });
+    console.log(_);
 
     return (
         <div className={styles["login-container"]}>
