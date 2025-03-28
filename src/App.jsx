@@ -19,7 +19,6 @@ export default function App() {
     const [authData, setAuthData] = usePersistedState('auth', {});
 
     const userLoginHandler = (resultData) => {
-        console.log(resultData)
         setAuthData(resultData);
     };
 
@@ -37,7 +36,7 @@ export default function App() {
                         <Route path='/memes/:memeId/details' element={<MemeDetail />} />
                         <Route element={<AuthGuard />}>
                             <Route path='/create' element={<MemeGenerator />} />
-                            <Route path='/profile' element={<Profile/>} />
+                            <Route path='/profile' element={<Profile />} />
                             <Route path='/memes/:memeId/edit' element={<MemeEdit />} />
                             <Route path='/logout' element={<Logout />} />
                         </Route>

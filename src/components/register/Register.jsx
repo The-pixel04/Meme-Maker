@@ -22,7 +22,8 @@ export default function Register() {
             return;
         }
 
-        const authData = await register(userName, email, password);
+        let authData = await register(userName, email, password);
+        authData= { ...authData, username: userName, email: email };
         userLoginHandler(authData)
         navigate('/');
     }
