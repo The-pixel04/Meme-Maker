@@ -20,6 +20,7 @@ const request = async (method, url, data, options = {}) => {
         console.error(`Error: ${response.status} ${response.statusText}`);
         return;
     }
+    
     const responseContentType = response.headers.get('Content-Type');
     if (!responseContentType) {
         return;

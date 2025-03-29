@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import request from "../utils/request.js"
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext.js";
@@ -8,7 +8,7 @@ import { ErrorContext } from "../contexts/ErrorContext.js";
 const baseUrl = 'https://parseapi.back4app.com'
 
 export const useLogin = () => {
-    const abortRef = useRef(new AbortController());
+    const abortRef = new AbortController()
     const { errorHandler } = useContext(ErrorContext);
 
     const login = async (email, password) => {
@@ -17,7 +17,7 @@ export const useLogin = () => {
         }
 
         try {
-            const result = await request.post(`${baseUrl}/login`, { email, password }, { signal: abortRef.current.signal, headers: headers });
+            const result = await request.post(`${baseUrl}/login`, { email, password }, { signal: abortRef.signal, headers: headers });
 
             if (!result || result.error) {
                 throw new Error(result.responce);
@@ -25,19 +25,14 @@ export const useLogin = () => {
 
             return result;
         } catch (error) {
+            if (error.name === "AbortError") {
+                errorHandler("Login request was aborted");
+                return null;
+            }
             errorHandler(`Inavlid email or password (${error.message})`);
             return null;
         }
-
-
-
     };
-
-    // useEffect(() => {
-    //     const abortController = abortRef.current;
-
-    //     return () => {abortController.abort()};
-    // }, []);
 
     return {
         login
@@ -45,6 +40,7 @@ export const useLogin = () => {
 };
 
 export const useRegister = () => {
+    const abortRef = new AbortController();
     const { errorHandler } = useContext(ErrorContext);
 
     const register = async (username, email, password) => {
@@ -53,7 +49,7 @@ export const useRegister = () => {
         }
 
         try {
-            const result = await request.post(`${baseUrl}/users`, { username, email, password }, { headers: headers });
+            const result = await request.post(`${baseUrl}/users`, { username, email, password }, { signal: abortRef.signal, headers: headers });
 
             if (!result || result.error) {
                 throw new Error(result.responce);
@@ -61,6 +57,10 @@ export const useRegister = () => {
 
             return result;
         } catch (error) {
+            if (error.name === "AbortError") {
+                errorHandler("Register request was aborted");
+                return null;
+            }
             errorHandler(`Acount already exsist (${error.message})`);
             return null;
         }
@@ -73,6 +73,7 @@ export const useRegister = () => {
 
 export const useLogout = () => {
     const { sessionToken, userLogoutHandler } = useContext(UserContext);
+    const { errorHandler } = useContext(ErrorContext);
     useEffect(() => {
         if (!sessionToken) {
             return;
@@ -87,7 +88,10 @@ export const useLogout = () => {
             .then(() => {
                 userLogoutHandler()
             })
-    }, [sessionToken, userLogoutHandler]);
+            .catch((error) => {
+                errorHandler('Logout failed:', error.message);
+            });
+    }, [sessionToken, userLogoutHandler, errorHandler]);
 
     return {
         isLoggedOut: !!sessionToken
