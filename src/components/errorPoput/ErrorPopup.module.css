@@ -1,0 +1,56 @@
+/* ErrorPopup.css */
+.error-popup-container {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 1000;
+    animation: fadeIn 0.3s, fadeOut 0.3s 4.7s forwards;
+}
+
+.auto-close-alert {
+    width: 300px;
+    border-left: 3px solid #ff4d4f;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08);
+    padding: 8px 15px;
+}
+
+.error-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.error-icon {
+    color: #ff4d4f;
+    font-size: 16px;
+}
+
+.error-message {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
