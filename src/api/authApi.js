@@ -45,11 +45,25 @@ export const useLogin = () => {
 };
 
 export const useRegister = () => {
-    const register = (username, email, password) => {
+    const { errorHandler } = useContext(ErrorContext);
+
+    const register = async (username, email, password) => {
         const headers = {
             'X-Parse-Revocable-Session': 1
         }
-        return request.post(`${baseUrl}/users`, { username, email, password }, { headers: headers });
+
+        try {
+            const result = await request.post(`${baseUrl}/users`, { username, email, password }, { headers: headers });
+
+            if (!result || result.error) {
+                throw new Error(result.responce);
+            };
+
+            return result;
+        } catch (error) {
+            errorHandler(`Acount already exsist (${error.message})`);
+            return null;
+        }
     }
 
     return {

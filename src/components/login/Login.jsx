@@ -17,8 +17,7 @@ export default function Login() {
         const formValues = Object.fromEntries(formData);
 
         const authData = await login(formValues.email, formValues.password);
-        console.log(authData)
-
+        
         if (!authData) {
             return null;
         }

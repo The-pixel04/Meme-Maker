@@ -2,8 +2,9 @@ import { Input, Button, Typography } from 'antd';
 import { useNavigate } from 'react-router';
 import { useRegister } from '../../api/authApi.js';
 import { UserContext } from '../../contexts/UserContext.js';
-import { useContext } from 'react';
+import { useActionState, useContext } from 'react';
 import styles from './Register.module.css'
+import { ErrorContext } from '../../contexts/ErrorContext.js';
 
 const { Title } = Typography;
 
@@ -11,27 +12,35 @@ export default function Register() {
     const navigate = useNavigate();
     const { register } = useRegister();
     const { userLoginHandler } = useContext(UserContext);
+    const {errorHandler} = useContext(ErrorContext);
 
-    const registerHandler = async (formData) => {
+    const registerHandler = async (_,formData) => {
         const { userName, email, password } = Object.fromEntries(formData);
 
         const confirmPassword = formData.get('confirmPassword');
 
         if (password !== confirmPassword) {
-            console.log('Password missmatch')
+            errorHandler('Password missmatch')
             return;
         }
 
         let authData = await register(userName, email, password);
+        
+        if (!authData) {
+            return null;
+        }
+
         authData= { ...authData, username: userName, email: email };
         userLoginHandler(authData)
         navigate('/');
-    }
+    };
+
+    const [_, registerAction, isPending] = useActionState(registerHandler, { userName: '', email: '', password: '' });
     return (
         <div className={styles["register-container"]}>
             <Title level={2} className={styles["form-title"]}>Create Account</Title>
 
-            <form className={styles["register-form"]} action={registerHandler}>
+            <form className={styles["register-form"]} action={registerAction}>
                 <div className={styles["form-group"]}>
                     <label htmlFor="username">Username</label>
                     <Input
@@ -78,6 +87,7 @@ export default function Register() {
                     type="primary"
                     htmlType="submit"
                     className={styles["register-button"]}
+                    disabled={isPending}
                 >
                     Register
                 </Button>
