@@ -7,8 +7,20 @@
 }
 
 .logo {
-    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 20px;
     font-weight: bold;
+    color: #333;
+    text-decoration: none;
 }
 
 .nav-menu a {

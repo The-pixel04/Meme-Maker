@@ -9,6 +9,14 @@ const NavigationMenu = () => {
     return (
         <header>
             <div className={styles["nav-container"]}>
+
+                <div className={styles["logo"]}>
+                    <Link to="/">
+                        <img src="https://cdn.pixabay.com/photo/2024/05/31/18/54/meme-8801100_1280.png" alt="Meme Maker Logo" className={styles["logo-image"]} />
+                        <span className={styles["logo-text"]}>MM</span>
+                    </Link>
+                </div>
+
                 <Menu
                     mode="horizontal"
                     defaultSelectedKeys={['home']}
@@ -24,7 +32,7 @@ const NavigationMenu = () => {
                     {isAuthenticated
                         ? (<>
                             <Menu.Item key="profile" icon={<UserOutlined />}>
-                            <Link to='/profile'>Profile </Link>
+                                <Link to='/profile'>Profile </Link>
                             </Menu.Item>
                             <Menu.Item key="create" icon={<FormOutlined />}>
                                 <Link to="/create">Create Meme</Link>
