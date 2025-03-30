@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react';
+import { useState, useContext } from 'react';
 import MemeForm from '../memeForm/MemeForm.jsx';
 import MemePreviw from '../MemePreview/MemePreview.jsx';
 import { useCreateMeme } from '../../api/memeApi.js';
@@ -19,8 +19,13 @@ export default function MemeGenerator() {
   const handleAction = (formData) => {
     const memeData = Object.fromEntries(formData);
 
-    create({ ...memeData, textSize }, objectId);
-    navigate('/');
+    const result =  create({ ...memeData, textSize }, objectId);
+
+    if (!result) {
+      return null;
+    }
+
+    navigate('/catalog');
   };
 
   const handleInputChange = (e) => {

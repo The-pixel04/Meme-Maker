@@ -29,7 +29,12 @@ export default function MemeEdit() {
     const handleAction = (formData) => {
         const memeData = Object.fromEntries(formData);
 
-        edit(memeId, { ...memeData, textSize });
+        const result = edit(memeId, { ...memeData, textSize });
+
+        if (!result) {
+            return null;
+        }
+
         navigate(`/memes/${memeId}/details`);
     };
 
