@@ -3,7 +3,7 @@ import { useState } from "react";
 import MemeGenerator from "./components/memeGenerate/MemeGenerator.jsx";
 import NavigationMenu from "./components/navigation/Header.jsx";
 import MemeDetail from "./components/memeDetails/MemeDetails.jsx";
-import HomePage from "./components/homePage/HomePage.jsx";
+import HomePage from "./components/home/HomePage.jsx";
 import MemeEdit from "./components/memeEdit/MemeEdit.jsx";
 import Catalog from "./components/catalog/Catalog.jsx";
 import Footer from "./components/footer/Footer.jsx";

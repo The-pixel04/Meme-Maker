@@ -34,15 +34,19 @@ export const useCreateMeme = () => {
     }
 };
 
-export const useMemes = () => {
+export const useMemes = (page, pageSize) => {
     const [memes, setMemes] = useState([]);
     const [loading, setLoading] = useState(true);
     const { errorHandler } = useContext(ErrorContext);
 
     useEffect(() => {
         const { signal, abort } = abortController();
+        const params = new URLSearchParams({
+            limit: pageSize.toString(),
+            skip: ((page - 1) * pageSize).toString(),
+        });
 
-        request.get(`${baseUrl}/memes`, {}, { signal })
+        request.get(`${baseUrl}/memes?${params.toString()}`, {}, { signal })
             .then(result => {
                 setMemes(result);
                 setLoading(false)
