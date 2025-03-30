@@ -36,6 +36,7 @@ export default function Register() {
     };
 
     const [_, registerAction, isPending] = useActionState(registerHandler, { userName: '', email: '', password: '' });
+    
     return (
         <div className={styles["register-container"]}>
             <Title level={2} className={styles["form-title"]}>Create Account</Title>
