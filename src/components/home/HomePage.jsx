@@ -1,7 +1,7 @@
 import { Button, Row, Col, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import { useLast3Memes } from '../../api/memeApi.js';
-import MemeCard from '../memeCard/MemeCard';
+import MemeCard from '../memeCard/MemeCard.jsx';
 import styles from './HomePage.module.css'
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext.js';
