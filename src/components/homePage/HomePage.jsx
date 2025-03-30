@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import { useLast3Memes } from '../../api/memeApi.js';
 import MemeCard from '../memeCard/MemeCard';
 import styles from './HomePage.module.css'
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext.js';
 
 export default function HomePage() {
     const { last3Memes, loading } = useLast3Memes();
+    const { sessionToken } = useContext(UserContext);
 
     return (
         <div className={styles["home-page"]}>
@@ -14,9 +17,9 @@ export default function HomePage() {
             <section className={styles["hero-section"]}>
                 <h1>Create Hilarious Memes in Seconds!</h1>
                 <p>Choose an image URL, add your text, and share it with the world.</p>
-                <Button type="primary" size="large">
+                {sessionToken && <Button type="primary" size="large">
                     <Link to="/create">Create a Meme Now</Link>
-                </Button>
+                </Button>}
             </section>
 
             {/* Featured Memes Section */}
@@ -24,7 +27,7 @@ export default function HomePage() {
                 <h2>Last Memes</h2>
                 <div className={styles["meme-grid"]}>
                     {loading
-                        ? <Spin />
+                        ? <Spin size='large'/>
                         :
                         last3Memes.results?.map((meme) => (
                             <div key={meme.objectId} className={styles["meme-card-container"]}>

@@ -1,24 +1,43 @@
-/* MemeCard.css */
-.meme-image {
-    width: 90%;
-    height: 90%;
-    object-fit: cover;
+.meme-card {
+    position: relative;
+    width: 100%; /* 3 memes per row with gap */
+    height: auto; /* Maintain square aspect ratio */
+    aspect-ratio: 1/1; /* Perfect square */
+    overflow: hidden;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.meme-image {
+    width: 96%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain; /* Maintain original proportions */
+    display: block;
+}
+
+.meme-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks through to image */
 }
 
 .top-text,
 .bottom-text {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    width: 100%;
+    padding: 0 16px;
     font-weight: bold;
+    font-size: 24px;
+    color: white;
     text-align: center;
     text-shadow: 2px 2px 4px black;
-    width: 90%;
-    padding: 0 8px;
-    white-space: normal;
-    overflow: visible;
-    word-wrap: break-word;
+    text-transform: uppercase;
 }
 
 .top-text {

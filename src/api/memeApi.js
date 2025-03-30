@@ -24,7 +24,7 @@ export const useCreateMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error creating meme: ${error.message}`);
+            errorHandler(`Error creating meme (every field is required): ${error.message}`);
             return null;
         }
     }

@@ -7,19 +7,52 @@
     margin-bottom: 24px;
 }
 
-.meme-card-container {
-    flex: 1 1 calc(33.33% - 16px); /* 3 memes per row */
-    max-width: calc(33.33% - 16px);
-    height: auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #f9f9f9;
-}
-
 .meme-grid {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between memes */
-    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.meme-card-container {
+    flex: 0 0 calc(33.33% - 20px); /* Fixed size, 3 per row */
+    aspect-ratio: 1/1; /* Square cards */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background-color: white; /* White background instead of grey */
+    display: flex;
+    flex-direction: column;
+}
+
+.meme-image-container {
+    flex-grow: 1;
+    display: flex;
+     align-items: center; 
+    justify-content: center;
+    overflow: hidden;
+}
+
+.meme-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.meme-info {
+    padding: 12px;
+    background: white;
+    border-top: 1px solid #f0f0f0;
+}
+
+.meme-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.meme-description {
+    color: #666;
+    font-size: 14px;
 }

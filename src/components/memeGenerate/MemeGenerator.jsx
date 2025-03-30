@@ -16,10 +16,10 @@ export default function MemeGenerator() {
   const { create } = useCreateMeme();
   const navigate = useNavigate();
 
-  const handleAction = (formData) => {
+  const handleAction = async (formData) => {
     const memeData = Object.fromEntries(formData);
 
-    const result =  create({ ...memeData, textSize }, objectId);
+    const result =  await create({ ...memeData, textSize }, objectId);
 
     if (!result) {
       return null;
