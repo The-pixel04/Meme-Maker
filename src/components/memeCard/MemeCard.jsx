@@ -12,6 +12,7 @@ const MemeCard = ({ meme }) => {
                         alt="Meme"
                         className={styles["meme-image"]}
                     />
+                    <div className={styles["meme-text-overlay"]}>
                     <div
                         className={styles["top-text"]}
                         style={{ fontSize: `${meme.textSize}px`, color: meme.topTextColor }}
@@ -23,6 +24,7 @@ const MemeCard = ({ meme }) => {
                         style={{ fontSize: `${meme.textSize}px`, color: meme.bottomTextColor }}
                     >
                         {meme.bottomText}
+                    </div>
                     </div>
                 </div>
             </Card>

@@ -1,5 +1,5 @@
 .preview-card {
-    width: 50%;
+    width: 75%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,9 +15,9 @@
 }
 
 .meme-image {
-    max-width: 150%;
+    max-width: 75%;
     height: auto;
-    width: 150%;
+    width: auto;
 }
 
 .top-text,

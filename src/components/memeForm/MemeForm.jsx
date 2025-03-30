@@ -53,7 +53,7 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                         value={textSize}
                         onChange={setTextSize}
                         min={10}
-                        max={100}
+                        max={50}
                     />
                     <Button type="primary" htmlType="submit">
                         Save to collection
