@@ -1,12 +1,32 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import request from "../utils/request.js";
 import useAuth from "../hooks/useAuth.js";
+import { ErrorContext } from "../contexts/ErrorContext.js";
+import abortController from "../utils/abortController.js";
+
 const baseUrl = 'https://parseapi.back4app.com/classes'
 
 export const useCreateMeme = () => {
+    const { errorHandler } = useContext(ErrorContext);
+    const { signal } = abortController();
 
-    const create = (memeData, objectId) => {
-        return request.post(`${baseUrl}/memes`, { ...memeData, ownerId: objectId });
+    const create = async (memeData, objectId) => {
+        try {
+            const result = await request.post(`${baseUrl}/memes`, { ...memeData, ownerId: objectId }, { signal });
+
+            if (!result || result.error) {
+                throw new Error(result.responce);
+            };
+
+            return result;
+        } catch (error) {
+            if (error.name === "AbortError") {
+                return null;
+            }
+
+            errorHandler(`Error creating meme: ${error.message}`);
+            return null;
+        }
     }
 
     return {
@@ -17,14 +37,28 @@ export const useCreateMeme = () => {
 export const useMemes = () => {
     const [memes, setMemes] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const { errorHandler } = useContext(ErrorContext);
 
     useEffect(() => {
-        request.get(`${baseUrl}/memes`)
+        const { signal, abort } = abortController();
+
+        request.get(`${baseUrl}/memes`, {}, { signal })
             .then(result => {
                 setMemes(result);
                 setLoading(false)
             })
+            .catch(error => {
+                if (error.name === "AbortError") {
+                    return null;
+                }
+                errorHandler(`Error fetching memes: ${error.message}`);
+                return null;
+            });
+
+        return () => {
+            abort();
+        }
+
     }, []);
 
     return {
@@ -36,13 +70,26 @@ export const useMemes = () => {
 export const useMeme = (memeId) => {
     const [meme, setMeme] = useState({});
     const [loading, setLoading] = useState(true);
+    const { errorHandler } = useContext(ErrorContext);
 
     useEffect(() => {
-        request.get(`${baseUrl}/memes/${memeId}`)
+        const { signal, abort } = abortController();
+        request.get(`${baseUrl}/memes/${memeId}`, {}, { signal })
             .then(result => {
                 setMeme(result);
                 setLoading(false);
+            })
+            .catch(error => {
+                if (error.name === "AbortError") {
+                    return null;
+                }
+                errorHandler(`Error fetching meme: ${error.message}`);
+                return null;
             });
+
+        return () => {
+            abort();
+        }
     }, [memeId]);
 
     return {
@@ -53,9 +100,26 @@ export const useMeme = (memeId) => {
 
 export const useEditMeme = () => {
     const { request } = useAuth();
+    const { signal } = abortController();
+    const { errorHandler } = useContext(ErrorContext);
 
     const edit = (memeId, memeData) => {
-        return request.put(`${baseUrl}/memes/${memeId}`, memeData);
+        try {
+            const result = request.put(`${baseUrl}/memes/${memeId}`, memeData, { signal });
+
+            if (!result || result.error) {
+                throw new Error(result.responce);
+            };
+
+            return result;
+        } catch (error) {
+            if (error.name === "AbortError") {
+                return null;
+            }
+
+            errorHandler(`Error editing meme: ${error.message}`);
+            return null;
+        }
     };
 
     return {
@@ -65,10 +129,26 @@ export const useEditMeme = () => {
 
 export const useDeleteMeme = () => {
     const { request } = useAuth();
+    const { signal } = abortController();
+    const { errorHandler } = useContext(ErrorContext);
 
     const deleteMeme = (memeData) => {
-        console.log(memeData)
-        return request.delete(`${baseUrl}/memes/${memeData.objectId}`, null);
+        try {
+            const result = request.delete(`${baseUrl}/memes/${memeData.objectId}`, null, { signal });
+
+            if (!result || result.error) {
+                throw new Error(result.responce);
+            };
+
+            return result;
+        } catch (error) {
+            if (error.name === "AbortError") {
+                return null;
+            }
+
+            errorHandler(`Error deleting meme: ${error.message}`);
+            return null;
+        }
     };
 
     return {
@@ -79,13 +159,26 @@ export const useDeleteMeme = () => {
 export const useLast3Memes = () => {
     const [last3Memes, setLast3Memes] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { errorHandler } = useContext(ErrorContext);
 
     useEffect(() => {
-        request.get(`${baseUrl}/memes?order=-createdAt&limit=3`)
+        const { signal, abort } = abortController();
+        request.get(`${baseUrl}/memes?order=-createdAt&limit=3`, {}, { signal })
             .then(result => {
                 setLast3Memes(result);
                 setLoading(false);
+            })
+            .catch(error => {
+                if (error.name === "AbortError") {
+                    return null;
+                }
+                errorHandler(`Error fetching last 3 memes: ${error.message}`);
+                return null;
             });
+
+        return () => {
+            abort();
+        }
 
     }, []);
 
@@ -98,17 +191,30 @@ export const useLast3Memes = () => {
 export const useUserMemes = (ownerId) => {
     const [userMemes, setUserMemes] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { errorHandler } = useContext(ErrorContext);
 
     useEffect(() => {
+        const { signal, abort } = abortController();
         const params = new URLSearchParams({
             where: JSON.stringify({ ownerId }),
         });
 
-        request.get(`${baseUrl}/memes?${params.toString()}`)
+        request.get(`${baseUrl}/memes?${params.toString()}`, {}, { signal })
             .then(result => {
                 setUserMemes(result);
                 setLoading(false);
             })
+            .catch(error => {
+                if (error.name === "AbortError") {
+                    return null;
+                }
+                errorHandler(`Error fetching user memes: ${error.message}`);
+                return null;
+            });
+
+        return () => {
+            abort();
+        }
     }, [ownerId]);
 
     return {

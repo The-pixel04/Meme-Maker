@@ -3,12 +3,13 @@ import request from "../utils/request.js"
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext.js";
 import { ErrorContext } from "../contexts/ErrorContext.js";
+import abortController from "../utils/abortController.js";
 
 
 const baseUrl = 'https://parseapi.back4app.com'
 
 export const useLogin = () => {
-    const abortRef = new AbortController()
+    const { signal } = abortController()
     const { errorHandler } = useContext(ErrorContext);
 
     const login = async (email, password) => {
@@ -17,7 +18,7 @@ export const useLogin = () => {
         }
 
         try {
-            const result = await request.post(`${baseUrl}/login`, { email, password }, { signal: abortRef.signal, headers: headers });
+            const result = await request.post(`${baseUrl}/login`, { email, password }, { signal, headers: headers });
 
             if (!result || result.error) {
                 throw new Error(result.responce);
@@ -40,7 +41,7 @@ export const useLogin = () => {
 };
 
 export const useRegister = () => {
-    const abortRef = new AbortController();
+    const { signal } = abortController();
     const { errorHandler } = useContext(ErrorContext);
 
     const register = async (username, email, password) => {
@@ -49,7 +50,7 @@ export const useRegister = () => {
         }
 
         try {
-            const result = await request.post(`${baseUrl}/users`, { username, email, password }, { signal: abortRef.signal, headers: headers });
+            const result = await request.post(`${baseUrl}/users`, { username, email, password }, { signal, headers: headers });
 
             if (!result || result.error) {
                 throw new Error(result.responce);
@@ -61,6 +62,7 @@ export const useRegister = () => {
                 errorHandler("Register request was aborted");
                 return null;
             }
+
             errorHandler(`Acount already exsist (${error.message})`);
             return null;
         }

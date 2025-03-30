@@ -32,21 +32,20 @@ export default function App() {
     };
 
     const errorHandler = (err) => {
-        setError(err); // Update the error state
-        setShowErrorPopup(true); // Always show the popup when an error occurs
+        setError(err);
+        setShowErrorPopup(true);
     };
 
     const closeErrorPopup = () => {
-        setShowErrorPopup(false); // Hide the popup
+        setShowErrorPopup(false);
     };
 
     return (
-        <UserContext.Provider value={{ ...authData, userLoginHandler, userLogoutHandler }}>
+        < UserContext.Provider value={{ ...authData, userLoginHandler, userLogoutHandler }}>
             <ErrorContext.Provider value={{ message: error, errorHandler }}>
+                {showErrorPopup && <ErrorPopup message={error} onClose={closeErrorPopup} />}
                 <Router>
                     <NavigationMenu />
-                    {/* Render ErrorPopup only when showErrorPopup is true */}
-                    {showErrorPopup && <ErrorPopup message={error} onClose={closeErrorPopup} />}
                     <main>
                         <Routes>
                             <Route path="/" element={<HomePage />} />
@@ -67,6 +66,6 @@ export default function App() {
                     <Footer />
                 </Router>
             </ErrorContext.Provider>
-        </UserContext.Provider>
+        </UserContext.Provider >
     );
 }

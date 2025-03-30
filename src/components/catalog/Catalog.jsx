@@ -2,6 +2,7 @@ import { Spin } from 'antd';
 import { useMemes } from '../../api/memeApi.js';
 import MemeCard from '../memeCard/MemeCard.jsx';
 import styles from './Catalog.module.css'
+import { memo } from 'react';
 
 const Catalog = () => {
     const { memes, loading } = useMemes();
@@ -25,4 +26,4 @@ const Catalog = () => {
     );
 };
 
-export default Catalog;
+export default memo(Catalog);
