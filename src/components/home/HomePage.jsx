@@ -1,10 +1,10 @@
-import { Button, Row, Col, Spin } from 'antd';
-import { Link } from 'react-router-dom';
+import { Row, Col, Spin } from 'antd';
 import { useLast3Memes } from '../../api/memeApi.js';
 import MemeCard from '../memeCard/MemeCard.jsx';
 import styles from './HomePage.module.css'
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext.js';
+import AnimatedBanner from './banner/Banner.jsx';
 
 export default function HomePage() {
     const { last3Memes, loading } = useLast3Memes();
@@ -13,21 +13,14 @@ export default function HomePage() {
     return (
         <div className={styles["home-page"]}>
 
-            {/* Hero Section */}
-            <section className={styles["hero-section"]}>
-                <h1>Create Hilarious Memes in Seconds!</h1>
-                <p>Choose an image URL, add your text, and share it with the world.</p>
-                {sessionToken && <Button type="primary" size="large">
-                    <Link to="/create">Create a Meme Now</Link>
-                </Button>}
-            </section>
+            <AnimatedBanner sessionToken={sessionToken} />
 
             {/* Featured Memes Section */}
             <section className={styles["featured-memes"]}>
                 <h2>Last Memes</h2>
                 <div className={styles["meme-grid"]}>
                     {loading
-                        ? <Spin size='large'/>
+                        ? <Spin size='large' />
                         :
                         last3Memes.results?.map((meme) => (
                             <div key={meme.objectId} className={styles["meme-card-container"]}>
