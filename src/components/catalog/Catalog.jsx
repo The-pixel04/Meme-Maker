@@ -6,7 +6,7 @@ import { memo, useState } from 'react';
 
 const Catalog = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const { memes, loading } = useMemes(currentPage, 10); 
+    const { memes, loading } = useMemes(currentPage, 12); 
 
     const handlePageChange = (page) => {
         setCurrentPage(page); // Update the current page
