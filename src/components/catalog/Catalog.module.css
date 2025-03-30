@@ -8,14 +8,18 @@
 }
 
 .meme-card-container {
-    flex: 1 1 calc(33.33% - 16px);
+    flex: 1 1 calc(33.33% - 16px); /* 3 memes per row */
     max-width: calc(33.33% - 16px);
+    height: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
 }
 
 .meme-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
     justify-content: center;
-    margin-bottom: 40px;
+    gap: 20px; /* Space between memes */
+    flex-wrap: wrap; /* Allow wrapping if needed */
 }
