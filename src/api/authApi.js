@@ -21,7 +21,7 @@ export const useLogin = () => {
             const result = await request.post(`${baseUrl}/login`, { email, password }, { signal, headers: headers });
 
             if (!result || result.error) {
-                throw new Error(result.responce);
+                throw new Error(result.response);
             };
 
             return result;
@@ -30,7 +30,7 @@ export const useLogin = () => {
                 errorHandler("Login request was aborted");
                 return null;
             }
-            errorHandler(`Inavlid email or password (${error.message})`);
+            errorHandler(`Invalid email or password (${error.message})`);
             return null;
         }
     };
@@ -53,7 +53,7 @@ export const useRegister = () => {
             const result = await request.post(`${baseUrl}/users`, { username, email, password }, { signal, headers: headers });
 
             if (!result || result.error) {
-                throw new Error(result.responce);
+                throw new Error(result.response);
             };
 
             return result;
@@ -63,7 +63,7 @@ export const useRegister = () => {
                 return null;
             }
 
-            errorHandler(`Acount already exsist (${error.message})`);
+            errorHandler(`Account already exist (${error.message})`);
             return null;
         }
     }
@@ -80,6 +80,7 @@ export const useLogout = () => {
         if (!sessionToken) {
             return;
         }
+
         const options = {
             headers: {
                 'X-Parse-Session-Token': sessionToken

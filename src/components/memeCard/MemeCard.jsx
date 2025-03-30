@@ -1,11 +1,11 @@
 import { Card } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import styles from './MemeCard.module.css'
 
 const MemeCard = ({ meme }) => {
     return (
         <Link to={`/memes/${meme.objectId}/details`}>
-            <Card className={styles["meme-card"]} hoverable>
+            <Card className={styles["meme-card"]}>
                 <div className="meme-preview">
                     <img
                         src={meme.imageUrl}

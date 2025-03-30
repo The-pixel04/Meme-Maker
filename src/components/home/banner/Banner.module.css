@@ -1,5 +1,5 @@
 .banner-container {
-    background: linear-gradient(135deg, #7a88b7 0%, #383886 100%);
+    background: linear-gradient(135deg, #383886 0%,  #7a88b7 100%);
     color: white;
     padding: 2rem;
     border-radius: 12px;
@@ -50,8 +50,7 @@
     display: flexbox;
     justify-content: center;
     align-items: center;
-    background-color: #ff6f61;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     font-weight: bold;
@@ -65,7 +64,6 @@
 }
 
 .banner-button:hover {
-    background-color: #ff4a3d;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
@@ -119,11 +117,11 @@
 
 @keyframes scroll {
     0% {
-        transform: translateX(100%);
+        transform: translateX(-160%);
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: translateX(160%);
     }
 }
 
