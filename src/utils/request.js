@@ -3,8 +3,8 @@ const request = async (method, url, data, options = {}) => {
 
     options.headers = {
         "Cache-Control": "no-cache",
-        'X-Parse-Application-Id': 'IqXIVQ7nttnrYA8QHMu2aqAeDlsqYFAa9RPc6Yrr',
-        'X-Parse-REST-API-Key': 'drFUBNOEiyMrmWxCEz7YACQLBCRSBEWugrGOKnCr',
+        'X-Parse-Application-Id': import.meta.env.VITE_APP_ID,
+        'X-Parse-REST-API-Key':import.meta.env.VITE_REST_API_KEY,
         'Content-Type': 'application/json',
         ...options.headers,
     };

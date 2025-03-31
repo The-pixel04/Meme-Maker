@@ -9,7 +9,6 @@ import AnimatedBanner from './banner/Banner.jsx';
 export default function HomePage() {
     const { last3Memes, loading } = useLast3Memes();
     const { sessionToken } = useContext(UserContext);
-    console.log(last3Memes)
 
     return (
         <div className={styles["home-page"]}>

@@ -6,7 +6,7 @@ import { ErrorContext } from "../contexts/ErrorContext.js";
 import abortController from "../utils/abortController.js";
 
 
-const baseUrl = 'https://parseapi.back4app.com'
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 export const useLogin = () => {
     const { signal } = abortController()
