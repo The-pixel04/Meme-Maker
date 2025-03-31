@@ -29,7 +29,7 @@ The application communicates with the Back4App REST API to perform CRUD operatio
    - **Description**: Fetches a paginated list of memes.
    - **Example**:
      ```json
-     GET /classes/Memes?limit=10&skip=20
+     GET /classes/class?limit=10&skip=20
      ```
 
 2. **Create Meme**
