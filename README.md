@@ -1,4 +1,4 @@
-# Meme Maker 🎨🤡
+# Meme Maker 🎨🧬
 
 Meme Maker is a fun and interactive web application that allows users to create, edit, save  and share hilarious memes effortlessly! Built with modern web technologies, it provides a seamless user experience for meme enthusiasts.
 
