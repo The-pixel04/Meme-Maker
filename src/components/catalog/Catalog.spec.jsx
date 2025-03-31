@@ -1,12 +1,7 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import requestMock from "../../tests/mocks/requestMock.js";
 import Catalog from "./Catalog.jsx";
-
-vi.mock("react-router", () => ({
-    Link: ({ children, to }) => <a href={to}>{children}</a>,
-    useNavigate: () => vi.fn(),
-}));
 
 describe('Catalog', () => {
     it('renders the catalog component', () => {
@@ -18,7 +13,7 @@ describe('Catalog', () => {
         expect(spinner).toBeInTheDocument();
     });
 
-    it('show memes', async () => {
+    it('shows memes', async () => {
         const memes = {
             results: [
                 { objectId: '1', imageUrl: 'https://example.com/meme1.jpg', topText: 'Top 1', bottomText: 'Bottom 1', textSize: 20, topTextColor: '#FFFFFF', bottomTextColor: '#000000', ownerId: '1', createdAt: '2023-10-01T00:00:00Z', updatedAt: '2023-10-01T00:00:00Z' },
@@ -40,49 +35,53 @@ describe('Catalog', () => {
         expect(screen.getByText('Top 1')).toBeInTheDocument();
         expect(screen.getByText('Top 2')).toBeInTheDocument();
         expect(screen.getByText('Top 3')).toBeInTheDocument();
-    }
-    );
+    });
 
-
-    it('handles pagination correctly', async () => {
-        const page1Memes = {
+    it('handles pagination', async () => {
+        const memesPage1 = {
             results: [
-                { objectId: '1', imageUrl: 'https://example.com/meme1.jpg', topText: 'Top 1', bottomText: 'Bottom 1' },
-                { objectId: '2', imageUrl: 'https://example.com/meme2.jpg', topText: 'Top 2', bottomText: 'Bottom 2' },
-                { objectId: '3', imageUrl: 'https://example.com/meme3.jpg', topText: 'Top 3', bottomText: 'Bottom 3' },
+                { objectId: '1', imageUrl: 'https://example.com/meme1.jpg', topText: 'Top 1', bottomText: 'Bottom 1', textSize: 20, topTextColor: '#FFFFFF', bottomTextColor: '#000000', ownerId: '1', createdAt: '2023-10-01T00:00:00Z', updatedAt: '2023-10-01T00:00:00Z' },
+                { objectId: '2', imageUrl: 'https://example.com/meme2.jpg', topText: 'Top 2', bottomText: 'Bottom 2', textSize: 20, topTextColor: '#FFFFFF', bottomTextColor: '#000000', ownerId: '2', createdAt: '2023-10-01T00:00:00Z', updatedAt: '2023-10-01T00:00:00Z' },
             ],
-            count: 6,
+            count: 4
         };
 
-        const page2Memes = {
+        const memesPage2 = {
             results: [
-                { objectId: '4', imageUrl: 'https://example.com/meme4.jpg', topText: 'Top 4', bottomText: 'Bottom 4' },
-                { objectId: '5', imageUrl: 'https://example.com/meme5.jpg', topText: 'Top 5', bottomText: 'Bottom 5' },
-                { objectId: '6', imageUrl: 'https://example.com/meme6.jpg', topText: 'Top 6', bottomText: 'Bottom 6' },
+                { objectId: '3', imageUrl: 'https://example.com/meme3.jpg', topText: 'Top 3', bottomText: 'Bottom 3', textSize: 20, topTextColor: '#FFFFFF', bottomTextColor: '#000000', ownerId: '3', createdAt: '2023-10-01T00:00:00Z', updatedAt: '2023-10-01T00:00:00Z' },
+                { objectId: '4', imageUrl: 'https://example.com/meme4.jpg', topText: 'Top 4', bottomText: 'Bottom 4', textSize: 20, topTextColor: '#FFFFFF', bottomTextColor: '#000000', ownerId: '4', createdAt: '2023-10-01T00:00:00Z', updatedAt: '2023-10-01T00:00:00Z' },
             ],
-            count: 6,
+            count: 4
         };
 
         requestMock.get
-            .mockResolvedValueOnce(page1Memes)
-            .mockResolvedValueOnce(page2Memes);
+            .mockResolvedValueOnce(memesPage1)
 
         render(<Catalog />);
-        screen.debug();
 
+        // Wait for the first page to load
         await waitFor(() => {
             const images = screen.getAllByRole('img', { name: 'Meme' });
-            expect(images).toHaveLength(3);
+            expect(images).toHaveLength(2);
         });
-
-        const nextButton = screen.getByLabelText('right');
-        fireEvent.click(nextButton);
 
         expect(screen.getByText('Top 1')).toBeInTheDocument();
         expect(screen.getByText('Top 2')).toBeInTheDocument();
-        expect(screen.getByText('Top 3')).toBeInTheDocument();
 
-        const prevButton = screen.getByLabelText('left'); 
-        fireEvent.click(prevButton);
+        const nextPageButton = screen.getByLabelText('right');
+        fireEvent.click(nextPageButton);
+
+        requestMock.get
+            .mockResolvedValueOnce(memesPage2)
+
+        render(<Catalog />);
+        // Wait for the second page to load
+        await waitFor(() => {
+            const images = screen.getAllByRole('img', { name: 'Meme' });
+            expect(images).toHaveLength(2);
+        });
+
+        expect(screen.getByText('Top 3')).toBeInTheDocument();
+        expect(screen.getByText('Top 4')).toBeInTheDocument();
     });
-})
+});

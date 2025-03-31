@@ -4,11 +4,6 @@ import requestMock from "../../tests/mocks/requestMock.js";
 import HomePage from "./HomePage";
 import { UserContext } from "../../contexts/UserContext.js";
 
-vi.mock("react-router", () => ({
-    Link: ({ children, to }) => <a href={to}>{children}</a>,
-    useNavigate: () => vi.fn(),
-}));
-
 describe("HomePage", () => {
     it("renders the home page component", () => {
         requestMock.get.mockResolvedValue({ results: [] });

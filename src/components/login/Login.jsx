@@ -32,7 +32,7 @@ export default function Login() {
     const [_, loginAction, isPending] = useActionState(loginHandler, { email: '', password: '' });
 
     return (
-        <div className={styles["login-container"]}>
+        <div className={styles["login-container"]} >
             <Title level={2} className={styles["form-title"]}>Welcome Back</Title>
 
             <form className={styles['login-form']} action={loginAction}>
