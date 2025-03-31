@@ -15,7 +15,7 @@ export const useCreateMeme = () => {
             const result = await request.post(`${baseUrl}/memes`, { ...memeData, ownerId: objectId }, { signal });
 
             if (!result || result.error) {
-                throw new Error(result.responce);
+                throw new Error(result.response);
             };
 
             return result;
@@ -112,7 +112,7 @@ export const useEditMeme = () => {
             const result = request.put(`${baseUrl}/memes/${memeId}`, memeData, { signal });
 
             if (!result || result.error) {
-                throw new Error(result.responce);
+                throw new Error(result.response);
             };
 
             return result;
@@ -141,7 +141,7 @@ export const useDeleteMeme = () => {
             const result = request.delete(`${baseUrl}/memes/${memeData.objectId}`, null, { signal });
 
             if (!result || result.error) {
-                throw new Error(result.responce);
+                throw new Error(result.response);
             };
 
             return result;
@@ -169,7 +169,7 @@ export const useLast3Memes = () => {
         const { signal, abort } = abortController();
         request.get(`${baseUrl}/memes?order=-createdAt&limit=3`, {}, { signal })
             .then(result => {
-                setLast3Memes(result);
+                setLast3Memes(result.results);
                 setLoading(false);
             })
             .catch(error => {

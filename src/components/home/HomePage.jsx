@@ -9,6 +9,7 @@ import AnimatedBanner from './banner/Banner.jsx';
 export default function HomePage() {
     const { last3Memes, loading } = useLast3Memes();
     const { sessionToken } = useContext(UserContext);
+    console.log(last3Memes)
 
     return (
         <div className={styles["home-page"]}>
@@ -22,7 +23,7 @@ export default function HomePage() {
                     {loading
                         ? <Spin size='large' />
                         :
-                        last3Memes.results?.map((meme) => (
+                        last3Memes.map((meme) => (
                             <div key={meme.objectId} className={styles["meme-card-container"]}>
                                 <MemeCard meme={meme} />
                             </div>

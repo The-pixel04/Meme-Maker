@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import MemeForm from '../memeForm/MemeForm.jsx';
-import MemePreviw from '../MemePreview/MemePreview.jsx';
+import MemePreview from '../MemePreview/MemePreview.jsx';
 import { useEditMeme, useMeme } from '../../api/memeApi.js';
 import { useNavigate, useParams } from 'react-router';
 import { Spin } from 'antd';
@@ -61,7 +61,7 @@ export default function MemeEdit() {
                 </div>
                 : <>
                     <MemeForm handleAction={handleAction} topText={topText} handleInputChange={handleInputChange} imageUrl={imageUrl} topTextColor={topTextColor} bottomText={bottomText} bottomTextColor={bottomTextColor} textSize={textSize} setTextSize={setTextSize} setBottomTextColor={setBottomTextColor} setTopTextColor={setTopTextColor} />
-                    <MemePreviw imageUrl={imageUrl} textSize={textSize} topText={topText} topTextColor={topTextColor} bottomText={bottomText} bottomTextColor={bottomTextColor} />
+                    <MemePreview imageUrl={imageUrl} textSize={textSize} topText={topText} topTextColor={topTextColor} bottomText={bottomText} bottomTextColor={bottomTextColor} />
                 </>
             }
         </div>

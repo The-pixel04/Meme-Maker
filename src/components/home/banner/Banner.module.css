@@ -117,11 +117,11 @@
 
 @keyframes scroll {
     0% {
-        transform: translateX(-160%);
+        transform: translateX(-165%);
     }
 
     100% {
-        transform: translateX(160%);
+        transform: translateX(165%);
     }
 }
 

@@ -1,7 +1,7 @@
 import { Card } from 'antd';
 import styles from './MemePreview.module.css'
 
-export default function MemePreviw({ imageUrl, textSize, topText, topTextColor, bottomText, bottomTextColor }) {
+export default function MemePreview({ imageUrl, textSize, topText, topTextColor, bottomText, bottomTextColor }) {
     return (
         <Card className={styles["preview-card"]}>
             {imageUrl && (

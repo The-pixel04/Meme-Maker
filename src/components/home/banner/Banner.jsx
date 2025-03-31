@@ -12,12 +12,12 @@ export default function AnimatedBanner({sessionToken}) {
                 </h1>
                 <p className={styles["emoji-scroll"]}>☝️ Choose an image URL, add your text, and share it with the world 🚀</p>
                 <div className={styles["emoji-float"]}>
-                    🎨 📸 💡 🤡 🏆
+                    🎨 📸 💡 🏆
                 </div>
                 {sessionToken &&
-                    <Button type="primary" size="large" className={styles["banner-button"]}>
+                   ( <Button type="primary" size="large" className={styles["banner-button"]}>
                         <Link to="/create">Create a Meme Now</Link>
-                    </Button>
+                    </Button>)
                 }
             </div>
         </div>
