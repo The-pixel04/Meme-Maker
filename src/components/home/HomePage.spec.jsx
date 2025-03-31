@@ -5,8 +5,8 @@ import HomePage from "./HomePage";
 import { UserContext } from "../../contexts/UserContext.js";
 
 vi.mock("react-router", () => ({
-    Link: ({ children, to }) => <a href={to}>{children}</a>, // Mock Link as a simple anchor tag
-    useNavigate: () => vi.fn(), // Mock useNavigate as a no-op function
+    Link: ({ children, to }) => <a href={to}>{children}</a>,
+    useNavigate: () => vi.fn(),
 }));
 
 describe("HomePage", () => {
@@ -37,8 +37,8 @@ describe("HomePage", () => {
         render(<HomePage />);
 
         await waitFor(() => {
-            const images = screen.getAllByRole('img'); // Query all images
-            expect(images).toHaveLength(3); // Ensure 3 images are rendered
+            const images = screen.getAllByRole('img');
+            expect(images).toHaveLength(3);
         });;
 
         expect(screen.getByText('Top 1')).toBeInTheDocument();
@@ -55,22 +55,19 @@ describe("HomePage", () => {
             </UserContext.Provider>
         );
 
-        // Query the button
         const button = screen.getByRole('button', { name: 'Create a Meme Now' });
 
-        // Assert that the button is present
         expect(button).toBeInTheDocument();
 
-        // Simulate a click
         fireEvent.click(button);
 
-    
+
     });
 
     it("does not render the button in the banner when no user is logged in", () => {
 
         vi.mock("../../context/UserContext", () => ({
-            useUser: () => ({ sessionToken: null }), // Mock the user context
+            useUser: () => ({ sessionToken: null }),
         }));
 
         render(<HomePage />);
