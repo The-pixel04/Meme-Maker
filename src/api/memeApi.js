@@ -37,6 +37,7 @@ export const useCreateMeme = () => {
 export const useMemes = (page, pageSize) => {
     const [memes, setMemes] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [count, setCount] = useState(0);
     const { errorHandler } = useContext(ErrorContext);
 
     useEffect(() => {
@@ -48,7 +49,7 @@ export const useMemes = (page, pageSize) => {
 
         request.get(`${baseUrl}/memes?${params.toString()}`, {}, { signal })
             .then(result => {
-                setMemes(result);
+                setMemes(result.results);
                 setLoading(false)
             })
             .catch(error => {
@@ -63,10 +64,29 @@ export const useMemes = (page, pageSize) => {
             abort();
         }
 
-    }, []);
+    }, [page]);
+
+    useEffect(() => {
+        const { signal, abort } = abortController();
+        request.get(`${baseUrl}/memes?count=1&limit=0`, {}, { signal })
+            .then(result => {
+                setCount(result.count);
+            })
+            .catch(error => {
+                if (error.name === "AbortError") {
+                    return null;
+                }
+                errorHandler(`Error fetching meme count: ${error.message}`);
+                return null;
+            });
+        return () => {
+            abort();
+        }
+    })
 
     return {
         memes,
+        count,
         loading
     }
 };

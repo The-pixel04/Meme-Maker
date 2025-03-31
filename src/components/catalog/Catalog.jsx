@@ -6,10 +6,11 @@ import { memo, useState } from 'react';
 
 const Catalog = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const { memes, loading } = useMemes(currentPage, 12); 
+    const { memes, count, loading } = useMemes(currentPage, 12);
+    console.log(count)
 
     const handlePageChange = (page) => {
-        setCurrentPage(page); // Update the current page
+        setCurrentPage(page);
     };
 
     return (
@@ -20,7 +21,7 @@ const Catalog = () => {
                     ? <div className="spinner-container">
                         <Spin size="large" />
                     </div>
-                    : memes.results?.map((meme) => (
+                    : memes.map((meme) => (
                         <div key={meme.objectId} className={styles["meme-card-container"]}>
                             <MemeCard meme={meme} />
                         </div>
@@ -30,8 +31,8 @@ const Catalog = () => {
 
             <Pagination
                 current={currentPage}
-                pageSize={10} // Number of memes per page
-                total={memes.count || 0} // Total number of memes
+                pageSize={12} // Number of memes per page
+                total={count} // Total number of memes
                 onChange={handlePageChange}
                 className={styles["pagination"]}
             />
