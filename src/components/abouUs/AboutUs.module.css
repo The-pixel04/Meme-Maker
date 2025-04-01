@@ -1,0 +1,64 @@
+.about-layout {
+    min-height: 100vh;
+    background: #fff;
+}
+
+.about-content {
+    padding: 24px 50px;
+}
+
+.hero-section {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.hero-title {
+    color: #1890ff;
+}
+
+.hero-description {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.features-section {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    margin-bottom: 40px;
+    min-height: 50vh; 
+}
+
+.feature-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.feature-icon {
+    font-size: 48px;
+    color: #1890ff;
+    margin-bottom: 16px;
+}
+
+.team-divider {
+    margin: 40px 0;
+}
+
+.team-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.team-avatar {
+    margin-bottom: 16px;
+}
+
+.team-name {
+    margin-top: 16px;
+}
+
+.team-role {
+    font-size: 16px;
+}

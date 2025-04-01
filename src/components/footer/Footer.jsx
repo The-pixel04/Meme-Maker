@@ -6,7 +6,7 @@ export default function Footer() {
         <>
             <footer className={styles["footer"]}>
                 <div className={styles["quick-links"]}>
-                    <Link to="/about">About Us</Link>
+                    <Link to="/aboutus">About Us</Link>
                     <Link to="/contact">Contact</Link>
                 </div>
                 <div className={styles["copyright"]}>

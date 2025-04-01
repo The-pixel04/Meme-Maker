@@ -4,21 +4,7 @@ import { HomeOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, L
 import useAuth from '../../hooks/useAuth.js';
 import styles from './Header.module.css'
 
-function getSelectedKey() {
-    const path = location.pathname;
-
-    if (path === '/') return 'home';
-    if (path.startsWith('/catalog')) return 'catalog';
-    if (path.startsWith('/profile')) return 'profile';
-    if (path.startsWith('/create')) return 'create';
-    if (path.startsWith('/register')) return 'register';
-    if (path.startsWith('/login')) return 'login';
-    if (path.startsWith('/logout')) return 'logout';
-    if (path.startsWith('/memes/')) return null
-    return 'home';
-}
-
-const Header = () => {
+export default function Header() {
     const { isAuthenticated } = useAuth();
     const location = useLocation();
 
@@ -74,6 +60,17 @@ const Header = () => {
     );
 };
 
-export default Header;
+function getSelectedKey() {
+    const path = location.pathname;
 
-
+    if (path === '/') return 'home';
+    if (path.startsWith('/catalog')) return 'catalog';
+    if (path.startsWith('/profile')) return 'profile';
+    if (path.startsWith('/create')) return 'create';
+    if (path.startsWith('/register')) return 'register';
+    if (path.startsWith('/login')) return 'login';
+    if (path.startsWith('/logout')) return 'logout';
+    if (path.startsWith('/memes/')) return null
+    if (path.startsWith('/aboutus')) return null
+    return 'home';
+}
