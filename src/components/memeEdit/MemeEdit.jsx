@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import MemeForm from '../memeForm/MemeForm.jsx';
-import MemePreview from '../MemePreview/MemePreview.jsx';
 import { useEditMeme, useMeme } from '../../api/memeApi.js';
 import { useNavigate, useParams } from 'react-router';
 import { Spin } from 'antd';
+import MemePreview from '../memePreview/MemePreview.jsx';
 
 export default function MemeEdit() {
     const { memeId } = useParams();
