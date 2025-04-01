@@ -16,6 +16,7 @@ export default function MemeDetail() {
     const { like } = useLikeMeme();
     const [likes, setLikes] = useState(0)
     const isOwner = objectId === meme.ownerId;
+    let isLiked = false
 
 
     useEffect(() => {
@@ -42,9 +43,9 @@ export default function MemeDetail() {
             likes: updatedLikes,
         };
 
-        console.log(updatedMeme)
         await like(memeId, updatedMeme);
-
+        
+        isLiked=true
         setLikes(updatedLikes.length);
     }
 
@@ -88,7 +89,7 @@ export default function MemeDetail() {
                 }
 
                 {objectId && (
-                    meme.likes?.includes(objectId)
+                    meme.likes?.includes(objectId) && isLiked
                         ?
                         <Button
                             type="primary"
