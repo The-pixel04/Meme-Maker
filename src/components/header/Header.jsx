@@ -9,7 +9,7 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const { isAuthenticated } = useAuth();
     const location = useLocation();
-    
+
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
@@ -26,8 +26,8 @@ export default function Header() {
                 </div>
 
                 <button className={styles['burger-menu']} onClick={toggleMenu}>
-                <MenuOutlined />
-            </button>
+                    <MenuOutlined />
+                </button>
 
                 <Menu
                     mode={menuOpen ? 'vertical' : "horizontal"}
@@ -80,8 +80,7 @@ function getSelectedKey() {
     if (path.startsWith('/register')) return 'register';
     if (path.startsWith('/login')) return 'login';
     if (path.startsWith('/logout')) return 'logout';
-    if (path.startsWith('/memes/')) return null
-    if (path.startsWith('/aboutus')) return null
-    if (path.startsWith('/contactus')) return null
-    return 'home';
+    else {
+        return null
+    }
 }

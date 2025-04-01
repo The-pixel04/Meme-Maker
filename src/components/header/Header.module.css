@@ -53,7 +53,7 @@
     padding: auto;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 876px) {
     .nav-menu {
         display: none; 
         flex-direction: column;
