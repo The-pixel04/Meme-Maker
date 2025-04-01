@@ -20,7 +20,7 @@ export default function MemeDetail() {
 
 
     useEffect(() => {
-        setLikes(meme.likes)
+        setLikes(meme?.likes )
     }, [loading])
 
     const deleteHandler = async () => {
@@ -88,13 +88,13 @@ export default function MemeDetail() {
                 }
 
                 {objectId && (
-                    likes.includes(objectId)
+                    likes?.includes(objectId)
                         ?
                         <Button
                             type="primary"
                             icon={<LikeOutlined />}
                         >
-                            {`Liked`}
+                            {`Liked ${likes.length}`}
 
                         </Button>
 
@@ -104,7 +104,7 @@ export default function MemeDetail() {
                             icon={<LikeOutlined />}
                             onClick={likeMemeHandler}
                         >
-                            {`Likes ${likes}`}
+                            {`Likes ${likes.length}`}
                         </Button>
                 )}
 
