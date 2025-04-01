@@ -1,10 +1,10 @@
+import { Link } from 'react-router';
 import { Menu } from 'antd';
 import { HomeOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Link } from 'react-router';
 import useAuth from '../../hooks/useAuth.js';
 import styles from './Header.module.css'
 
-const NavigationMenu = () => {
+const Header = () => {
     const { isAuthenticated } = useAuth();
     return (
         <header>
@@ -58,4 +58,4 @@ const NavigationMenu = () => {
     );
 };
 
-export default NavigationMenu;
+export default Header;

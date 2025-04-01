@@ -1,10 +1,10 @@
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext.js';
 import { Row, Col, Spin } from 'antd';
 import { useLast3Memes } from '../../api/memeApi.js';
 import MemeCard from '../memeCard/MemeCard.jsx';
-import styles from './HomePage.module.css'
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext.js';
 import AnimatedBanner from './banner/Banner.jsx';
+import styles from './HomePage.module.css'
 
 export default function HomePage() {
     const { last3Memes, loading } = useLast3Memes();

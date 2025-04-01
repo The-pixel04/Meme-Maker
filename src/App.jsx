@@ -1,22 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { lazy, useState } from "react";
-import MemeGenerator from "./components/memeGenerate/MemeGenerator.jsx";
-import NavigationMenu from "./components/navigation/Header.jsx";
-import MemeDetail from "./components/memeDetails/MemeDetails.jsx";
-import HomePage from "./components/home/HomePage.jsx";
-import MemeEdit from "./components/memeEdit/MemeEdit.jsx";
-import Footer from "./components/footer/Footer.jsx";
-import Register from "./components/register/Register.jsx";
-import Login from "./components/login/Login.jsx";
-import Logout from "./components/logout/Logout.jsx";
-import AuthGuard from "./guards/AuthGard.jsx";
-import GuestGuard from "./guards/GuestGard.jsx";
-import Profile from "./components/profile/Profile.jsx";
+import usePersistedState from "./hooks/usePersistedSate.js";
 import { ErrorContext } from "./contexts/ErrorContext.js";
 import { UserContext } from "./contexts/UserContext.js";
+import AuthGuard from "./guards/AuthGard.jsx";
+import GuestGuard from "./guards/GuestGard.jsx";
 import ErrorPopup from "./components/errorPopup/ErrorPopup.jsx";
-import usePersistedState from "./hooks/usePersistedSate.js";
-const Catalog = lazy(()=>import('./components/catalog/Catalog.jsx'))
+import Header from "./components/header/Header.jsx";
+import Footer from "./components/footer/Footer.jsx";
+import Logout from "./components/logout/Logout.jsx";
+const HomePage = lazy(()=>import("./components/home/HomePage.jsx"));
+const Catalog = lazy(() => import('./components/catalog/Catalog.jsx'));
+const Register = lazy(()=>import("./components/register/Register.jsx"));
+const Login = lazy(()=>import("./components/login/Login.jsx"));
+const MemeGenerator = lazy(() => import("./components/memeGenerate/MemeGenerator.jsx"));
+const MemeEdit= lazy(()=>"./components/memeEdit/MemeEdit.jsx");
+const Profile = lazy(() => import("./components/profile/Profile.jsx"));
+const MemeDetail = lazy(() => ("./components/memeDetails/MemeDetails.jsx"));
 
 export default function App() {
     const [authData, setAuthData] = usePersistedState("auth", {});
@@ -24,7 +24,7 @@ export default function App() {
     const [showErrorPopup, setShowErrorPopup] = useState(false);
 
     const userLoginHandler = (resultData) => {
-        setAuthData(resultData);
+        setAuthData(resultData.sessionToken);
     };
 
     const userLogoutHandler = () => {
@@ -45,7 +45,7 @@ export default function App() {
             <ErrorContext.Provider value={{ message: error, errorHandler }}>
                 {showErrorPopup && <ErrorPopup message={error} onClose={closeErrorPopup} />}
                 <Router>
-                    <NavigationMenu />
+                    <Header />
                     <main>
                         <Routes>
                             <Route path="/" element={<HomePage />} />
