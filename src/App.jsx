@@ -44,6 +44,7 @@ export default function App() {
         < UserContext.Provider value={{ ...authData, userLoginHandler, userLogoutHandler }}>
             <ErrorContext.Provider value={{ message: error, errorHandler }}>
                 {showErrorPopup && <ErrorPopup message={error} onClose={closeErrorPopup} />}
+                <Router>
                     <NavigationMenu />
                     <main>
                         <Routes>
@@ -63,6 +64,7 @@ export default function App() {
                         </Routes>
                     </main>
                     <Footer />
+                </Router>
             </ErrorContext.Provider>
         </UserContext.Provider >
     );
