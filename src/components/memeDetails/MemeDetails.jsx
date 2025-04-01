@@ -89,7 +89,7 @@ export default function MemeDetail() {
                 }
 
                 {objectId && (
-                    meme.likes?.includes(objectId) && isLiked
+                    meme.likes?.includes(objectId) || isLiked
                         ?
                         <Button
                             type="primary"
