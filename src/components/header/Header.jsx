@@ -1,11 +1,27 @@
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { Menu } from 'antd';
 import { HomeOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import useAuth from '../../hooks/useAuth.js';
 import styles from './Header.module.css'
 
+function getSelectedKey() {
+    const path = location.pathname;
+
+    if (path === '/') return 'home';
+    if (path.startsWith('/catalog')) return 'catalog';
+    if (path.startsWith('/profile')) return 'profile';
+    if (path.startsWith('/create')) return 'create';
+    if (path.startsWith('/register')) return 'register';
+    if (path.startsWith('/login')) return 'login';
+    if (path.startsWith('/logout')) return 'logout';
+    if (path.startsWith('/memes/')) return null
+    return 'home';
+}
+
 const Header = () => {
     const { isAuthenticated } = useAuth();
+    const location = useLocation();
+
     return (
         <header>
             <div className={styles["nav-container"]}>
@@ -19,7 +35,7 @@ const Header = () => {
 
                 <Menu
                     mode="horizontal"
-                    defaultSelectedKeys={['home']}
+                    selectedKeys={getSelectedKey(location)}
                     className={styles["nav-menu"]}
                 >
                     <Menu.Item key="home" icon={<HomeOutlined />}>
@@ -59,3 +75,5 @@ const Header = () => {
 };
 
 export default Header;
+
+

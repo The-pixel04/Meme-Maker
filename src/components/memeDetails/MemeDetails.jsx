@@ -9,12 +9,10 @@ import styles from './MemeDetails.module.css'
 export default function MemeDetail() {
     const navigate = useNavigate();
     const { memeId } = useParams();
+    const { deleteMeme } = useDeleteMeme();
     const { meme, loading } = useMeme(memeId);
     const { objectId } = useContext(UserContext);
     const isOwner = objectId === meme.ownerId;
-    console.log(objectId);
-    console.log(meme.ownerId)
-    const { deleteMeme } = useDeleteMeme();
 
     const deleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this meme?`);

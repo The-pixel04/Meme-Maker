@@ -9,14 +9,14 @@ import ErrorPopup from "./components/errorPopup/ErrorPopup.jsx";
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import Logout from "./components/logout/Logout.jsx";
-const HomePage = lazy(()=>import("./components/home/HomePage.jsx"));
+const HomePage = lazy(() => import("./components/home/HomePage.jsx"));
 const Catalog = lazy(() => import('./components/catalog/Catalog.jsx'));
-const Register = lazy(()=>import("./components/register/Register.jsx"));
-const Login = lazy(()=>import("./components/login/Login.jsx"));
+const Register = lazy(() => import("./components/register/Register.jsx"));
+const Login = lazy(() => import("./components/login/Login.jsx"));
 const MemeGenerator = lazy(() => import("./components/memeGenerate/MemeGenerator.jsx"));
-const MemeEdit= lazy(()=>"./components/memeEdit/MemeEdit.jsx");
+const MemeEdit = lazy(() => import("./components/memeEdit/MemeEdit.jsx"));
 const Profile = lazy(() => import("./components/profile/Profile.jsx"));
-const MemeDetail = lazy(() => ("./components/memeDetails/MemeDetails.jsx"));
+const MemeDetail = lazy(() => import("./components/memeDetails/MemeDetails.jsx"));
 
 export default function App() {
     const [authData, setAuthData] = usePersistedState("auth", {});
