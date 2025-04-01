@@ -18,6 +18,29 @@ Meme Maker is a fun and interactive web application that allows users to create,
   - Edit and delete your memes.
   - Browse memes in a paginated catalog.
 
+## Key Features 🚀
+
+- **Responsive Design**: Fully responsive and mobile-friendly.
+- **Interactive UI**: Smooth user interactions with Ant Design components.
+- **API Integration**: Communicates with Back4App REST API with CRUD operations.
+- **Reusable Components**: Modular and reusable React components for scalability.
+- **Abortable Requests**: Uses `AbortController` to handle request cancellations.
+
+## How It Works 🛠️
+
+1. **Choose an Image**: Choose an image URL.
+2. **Add Text**: Customize your meme with top and bottom text.
+3. **Customize**: Adjust text size and color.
+4. **Save & Share**: Save your meme and share it with the world!
+
+## Tech Stack 🧰
+
+- **Frontend**: React, React Router, Ant Design
+- **Backend**: Back4App
+- **State Management**: React Hooks
+- **Styling**: CSS Modules
+- **API**: REST API with Back4App
+
 ## API Requests 🌐
 
 The application communicates with the Back4App REST API to perform CRUD operations for managing memes and user data. Below are the key API requests used in the application:
@@ -92,27 +115,4 @@ All requests include the following headers:
 
 ### Error Handling
 
-The application handles API errors gracefully by displaying user-friendly
-
-## Key Features 🚀
-
-- **Responsive Design**: Fully responsive and mobile-friendly.
-- **Interactive UI**: Smooth user interactions with Ant Design components.
-- **API Integration**: Communicates with Back4App REST API with CRUD operations.
-- **Reusable Components**: Modular and reusable React components for scalability.
-- **Abortable Requests**: Uses `AbortController` to handle request cancellations.
-
-## How It Works 🛠️
-
-1. **Choose an Image**: Choose an image URL.
-2. **Add Text**: Customize your meme with top and bottom text.
-3. **Customize**: Adjust text size and color.
-4. **Save & Share**: Save your meme and share it with the world!
-
-## Tech Stack 🧰
-
-- **Frontend**: React, React Router, Ant Design
-- **Backend**: Back4App (Parse Server)
-- **State Management**: React Hooks
-- **Styling**: CSS Modules
-- **API**: REST API with Back4App
+The application handles API errors gracefully by displaying user-friendly pop-up.
