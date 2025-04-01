@@ -1,11 +1,11 @@
 .controls-card {
-    width: 20%;
-    padding: 16px;
-  }
-  
-  .controls-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
+  margin-top: 16px;
+  width: 20%;
+  padding: 16px;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

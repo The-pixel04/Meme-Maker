@@ -3,7 +3,7 @@ import styles from './MemeForm.module.css'
 
 export default function MemeForm({ handleAction, topText, handleInputChange,
     imageUrl, topTextColor, bottomText, bottomTextColor,
-    textSize, setTextSize, setBottomTextColor, setTopTextColor
+    textSize, setTextSize, setBottomTextColor, setTopTextColor, pending
 }) {
     return (
         <Card className={styles["controls-card"]}>
@@ -55,7 +55,7 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                         min={10}
                         max={50}
                     />
-                    <Button type="primary" htmlType="submit">
+                    <Button type="primary" htmlType="submit" disabled={pending}>
                         Save to collection
                     </Button>
                 </div>

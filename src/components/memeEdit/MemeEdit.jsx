@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useActionState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { Spin } from 'antd';
 import { useEditMeme, useMeme } from '../../api/memeApi.js';
@@ -26,7 +26,7 @@ export default function MemeEdit() {
         setBottomTextColor(meme.bottomTextColor);
     }, [loading]);
 
-    const handleAction = (formData) => {
+    const handleAction = (_,formData) => {
         const memeData = Object.fromEntries(formData);
 
         const result = edit(memeId, { ...memeData, textSize });
@@ -53,6 +53,8 @@ export default function MemeEdit() {
         };
     };
 
+      const [_, formAction, isPending] = useActionState(handleAction, {imageUrl, topText, bottomText, topTextColor, bottomTextColor, textSize});
+
     return (
         <div className="meme-generator-container">
             {loading
@@ -60,7 +62,7 @@ export default function MemeEdit() {
                     <Spin size="large" />
                 </div>
                 : <>
-                    <MemeForm handleAction={handleAction} topText={topText} handleInputChange={handleInputChange} imageUrl={imageUrl} topTextColor={topTextColor} bottomText={bottomText} bottomTextColor={bottomTextColor} textSize={textSize} setTextSize={setTextSize} setBottomTextColor={setBottomTextColor} setTopTextColor={setTopTextColor} />
+                    <MemeForm handleAction={formAction} topText={topText} handleInputChange={handleInputChange} imageUrl={imageUrl} topTextColor={topTextColor} bottomText={bottomText} bottomTextColor={bottomTextColor} textSize={textSize} setTextSize={setTextSize} setBottomTextColor={setBottomTextColor} setTopTextColor={setTopTextColor} pending={isPending}/>
                     <MemePreview imageUrl={imageUrl} textSize={textSize} topText={topText} topTextColor={topTextColor} bottomText={bottomText} bottomTextColor={bottomTextColor} />
                 </>
             }
