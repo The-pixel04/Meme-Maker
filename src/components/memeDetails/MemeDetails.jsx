@@ -14,13 +14,13 @@ export default function MemeDetail() {
     const { meme, loading } = useMeme(memeId);
     const { objectId } = useContext(UserContext);
     const { like } = useLikeMeme();
-    const [likes, setLikes] = useState(0)
+    const [likes, setLikes] = useState([])
     const isOwner = objectId === meme.ownerId;
-    let isLiked = false
+
 
 
     useEffect(() => {
-        setLikes(meme.likes?.length)
+        setLikes(meme.likes)
     }, [loading])
 
     const deleteHandler = async () => {
@@ -45,8 +45,7 @@ export default function MemeDetail() {
 
         await like(memeId, updatedMeme);
 
-        isLiked = true
-        setLikes(updatedLikes.length);
+        setLikes(updatedLikes);
     }
 
     return (
@@ -89,7 +88,7 @@ export default function MemeDetail() {
                 }
 
                 {objectId && (
-                    meme.likes?.includes(objectId) || isLiked
+                    likes.includes(objectId)
                         ?
                         <Button
                             type="primary"
