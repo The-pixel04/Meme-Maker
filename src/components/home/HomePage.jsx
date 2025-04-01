@@ -22,7 +22,7 @@ export default function HomePage() {
                     {loading
                         ? <Spin size='large' />
                         :
-                        last3Memes.map((meme) => (
+                        last3Memes.results?.map((meme) => (
                             <div key={meme.objectId} className={styles["meme-card-container"]}>
                                 <MemeCard meme={meme} />
                             </div>

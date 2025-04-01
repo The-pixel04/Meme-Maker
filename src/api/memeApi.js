@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth.js";
 import { ErrorContext } from "../contexts/ErrorContext.js";
 import abortController from "../utils/abortController.js";
 
-const baseUrl = 'https://parseapi.back4app.com/classes'
+const baseUrl =`${ import.meta.env.VITE_BASE_URL}/classes`
 
 export const useCreateMeme = () => {
     const { errorHandler } = useContext(ErrorContext);
@@ -24,7 +24,7 @@ export const useCreateMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error creating meme (every field is required): ${error.message}`);
+            errorHandler(`Error creating meme (every field is required)`);
             return null;
         }
     }
@@ -58,7 +58,7 @@ export const useMemes = (page, pageSize) => {
                 if (error.name === "AbortError") {
                     return null;
                 }
-                errorHandler(`Error fetching memes: ${error.message}`);
+                errorHandler(`Error fetching memes`);
                 return null;
             });
 
@@ -91,7 +91,7 @@ export const useMeme = (memeId) => {
                 if (error.name === "AbortError") {
                     return null;
                 }
-                errorHandler(`Error fetching meme: ${error.message}`);
+                errorHandler(`Error fetching meme`);
                 return null;
             });
 
@@ -125,7 +125,7 @@ export const useEditMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error editing meme: ${error.message}`);
+            errorHandler(`Error editing meme`);
             return null;
         }
     };
@@ -173,7 +173,7 @@ export const useLast3Memes = () => {
         const { signal, abort } = abortController();
         request.get(`${baseUrl}/memes?order=-createdAt&limit=3`, {}, { signal })
             .then(result => {
-                setLast3Memes(result.results);
+                setLast3Memes(result);
                 setLoading(false);
             })
             .catch(error => {
@@ -230,3 +230,32 @@ export const useUserMemes = (ownerId) => {
         loading
     };
 };
+
+export const useLikeMeme = ()=>{
+const { request } = useAuth();
+const { signal } = abortController();
+const { errorHandler } = useContext(ErrorContext);
+
+const like = (memeId, memeData) => {
+    try {
+        const result = request.put(`${baseUrl}/memes/${memeId}`, memeData, { signal });
+
+        if (!result || result.error) {
+            throw new Error(result.message);
+        };
+
+        return result;
+    } catch (error) {
+        if (error.name === "AbortError") {
+            return null;
+        }
+
+        errorHandler(`Error liking meme`);
+        return null;
+    }
+};
+
+return {
+    like
+}
+}

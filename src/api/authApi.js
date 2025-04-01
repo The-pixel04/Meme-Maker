@@ -93,7 +93,7 @@ export const useLogout = () => {
             .catch((error) => {
                 errorHandler('Logout failed:', error.message);
             });
-    }, [sessionToken, userLogoutHandler, errorHandler]);
+    }, []);
 
     return {
         isLoggedOut: !!sessionToken

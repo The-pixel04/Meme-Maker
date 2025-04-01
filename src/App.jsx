@@ -26,7 +26,7 @@ export default function App() {
     const [showErrorPopup, setShowErrorPopup] = useState(false);
 
     const userLoginHandler = (resultData) => {
-        setAuthData(resultData.sessionToken);
+        setAuthData(resultData);
     };
 
     const userLogoutHandler = () => {
