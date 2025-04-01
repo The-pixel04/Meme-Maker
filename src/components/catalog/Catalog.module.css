@@ -16,33 +16,42 @@
 }
 
 .meme-card-container {
-    flex: 0 0 calc(33.33% - 20px); /* Fixed size, 3 per row */
-    aspect-ratio: 1/1; /* Square cards */
+    flex: 0 0 calc(33.33% - 20px);
+    /* Fixed size, 3 per row */
+    aspect-ratio: 1/1;
+    /* Square cards */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    background-color: white; /* White background instead of grey */
+    background-color: white;
+    /* White background instead of grey */
     display: flex;
     flex-direction: column;
 }
 
+@media (max-width: 1024px) {
+    .meme-card-container {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
 @media (max-width: 786px) {
     .meme-card-container {
-        flex: 0 0 calc(50% - 20px); /* Fixed size, 3 per row */
+        flex: 0 0 calc(50% - 20px);
     }
 }
 
 @media (max-width: 576px) {
     .meme-card-container {
-        flex: 0 0 calc(100% - 20px); /* Fixed size, 3 per row */
+        flex: 0 0 calc(100% - 20px);
     }
 }
 
 .meme-image-container {
     flex-grow: 1;
     display: flex;
-     align-items: center; 
+    align-items: center;
     justify-content: center;
     overflow: hidden;
 }

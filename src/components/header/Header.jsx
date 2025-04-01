@@ -1,12 +1,18 @@
 import { Link, useLocation } from 'react-router';
 import { Menu } from 'antd';
-import { HomeOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
 import useAuth from '../../hooks/useAuth.js';
 import styles from './Header.module.css'
+import { useState } from 'react';
 
 export default function Header() {
+    const [menuOpen, setMenuOpen] = useState(false);
     const { isAuthenticated } = useAuth();
     const location = useLocation();
+    
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
 
     return (
         <header>
@@ -19,10 +25,14 @@ export default function Header() {
                     </Link>
                 </div>
 
+                <button className={styles['burger-menu']} onClick={toggleMenu}>
+                <MenuOutlined />
+            </button>
+
                 <Menu
-                    mode="horizontal"
+                    mode={menuOpen ? 'vertical' : "horizontal"}
                     selectedKeys={getSelectedKey(location)}
-                    className={styles["nav-menu"]}
+                    className={`${styles['nav-menu']} ${menuOpen ? styles.active : ''}`}
                 >
                     <Menu.Item key="home" icon={<HomeOutlined />}>
                         <Link to="/">Home</Link>
