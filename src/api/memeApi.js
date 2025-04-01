@@ -154,7 +154,7 @@ export const useDeleteMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error deleting meme: ${error.message}`);
+            errorHandler(`Error deleting meme`);
             return null;
         }
     };
@@ -180,7 +180,7 @@ export const useLast3Memes = () => {
                 if (error.name === "AbortError") {
                     return null;
                 }
-                errorHandler(`Error fetching last 3 memes: ${error.message}`);
+                errorHandler(`Error fetching last 3 memes`);
                 return null;
             });
 
@@ -216,7 +216,7 @@ export const useUserMemes = (ownerId) => {
                 if (error.name === "AbortError") {
                     return null;
                 }
-                errorHandler(`Error fetching user memes: ${error.message}`);
+                errorHandler(`Error fetching user memes`);
                 return null;
             });
 

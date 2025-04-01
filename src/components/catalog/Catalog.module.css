@@ -27,6 +27,18 @@
     flex-direction: column;
 }
 
+@media (max-width: 786px) {
+    .meme-card-container {
+        flex: 0 0 calc(50% - 20px); /* Fixed size, 3 per row */
+    }
+}
+
+@media (max-width: 576px) {
+    .meme-card-container {
+        flex: 0 0 calc(100% - 20px); /* Fixed size, 3 per row */
+    }
+}
+
 .meme-image-container {
     flex-grow: 1;
     display: flex;

@@ -11,8 +11,10 @@ export default function MemeDetail() {
     const { memeId } = useParams();
     const { meme, loading } = useMeme(memeId);
     const { objectId } = useContext(UserContext);
-    const { deleteMeme } = useDeleteMeme();
     const isOwner = objectId === meme.ownerId;
+    console.log(objectId);
+    console.log(meme.ownerId)
+    const { deleteMeme } = useDeleteMeme();
 
     const deleteHandler = async () => {
         const hasConfirm = confirm(`Are you sure you want to delete this meme?`);
@@ -56,9 +58,11 @@ export default function MemeDetail() {
                 {isOwner &&
                     <>
                         <Button type="primary" onClick={deleteHandler}>Delete</Button>
-                        <Button type="primary" htmlType="button" >
-                            <Link to={`/memes/${memeId}/edit`}>Edit</Link>
-                        </Button>
+                        <Link to={`/memes/${memeId}/edit`}>
+                            <Button type="primary" htmlType="button" >
+                                Edit
+                            </Button>
+                        </Link>
                     </>
                 }
 

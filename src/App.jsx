@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import MemeGenerator from "./components/memeGenerate/MemeGenerator.jsx";
 import NavigationMenu from "./components/navigation/Header.jsx";
 import MemeDetail from "./components/memeDetails/MemeDetails.jsx";
 import HomePage from "./components/home/HomePage.jsx";
 import MemeEdit from "./components/memeEdit/MemeEdit.jsx";
-import Catalog from "./components/catalog/Catalog.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import Register from "./components/register/Register.jsx";
 import Login from "./components/login/Login.jsx";
@@ -15,8 +14,9 @@ import GuestGuard from "./guards/GuestGard.jsx";
 import Profile from "./components/profile/Profile.jsx";
 import { ErrorContext } from "./contexts/ErrorContext.js";
 import { UserContext } from "./contexts/UserContext.js";
-import ErrorPopup from "./components/errorPoput/ErrorPopup.jsx";
+import ErrorPopup from "./components/errorPopup/ErrorPopup.jsx";
 import usePersistedState from "./hooks/usePersistedSate.js";
+const Catalog = lazy(()=>import('./components/catalog/Catalog.jsx'))
 
 export default function App() {
     const [authData, setAuthData] = usePersistedState("auth", {});
@@ -44,7 +44,6 @@ export default function App() {
         < UserContext.Provider value={{ ...authData, userLoginHandler, userLogoutHandler }}>
             <ErrorContext.Provider value={{ message: error, errorHandler }}>
                 {showErrorPopup && <ErrorPopup message={error} onClose={closeErrorPopup} />}
-                <Router>
                     <NavigationMenu />
                     <main>
                         <Routes>
@@ -64,7 +63,6 @@ export default function App() {
                         </Routes>
                     </main>
                     <Footer />
-                </Router>
             </ErrorContext.Provider>
         </UserContext.Provider >
     );

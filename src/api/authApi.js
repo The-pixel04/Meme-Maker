@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import request from "../utils/request.js"
-import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext.js";
 import { ErrorContext } from "../contexts/ErrorContext.js";
 import abortController from "../utils/abortController.js";
@@ -30,7 +29,7 @@ export const useLogin = () => {
                 errorHandler("Login request was aborted");
                 return null;
             }
-            errorHandler(`Invalid email or password (${error.message})`);
+            errorHandler(`Invalid email or password`);
             return null;
         }
     };
@@ -63,7 +62,7 @@ export const useRegister = () => {
                 return null;
             }
 
-            errorHandler(`Account already exist (${error.message})`);
+            errorHandler(`Account already exist`);
             return null;
         }
     }

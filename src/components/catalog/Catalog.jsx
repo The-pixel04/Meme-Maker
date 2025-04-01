@@ -2,15 +2,15 @@ import { Pagination, Spin } from 'antd';
 import { useMemes } from '../../api/memeApi.js';
 import MemeCard from '../memeCard/MemeCard.jsx';
 import styles from './Catalog.module.css'
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 const Catalog = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const { memes, count, loading } = useMemes(currentPage, 12);
+    const { memes, count, loading } = useMemes(currentPage, 2);
 
-    const handlePageChange = (page) => {
+    const handlePageChange = useCallback((page) => {
         setCurrentPage(page);
-    };
+    }, []);
 
     return (
         <div className={styles["meme-catalog"]}>
@@ -30,7 +30,7 @@ const Catalog = () => {
 
             <Pagination
                 current={currentPage}
-                pageSize={12} // Number of memes per page
+                pageSize={2} // Number of memes per page
                 total={count} // Total number of memes
                 onChange={handlePageChange}
                 className={styles["pagination"]}
