@@ -94,7 +94,7 @@ export default function MemeDetail() {
                             type="primary"
                             icon={<LikeOutlined />}
                         >
-                            {`Liked ${likes.length}`}
+                            {`Liked ${likes?.length}`}
 
                         </Button>
 
@@ -104,7 +104,7 @@ export default function MemeDetail() {
                             icon={<LikeOutlined />}
                             onClick={likeMemeHandler}
                         >
-                            {`Likes ${likes.length}`}
+                            {`Likes ${likes?.length}`}
                         </Button>
                 )}
 
