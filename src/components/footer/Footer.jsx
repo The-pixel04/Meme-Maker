@@ -7,7 +7,7 @@ export default function Footer() {
             <footer className={styles["footer"]}>
                 <div className={styles["quick-links"]}>
                     <Link to="/aboutus">About Us</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/contactus">Contact</Link>
                 </div>
                 <div className={styles["copyright"]}>
                     © 2025 Meme Generator. All rights reserved.

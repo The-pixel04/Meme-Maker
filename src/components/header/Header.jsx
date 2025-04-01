@@ -72,5 +72,6 @@ function getSelectedKey() {
     if (path.startsWith('/logout')) return 'logout';
     if (path.startsWith('/memes/')) return null
     if (path.startsWith('/aboutus')) return null
+    if (path.startsWith('/contactus')) return null
     return 'home';
 }

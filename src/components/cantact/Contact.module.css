@@ -1,0 +1,83 @@
+/* Layout */
+.contact-layout {
+    min-height: 100vh;
+    background: #fff;
+}
+
+.contact-content {
+    padding: 24px 50px;
+}
+
+/* Header Section */
+.header-section {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.header-title {
+    color: #1890ff;
+}
+
+.header-description {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    margin-bottom: 40px;
+}
+
+.contact-card {
+    height: 100%;
+    padding: 24px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.contact-icon {
+    font-size: 24px;
+    color: #1890ff;
+    margin-right: 16px;
+}
+
+.contact-title {
+    margin-bottom: 0 !important;
+}
+
+/* Map Card */
+.map-card {
+    height: 100%;
+    padding: 24px;
+}
+
+.map-title {
+    margin-bottom: 16px !important;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 24px 20px;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-icon {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+}
