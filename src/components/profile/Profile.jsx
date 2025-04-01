@@ -1,9 +1,9 @@
-import { Card, Avatar, Row, Col, Typography, Divider, Spin } from 'antd';
-import styles from './Profile.module.css';
 import { useContext } from 'react';
+import { Card, Avatar, Row, Col, Typography, Divider, Spin } from 'antd';
 import { UserContext } from '../../contexts/UserContext.js';
 import { useUserMemes } from '../../api/memeApi.js';
 import MemeCard from '../memeCard/MemeCard.jsx';
+import styles from './Profile.module.css';
 
 const { Title, Text, Paragraph } = Typography;
 

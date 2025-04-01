@@ -1,9 +1,9 @@
-import { Card, Button, Spin } from 'antd';
+import { useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router';
+import { Card, Button, Spin } from 'antd';
+import { UserContext } from '../../contexts/UserContext.js';
 import { useDeleteMeme, useMeme } from '../../api/memeApi.js';
 import saveMeme from '../../utils/saveMemeImage.js';
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext.js';
 import styles from './MemeDetails.module.css'
 
 export default function MemeDetail() {

@@ -1,10 +1,10 @@
-import { Input, Button, Typography } from 'antd';
+import { useActionState, useContext } from 'react';
 import { useNavigate } from 'react-router';
+import { Input, Button, Typography } from 'antd';
 import { useRegister } from '../../api/authApi.js';
 import { UserContext } from '../../contexts/UserContext.js';
-import { useActionState, useContext } from 'react';
-import styles from './Register.module.css'
 import { ErrorContext } from '../../contexts/ErrorContext.js';
+import styles from './Register.module.css'
 
 const { Title } = Typography;
 
