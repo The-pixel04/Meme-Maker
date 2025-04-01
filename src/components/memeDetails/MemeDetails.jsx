@@ -44,8 +44,8 @@ export default function MemeDetail() {
         };
 
         await like(memeId, updatedMeme);
-        
-        isLiked=true
+
+        isLiked = true
         setLikes(updatedLikes.length);
     }
 
@@ -94,7 +94,6 @@ export default function MemeDetail() {
                         <Button
                             type="primary"
                             icon={<LikeOutlined />}
-                            onClick={likeMemeHandler}
                         >
                             {`Liked`}
 
