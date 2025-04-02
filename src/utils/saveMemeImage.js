@@ -1,11 +1,9 @@
-export default function saveMeme(meme) {
+export default function saveMeme(meme, errorHandler) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const img = new Image();
     img.crossOrigin = 'anonymous';
-    console.log(meme.imageUrl);
     if (!meme.imageUrl) {
-        console.error(meme.imageUrl);
         return;
     }
     img.src = meme.imageUrl;
@@ -38,6 +36,7 @@ export default function saveMeme(meme) {
     };
 
     img.onerror = (error) => {
-        console.error('Failed to load image:', error);
+       errorHandler('The picture can not be saved, because is protected by the author!')
+        return error;
     }
 }

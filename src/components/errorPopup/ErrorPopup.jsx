@@ -3,7 +3,7 @@ import { ExclamationCircleFilled } from '@ant-design/icons';
 import styles from './ErrorPopup.module.css';
 
 const ErrorPopup = ({ message, onClose }) => {
-    console.log(message)
+
     return (
         <div className={styles["error-popup-container"]}>
             <Alert

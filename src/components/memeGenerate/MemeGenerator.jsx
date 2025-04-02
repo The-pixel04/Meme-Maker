@@ -4,7 +4,6 @@ import { useCreateMeme } from '../../api/memeApi.js';
 import MemeForm from '../memeForm/MemeForm.jsx';
 import MemePreview from '../memePreview/MemePreview.jsx';
 import { UserContext } from '../../contexts/UserContext.js';
-import { formatCountdown } from 'antd/es/statistic/utils.js';
 
 export default function MemeGenerator() {
   const [imageUrl, setImageUrl] = useState("");

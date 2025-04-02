@@ -6,14 +6,16 @@ import { UserContext } from '../../contexts/UserContext.js';
 import { useDeleteMeme, useLikeMeme, useMeme } from '../../api/memeApi.js';
 import saveMeme from '../../utils/saveMemeImage.js';
 import styles from './MemeDetails.module.css'
+import { ErrorContext } from '../../contexts/ErrorContext.js';
 
 export default function MemeDetail() {
     const navigate = useNavigate();
     const { memeId } = useParams()
     const { deleteMeme } = useDeleteMeme();
     const { meme, loading } = useMeme(memeId);
-    const { objectId } = useContext(UserContext);
     const { like } = useLikeMeme();
+    const { objectId } = useContext(UserContext);
+    const {errorHandler} = useContext(ErrorContext);
     const [likes, setLikes] = useState([])
     const isOwner = objectId === meme.ownerId;
 
@@ -72,7 +74,7 @@ export default function MemeDetail() {
 
             <div className={styles["action-buttons"]}>
 
-                <Button type="primary" htmlType="button" onClick={() => saveMeme(meme)}>
+                <Button type="primary" htmlType="button" onClick={() => saveMeme(meme, errorHandler)}>
                     Save
                 </Button>
 

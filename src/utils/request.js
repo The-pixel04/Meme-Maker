@@ -17,7 +17,6 @@ const request = async (method, url, data, options = {}) => {
     const response = await fetch(url, options);
 
     if (!response.ok) {
-        console.error(`Error: ${response.status} ${response.statusText}`);
         return;
     }
     
