@@ -1,11 +1,11 @@
 # Meme Maker 🎨🧬
 
-Meme Maker is a fun and interactive web application that allows users to create, edit, save  and share hilarious memes effortlessly! Built with modern web technologies, it provides a seamless user experience for meme enthusiasts. [Meme-Maker] (https://mememake.netlify.app/)
+Meme Maker is a fun and interactive web application that allows users to create, edit, save  and share hilarious memes effortlessly! Built with modern web technologies, it provides a seamless user experience for meme enthusiasts. [Meme-Maker](https://mememake.netlify.app/)
 
 ## Overview 🌟
 
 - **Frontend**: Built with [React](https://reactjs.org/) for a dynamic and responsive user interface.
-- **Backend**: Powered by [Back4App](https://www.back4app.com/) (Parse Server) for managing data and APIs.
+- **Backend**: Powered by [Back4App](https://www.back4app.com/) for managing data and APIs.
 - **State Management**: Utilizes React **hooks** 🪝 (`useState`, `useEffect`, `useContext`) for efficient state and lifecycle management + custom hooks.
 - **Routing**: Implements client-side routing with [React Router](https://reactrouter.com/).
 - **Styling**: Styled with CSS Modules and Ant Design for a clean and modern look.
