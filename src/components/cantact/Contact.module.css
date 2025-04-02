@@ -1,4 +1,3 @@
-/* Layout */
 .contact-layout {
     min-height: 100vh;
     background: #fff;
@@ -8,7 +7,6 @@
     padding: 24px 50px;
 }
 
-/* Header Section */
 .header-section {
     margin-bottom: 40px;
     text-align: center;
@@ -24,7 +22,6 @@
     margin: 0 auto;
 }
 
-/* Contact Info Section */
 .contact-info-section {
     margin-bottom: 40px;
 }
@@ -50,7 +47,6 @@
     margin-bottom: 0 !important;
 }
 
-/* Map Card */
 .map-card {
     height: 100%;
     padding: 24px;
@@ -58,6 +54,8 @@
 
 .map-title {
     margin-bottom: 16px !important;
+    display: flex;
+    justify-content: center;
 }
 
 .map-container {
@@ -65,7 +63,6 @@
     overflow: hidden;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .contact-content {
         padding: 24px 20px;

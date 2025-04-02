@@ -60,7 +60,7 @@ export default function Contact() {
                             <div className={styles["map-container"]}>
                                 <iframe
                                     title="Varna Office Location"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2908.123073847372!2d27.917503315845794!3d43.2040489791383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a45476c5c2f0a5%3A0x3a8a7b3f0f4b3b1a!2sul.%20%22Sheynovo%22%202%2C%209000%20Hristo%20Botev%2C%20Varna!5e0!3m2!1sen!2sbg!4v1620000000000!5m2!1sen!2sbg"
+                                    src="https://www.openstreetmap.org/export/embed.html?bbox=27.9150,43.2030,27.9200,43.2050&layer=mapnik&marker=43.204049,27.917503"
                                     width="100%"
                                     height="450"
                                     style={{ border: 0 }}

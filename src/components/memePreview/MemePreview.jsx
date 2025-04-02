@@ -5,7 +5,7 @@ export default function MemePreview({ imageUrl, textSize, topText, topTextColor,
     return (
         <Card className={styles["preview-card"]}>
             {imageUrl && (
-                <div className="meme-preview">
+                <div className={styles["meme-preview"]}>
                     <img
                         src={imageUrl}
                         alt="Meme Preview"

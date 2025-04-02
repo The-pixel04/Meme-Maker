@@ -10,8 +10,10 @@
 .meme-preview {
     position: relative;
     display: inline-block;
-    width: 90%;
+    width:auto;
+    max-width: 120%;
     text-align: center;
+    justify-content: center;
 }
 
 .meme-image {
@@ -19,25 +21,29 @@
     max-height: 450px;
     height: auto;
     width: auto;
+    display: block;
 }
 
 .top-text,
 .bottom-text {
-    position: absolute;
+    position:absolute;
     left: 50%;
     transform: translateX(-50%);
     font-weight: bold;
     text-align: center;
     text-shadow: 2px 2px 4px black;
-    width: 100%;
+    width:100%;
+    word-wrap: break-word; 
+    pointer-events: none;
+    overflow: hidden;
 }
 
 .top-text {
-    top: 10px;
+    top: 1%;
 }
 
 .bottom-text {
-    bottom: 10px;
+    bottom: 1%;
 }
 
 @media (max-width: 576px) {
