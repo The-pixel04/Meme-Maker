@@ -1,3 +1,9 @@
+.details-container {
+    display:flex;
+    align-items:normal; 
+    gap: 16px; 
+}
+
 .meme-detail-card {
     max-width: 600px;
     margin: 0 auto;
@@ -9,18 +15,17 @@
 
 .meme-preview {
     position: relative;
-    display: flex; /* Use flexbox to center the image */
-    justify-content: center; /* Horizontally center the image */
-    align-items: center; /* Vertically center the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 16px;
     overflow: hidden;
 }
 
 .meme-image {
-    max-width: 100%; /* Ensure the image fits within the container */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%;
+    height: auto;
     width: 75%;
-
 }
 
 .top-text,
@@ -33,8 +38,8 @@
     text-shadow: 2px 2px 4px black;
     width: 100%;
     white-space: nowrap;
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    overflow: hidden;
+    text-overflow: ellipsis;
     max-width: 90%;
 }
 
@@ -52,4 +57,26 @@
 
 .action-buttons button {
     margin-right: 8px;
+}
+
+.back-button {
+    height: fit-content; 
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #646cff;
+    color: #ffffff;
+    border: 1px solid #d9d9d9;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #e6e6e6;
+    color: #000;
+}
+
+.back-button:active {
+    background-color: #d9d9d9;
+    color: #000;
 }
