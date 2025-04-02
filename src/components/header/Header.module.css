@@ -9,6 +9,11 @@
 .logo {
     display: flex;
     align-items: center;
+    padding: 0.6em 1.2em;
+}
+
+.logo a {
+    white-space: nowrap
 }
 
 .logo-image {
@@ -50,7 +55,6 @@
     cursor: pointer;
     background: none;
     border: none;
-    padding: auto;
 }
 
 @media (max-width: 876px) {
@@ -73,5 +77,9 @@
 
     .burger-menu {
         display: block; 
+    }
+
+    .nav-container {
+        justify-content: space-between;
     }
 }

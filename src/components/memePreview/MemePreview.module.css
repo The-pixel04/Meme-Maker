@@ -39,3 +39,9 @@
 .bottom-text {
     bottom: 10px;
 }
+
+@media (max-width: 576px) {
+    .preview-card {
+      width: 100%;
+    }
+  }

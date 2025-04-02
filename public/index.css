@@ -91,6 +91,15 @@ button:focus-visible {
   height: 90vh;
 }
 
+
+@media (max-width: 576px) {
+  .meme-generator-container {
+    flex-direction: column;
+    height: unset;
+    padding: 0;
+  }
+}
+
 .meme-preview {
   position: relative;
   display: inline-block;
