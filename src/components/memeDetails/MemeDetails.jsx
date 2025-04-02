@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router';
 import { Card, Button, Spin } from 'antd';
 import { LikeOutlined } from '@ant-design/icons';
 import { UserContext } from '../../contexts/UserContext.js';
-import { useDeleteMeme, useLikeMeme, useMeme } from '../../api/memeApi.js';
+import { useDeleteMeme, useLikeMeme, useMeme, useUnlikeMeme } from '../../api/memeApi.js';
 import saveMeme from '../../utils/saveMemeImage.js';
 import styles from './MemeDetails.module.css'
 import { ErrorContext } from '../../contexts/ErrorContext.js';
@@ -14,15 +14,17 @@ export default function MemeDetail() {
     const { deleteMeme } = useDeleteMeme();
     const { meme, loading } = useMeme(memeId);
     const { like } = useLikeMeme();
+    const { unlike } = useUnlikeMeme();
     const { objectId } = useContext(UserContext);
-    const {errorHandler} = useContext(ErrorContext);
-    const [likes, setLikes] = useState([])
+    const { errorHandler } = useContext(ErrorContext);
+    const [likes, setLikes] = useState([]);
+    const [lodingLike, setLodingLike] = useState(false);
     const isOwner = objectId === meme.ownerId;
 
 
 
     useEffect(() => {
-        setLikes(meme?.likes )
+        setLikes(meme?.likes)
     }, [loading])
 
     const deleteHandler = async () => {
@@ -38,6 +40,7 @@ export default function MemeDetail() {
     };
 
     const likeMemeHandler = async () => {
+        setLodingLike(true);
         const { createdAt, restMeme } = meme;
         const updatedLikes = [...(meme.likes || []), objectId];
         const updatedMeme = {
@@ -48,7 +51,23 @@ export default function MemeDetail() {
         await like(memeId, updatedMeme);
 
         setLikes(updatedLikes);
+        setLodingLike(false);
     }
+
+    const unlikeMemeHandler = async () => {
+        setLodingLike(true)
+        const { createdAt, restMeme } = meme;
+        const updatedLikes = meme.likes.filter((userId) => userId !== objectId);
+        const updatedMeme = {
+            ...restMeme,
+            likes: updatedLikes,
+        };
+
+        await unlike(memeId, updatedMeme);
+
+        setLikes(updatedLikes);
+        setLodingLike(false)
+    };
 
     return (
         <Card className={styles["meme-detail-card"]}>
@@ -90,24 +109,30 @@ export default function MemeDetail() {
                 }
 
                 {objectId && (
-                    likes?.includes(objectId)
+                    !likes
                         ?
-                        <Button
-                            type="primary"
-                            icon={<LikeOutlined />}
-                        >
-                            {`Liked ${likes?.length}`}
-
-                        </Button>
-
+                        <Spin />
                         :
-                        <Button
-                            type="primary"
-                            icon={<LikeOutlined />}
-                            onClick={likeMemeHandler}
-                        >
-                            {`Likes ${likes?.length}`}
-                        </Button>
+                        (likes?.includes(objectId)
+                            ?
+                            <Button
+                                type="primary"
+                                icon={<LikeOutlined />}
+                                disabled={lodingLike}
+                                onClick={unlikeMemeHandler}
+                            >
+                                {`Liked ${likes?.length}`}
+
+                            </Button>
+                            :
+                            <Button
+                                type="primary"
+                                icon={<LikeOutlined />}
+                                disabled={lodingLike}
+                                onClick={likeMemeHandler}
+                            >
+                                {`Likes ${likes?.length}`}
+                            </Button>)
                 )}
 
             </div>

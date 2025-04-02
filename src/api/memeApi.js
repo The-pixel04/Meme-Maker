@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth.js";
 import { ErrorContext } from "../contexts/ErrorContext.js";
 import abortController from "../utils/abortController.js";
 
-const baseUrl =`${ import.meta.env.VITE_BASE_URL}/classes`
+const baseUrl = `${import.meta.env.VITE_BASE_URL}/classes`
 
 export const useCreateMeme = () => {
     const { errorHandler } = useContext(ErrorContext);
@@ -231,31 +231,59 @@ export const useUserMemes = (ownerId) => {
     };
 };
 
-export const useLikeMeme = ()=>{
-const { request } = useAuth();
-const { signal } = abortController();
-const { errorHandler } = useContext(ErrorContext);
+export const useLikeMeme = () => {
+    const { request } = useAuth();
+    const { signal } = abortController();
+    const { errorHandler } = useContext(ErrorContext);
 
-const like = (memeId, memeData) => {
-    try {
-        const result = request.put(`${baseUrl}/memes/${memeId}`, memeData, { signal });
+    const like = (memeId, memeData) => {
+        try {
+            const result = request.put(`${baseUrl}/memes/${memeId}`, memeData, { signal });
 
-        if (!result || result.error) {
-            throw new Error(result.message);
-        };
+            if (!result || result.error) {
+                throw new Error(result.message);
+            };
 
-        return result;
-    } catch (error) {
-        if (error.name === "AbortError") {
+            return result;
+        } catch (error) {
+            if (error.name === "AbortError") {
+                return null;
+            }
+
+            errorHandler(`Error liking meme`);
             return null;
         }
+    };
 
-        errorHandler(`Error liking meme`);
-        return null;
+    return {
+        like
     }
-};
+}
 
-return {
-    like
-}
-}
+export const useUnlikeMeme = () => {
+    const { signal } = abortController();
+    const { errorHandler } = useContext(ErrorContext);
+
+    const unlike = async (memeId, memeData) => {
+        try {
+            const result = await request.put(`${baseUrl}/memes/${memeId}`, memeData, { signal });
+
+            if (!result || result.error) {
+                throw new Error(result.message);
+            }
+
+            return result;
+        } catch (error) {
+            if (error.name === "AbortError") {
+                return null;
+            }
+
+            errorHandler(`Error unliking meme`);
+            return null;
+        }
+    };
+
+    return {
+        unlike,
+    };
+};
