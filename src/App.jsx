@@ -9,7 +9,7 @@ import ErrorPopup from "./components/errorPopup/ErrorPopup.jsx";
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import Logout from "./components/logout/Logout.jsx";
-import AboutUs from "./components/abouUs/AboutUs.jsx";
+import AboutUs from "./components/aboutUs/AboutUs.jsx";
 import Contact from "./components/cantact/Contact.jsx";
 const HomePage = lazy(() => import("./components/home/HomePage.jsx"));
 const Catalog = lazy(() => import('./components/catalog/Catalog.jsx'));

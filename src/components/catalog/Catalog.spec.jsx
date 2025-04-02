@@ -59,7 +59,6 @@ describe('Catalog', () => {
 
         render(<Catalog />);
 
-        // Wait for the first page to load
         await waitFor(() => {
             const images = screen.getAllByRole('img', { name: 'Meme' });
             expect(images).toHaveLength(2);
@@ -75,7 +74,7 @@ describe('Catalog', () => {
             .mockResolvedValueOnce(memesPage2)
 
         render(<Catalog />);
-        // Wait for the second page to load
+        
         await waitFor(() => {
             const images = screen.getAllByRole('img', { name: 'Meme' });
             expect(images).toHaveLength(2);
