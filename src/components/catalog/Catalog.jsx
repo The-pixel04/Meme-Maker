@@ -1,4 +1,4 @@
-import { memo, useCallback, useState, useEffect } from "react";
+import { memo, useCallback, useState, useEffect, useMemo } from "react";
 import { Pagination, Spin } from "antd";
 import { useMemes } from "../../api/memeApi.js";
 import MemeCard from "../memeCard/MemeCard.jsx";
@@ -21,6 +21,14 @@ const Catalog = () => {
         navigate(`/catalog?page=${currentPage}`, { replace: true });
     }, [currentPage, navigate]);
 
+    const renderedMemes = useMemo(() => {
+        return memes.map((meme) => (
+            <div key={meme.objectId} className={styles["meme-card-container"]}>
+                <MemeCard meme={meme} />
+            </div>
+        ));
+    }, [memes]);
+
     return (
         <div className={styles["meme-catalog"]}>
             <h1>Meme Catalog</h1>
@@ -30,11 +38,7 @@ const Catalog = () => {
                         <Spin size="large" />
                     </div>
                 ) : (
-                    memes.map((meme) => (
-                        <div key={meme.objectId} className={styles["meme-card-container"]}>
-                            <MemeCard meme={meme} />
-                        </div>
-                    ))
+                    renderedMemes
                 )}
             </div>
 
