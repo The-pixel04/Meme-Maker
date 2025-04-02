@@ -32,7 +32,7 @@ export default function Register() {
 
         authData = { ...authData, username: userName, email };
         userLoginHandler(authData);
-        navigate("/");
+        navigate(-1);
     };
 
     const [, registerAction, isPending] = useActionState(registerHandler, { userName: "", email: "", password: "" });

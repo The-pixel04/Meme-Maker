@@ -24,7 +24,7 @@ export default function Login() {
 
         userLoginHandler(authData);
 
-        navigate("/catalog");
+        navigate(-1);
         return formValues;
     };
 
