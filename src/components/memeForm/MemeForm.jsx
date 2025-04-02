@@ -1,9 +1,9 @@
-import { Card, Input, Slider, Button, Radio } from 'antd';
-import styles from './MemeForm.module.css'
+import { Card, Input, Slider, Button, Radio } from "antd";
+import styles from "./MemeForm.module.css";
 
 export default function MemeForm({ handleAction, topText, handleInputChange,
     imageUrl, topTextColor, bottomText, bottomTextColor,
-    textSize, setTextSize, setBottomTextColor, setTopTextColor, pending
+    textSize, setTextSize, setBottomTextColor, setTopTextColor, pending,
 }) {
     return (
         <Card className={styles["controls-card"]}>

@@ -1,8 +1,8 @@
-import { Button } from 'antd';
-import styles from './Banner.module.css';
-import { Link } from 'react-router';
+import { Button } from "antd";
+import styles from "./Banner.module.css";
+import { Link } from "react-router";
 
-export default function AnimatedBanner({sessionToken}) {
+export default function AnimatedBanner({ sessionToken }) {
     return (
         <div className={styles["banner-container"]}>
             <div className={styles["banner-content"]}>
@@ -16,8 +16,8 @@ export default function AnimatedBanner({sessionToken}) {
                 </div>
                 {sessionToken &&
                    ( <Button type="primary" size="large" className={styles["banner-button"]}>
-                        <Link to="/create">Create a Meme Now</Link>
-                    </Button>)
+                       <Link to="/create">Create a Meme Now</Link>
+                   </Button>)
                 }
             </div>
         </div>

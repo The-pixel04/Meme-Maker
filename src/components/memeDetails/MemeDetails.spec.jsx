@@ -9,7 +9,7 @@ vi.mock("react-router", async () => {
     const actual = await vi.importActual("react-router");
     return {
         ...actual,
-        useParams: () => ({ memeId: "1" }), 
+        useParams: () => ({ memeId: "1" }),
     };
 });
 
@@ -35,7 +35,7 @@ describe("MemeDetails", () => {
                         <Route path="/memes/:memeId" element={ui} />
                     </Routes>
                 </MemoryRouter>
-            </UserContext.Provider>
+            </UserContext.Provider>,
         );
     };
 
@@ -50,7 +50,7 @@ describe("MemeDetails", () => {
         });
 
         vi.spyOn(memeApi, "useLikeMeme").mockReturnValue({
-            like: vi.fn(), 
+            like: vi.fn(),
         });
 
         renderWithProviders(<MemeDetails />);

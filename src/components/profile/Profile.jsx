@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import { Card, Avatar, Row, Col, Typography, Divider, Spin } from 'antd';
-import { UserContext } from '../../contexts/UserContext.js';
-import { useUserMemes } from '../../api/memeApi.js';
-import MemeCard from '../memeCard/MemeCard.jsx';
-import styles from './Profile.module.css';
+import { useContext } from "react";
+import { Card, Avatar, Row, Col, Typography, Divider, Spin } from "antd";
+import { UserContext } from "../../contexts/UserContext.js";
+import { useUserMemes } from "../../api/memeApi.js";
+import MemeCard from "../memeCard/MemeCard.jsx";
+import styles from "./Profile.module.css";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -19,9 +19,9 @@ export default function Profile() {
                         <Avatar
                             size={64}
                             style={{
-                                backgroundColor: '#1890ff',
-                                fontSize: '24px',
-                                fontWeight: 'bold'
+                                backgroundColor: "#1890ff",
+                                fontSize: "24px",
+                                fontWeight: "bold",
                             }}
                         >
                             {username.charAt(0).toUpperCase()}
@@ -44,9 +44,9 @@ export default function Profile() {
             {loading
                 ? <Spin />
                 : userMemes.results?.length > 0 ? (
-                    <div className={styles['meme-grid']}>
+                    <div className={styles["meme-grid"]}>
                         {userMemes.results.map((meme) => (
-                            <div key={meme.objectId} className={styles['meme-card-container']}>
+                            <div key={meme.objectId} className={styles["meme-card-container"]}>
                                 <MemeCard meme={meme} />
                             </div>
                         ))}

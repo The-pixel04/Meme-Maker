@@ -1,13 +1,13 @@
-import { Layout, Typography, Row, Col, Card, Avatar, Divider } from 'antd';
-import { RocketOutlined, StarOutlined } from '@ant-design/icons';
-import styles from './AboutUs.module.css';
+import { Layout, Typography, Row, Col, Card, Avatar, Divider } from "antd";
+import { RocketOutlined, StarOutlined } from "@ant-design/icons";
+import styles from "./AboutUs.module.css";
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 export default function AboutUs() {
     const teamMembers = [
-        { name: 'Kristian', role: 'Founder & Developer', avatar: 'https://www.vhv.rs/dpng/d/123-1231425_memes-meme-dankmemes-pepethefrog-funny-group-chat-profile.png' },
+        { name: "Kristian", role: "Founder & Developer", avatar: "https://www.vhv.rs/dpng/d/123-1231425_memes-meme-dankmemes-pepethefrog-funny-group-chat-profile.png" },
     ];
 
     return (

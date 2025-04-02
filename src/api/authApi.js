@@ -1,23 +1,22 @@
 import { useEffect, useContext } from "react";
-import request from "../utils/request.js"
+import request from "../utils/request.js";
 import { UserContext } from "../contexts/UserContext.js";
 import { ErrorContext } from "../contexts/ErrorContext.js";
 import abortController from "../utils/abortController.js";
 
-
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 export const useLogin = () => {
-    const { signal } = abortController()
+    const { signal } = abortController();
     const { errorHandler } = useContext(ErrorContext);
 
     const login = async (email, password) => {
         const headers = {
-            'X-Parse-Revocable-Session': 1
-        }
+            "X-Parse-Revocable-Session": 1,
+        };
 
         try {
-            const result = await request.post(`${baseUrl}/login`, { email, password }, { signal, headers: headers });
+            const result = await request.post(`${baseUrl}/login`, { email, password }, { signal, headers });
 
             if (!result || result.error) {
                 throw new Error(result.response);
@@ -29,14 +28,14 @@ export const useLogin = () => {
                 errorHandler("Login request was aborted");
                 return null;
             }
-            errorHandler(`Invalid email or password`);
+            errorHandler("Invalid email or password");
             return null;
         }
     };
 
     return {
-        login
-    }
+        login,
+    };
 };
 
 export const useRegister = () => {
@@ -45,11 +44,11 @@ export const useRegister = () => {
 
     const register = async (username, email, password) => {
         const headers = {
-            'X-Parse-Revocable-Session': 1
-        }
+            "X-Parse-Revocable-Session": 1,
+        };
 
         try {
-            const result = await request.post(`${baseUrl}/users`, { username, email, password }, { signal, headers: headers });
+            const result = await request.post(`${baseUrl}/users`, { username, email, password }, { signal, headers });
 
             if (!result || result.error) {
                 throw new Error(result.response);
@@ -62,14 +61,14 @@ export const useRegister = () => {
                 return null;
             }
 
-            errorHandler(`Account already exist`);
+            errorHandler("Account already exist");
             return null;
         }
-    }
+    };
 
     return {
-        register
-    }
+        register,
+    };
 };
 
 export const useLogout = () => {
@@ -82,20 +81,20 @@ export const useLogout = () => {
 
         const options = {
             headers: {
-                'X-Parse-Session-Token': sessionToken
-            }
+                "X-Parse-Session-Token": sessionToken,
+            },
         };
 
         request.post(`${baseUrl}/logout`, null, options)
             .then(() => {
-                userLogoutHandler()
+                userLogoutHandler();
             })
             .catch((error) => {
-                errorHandler('Logout failed:', error.message);
+                errorHandler("Logout failed:", error.message);
             });
     }, []);
 
     return {
-        isLoggedOut: !!sessionToken
-    }
-};  
+        isLoggedOut: !!sessionToken,
+    };
+};

@@ -1,9 +1,9 @@
-import { Link, useLocation } from 'react-router';
-import { Menu } from 'antd';
-import { HomeOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
-import useAuth from '../../hooks/useAuth.js';
-import styles from './Header.module.css';
-import { useState } from 'react';
+import { Link, useLocation } from "react-router";
+import { Menu } from "antd";
+import { HomeOutlined, BookOutlined, FormOutlined, KeyOutlined, LoginOutlined, LogoutOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
+import useAuth from "../../hooks/useAuth.js";
+import styles from "./Header.module.css";
+import { useState } from "react";
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function Header() {
     return (
         <header>
             <div className={styles["nav-container"]}>
-                <div className={styles["logo"]}>
+                <div className={styles.logo}>
                     <Link to="/" onClick={closeMenu}>
                         <img
                             src="https://cdn.pixabay.com/photo/2024/05/31/18/54/meme-8801100_1280.png"
@@ -32,14 +32,14 @@ export default function Header() {
                     </Link>
                 </div>
 
-                <button className={styles['burger-menu']} onClick={toggleMenu}>
+                <button className={styles["burger-menu"]} onClick={toggleMenu}>
                     <MenuOutlined />
                 </button>
 
                 <Menu
-                    mode={menuOpen ? 'vertical' : "horizontal"}
+                    mode={menuOpen ? "vertical" : "horizontal"}
                     selectedKeys={[getSelectedKey(location)]}
-                    className={`${styles['nav-menu']} ${menuOpen ? styles.active : ''}`}
+                    className={`${styles["nav-menu"]} ${menuOpen ? styles.active : ""}`}
                 >
                     <Menu.Item key="home" icon={<HomeOutlined />}>
                         <Link to="/" onClick={closeMenu}>Home</Link>
@@ -80,12 +80,12 @@ export default function Header() {
 function getSelectedKey(location) {
     const path = location.pathname;
 
-    if (path === '/') return 'home';
-    if (path.startsWith('/catalog')) return 'catalog';
-    if (path.startsWith('/profile')) return 'profile';
-    if (path.startsWith('/create')) return 'create';
-    if (path.startsWith('/register')) return 'register';
-    if (path.startsWith('/login')) return 'login';
-    if (path.startsWith('/logout')) return 'logout';
+    if (path === "/") {return "home";}
+    if (path.startsWith("/catalog")) {return "catalog";}
+    if (path.startsWith("/profile")) {return "profile";}
+    if (path.startsWith("/create")) {return "create";}
+    if (path.startsWith("/register")) {return "register";}
+    if (path.startsWith("/login")) {return "login";}
+    if (path.startsWith("/logout")) {return "logout";}
     return null;
 }

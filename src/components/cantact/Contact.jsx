@@ -1,6 +1,6 @@
-import { Layout, Typography, Row, Col, Card, Divider } from 'antd';
-import { MailOutlined, PhoneOutlined, EnvironmentOutlined } from '@ant-design/icons';
-import styles from './Contact.module.css';
+import { Layout, Typography, Row, Col, Card, Divider } from "antd";
+import { MailOutlined, PhoneOutlined, EnvironmentOutlined } from "@ant-design/icons";
+import styles from "./Contact.module.css";
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;

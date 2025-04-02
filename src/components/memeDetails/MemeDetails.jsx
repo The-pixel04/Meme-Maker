@@ -1,16 +1,16 @@
-import { useContext, useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router';
-import { Card, Button, Spin } from 'antd';
-import { LikeOutlined } from '@ant-design/icons';
-import { UserContext } from '../../contexts/UserContext.js';
-import { useDeleteMeme, useLikeMeme, useMeme, useUnlikeMeme } from '../../api/memeApi.js';
-import saveMeme from '../../utils/saveMemeImage.js';
-import styles from './MemeDetails.module.css'
-import { ErrorContext } from '../../contexts/ErrorContext.js';
+import { useContext, useEffect, useState } from "react";
+import { useParams, Link, useNavigate } from "react-router";
+import { Card, Button, Spin } from "antd";
+import { LikeOutlined } from "@ant-design/icons";
+import { UserContext } from "../../contexts/UserContext.js";
+import { useDeleteMeme, useLikeMeme, useMeme, useUnlikeMeme } from "../../api/memeApi.js";
+import saveMeme from "../../utils/saveMemeImage.js";
+import styles from "./MemeDetails.module.css";
+import { ErrorContext } from "../../contexts/ErrorContext.js";
 
 export default function MemeDetail( ) {
     const navigate = useNavigate();
-    const { memeId } = useParams()
+    const { memeId } = useParams();
     const { deleteMeme } = useDeleteMeme();
     const { meme, loading } = useMeme(memeId);
     const { like } = useLikeMeme();
@@ -22,11 +22,11 @@ export default function MemeDetail( ) {
     const isOwner = objectId === meme.ownerId;
 
     useEffect(() => {
-        setLikes(meme?.likes)
+        setLikes(meme?.likes);
     }, [loading]);
 
     const deleteHandler = async () => {
-        const hasConfirm = confirm(`Are you sure you want to delete this meme?`);
+        const hasConfirm = confirm("Are you sure you want to delete this meme?");
 
         if (!hasConfirm) {
             return;
@@ -34,12 +34,13 @@ export default function MemeDetail( ) {
 
         await deleteMeme(meme);
 
-        navigate('/catalog');
+        navigate("/catalog");
     };
 
     const likeMemeHandler = async () => {
         setLodingLike(true);
-        const { createdAt, restMeme } = meme;
+        // eslint-disable-next-line no-unused-vars
+        const { createdAt, updatedAt, ...restMeme } = meme;
         const updatedLikes = [...(meme.likes || []), objectId];
         const updatedMeme = {
             ...restMeme,
@@ -50,11 +51,12 @@ export default function MemeDetail( ) {
 
         setLikes(updatedLikes);
         setLodingLike(false);
-    }
+    };
 
     const unlikeMemeHandler = async () => {
-        setLodingLike(true)
-        const { createdAt, restMeme } = meme;
+        setLodingLike(true);
+        // eslint-disable-next-line no-unused-vars
+        const { createdAt, updatedAt, ...restMeme } = meme;
         const updatedLikes = meme.likes.filter((userId) => userId !== objectId);
         const updatedMeme = {
             ...restMeme,
@@ -64,16 +66,11 @@ export default function MemeDetail( ) {
         await unlike(memeId, updatedMeme);
 
         setLikes(updatedLikes);
-        setLodingLike(false)
+        setLodingLike(false);
     };
 
     return (
-        <>
- 
-                <Button className={styles["back-button"]} onClick={() => navigate(-1)}>
-                    Back
-                </Button>
-
+        <div className={styles["details-container"]}>
 
             <Card className={styles["meme-detail-card"]}>
                 {loading ? (
@@ -142,6 +139,11 @@ export default function MemeDetail( ) {
 
                 </div>
             </Card>
-        </>
+            <div className={styles["back-button-container"]}>
+                <Button className={`${styles["back-button"]} button`} type="primary" onClick={() => navigate(-1)}>
+                    Back
+                </Button>
+            </div>
+        </div>
     );
 };

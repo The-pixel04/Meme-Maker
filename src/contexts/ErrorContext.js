@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
 export const ErrorContext = createContext({
-    message: '',
+    message: "",
     errorHandler: () => null,
 });

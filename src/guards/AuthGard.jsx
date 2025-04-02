@@ -5,7 +5,7 @@ export default function AuthGuard() {
     const { isAuthenticated } = useAuth();
 
     if (!isAuthenticated) {
-        return <Navigate to="/login" />
+        return <Navigate to="/login" />;
     }
 
     return <Outlet />;

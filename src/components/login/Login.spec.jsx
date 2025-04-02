@@ -9,14 +9,14 @@ vi.mock("react-router", () => ({
     useNavigate: () => mockNavigate,
 }));
 
-describe('Login', () => {
-    it('renders the login component', () => {
+describe("Login", () => {
+    it("renders the login component", () => {
         requestMock.post.mockResolvedValue({});
         render(<Login />);
 
-        expect(screen.getByText('Welcome Back')).toBeInTheDocument();
-        expect(screen.getByLabelText('Email')).toBeInTheDocument();
-        expect(screen.getByLabelText('Password')).toBeInTheDocument();
+        expect(screen.getByText("Welcome Back")).toBeInTheDocument();
+        expect(screen.getByLabelText("Email")).toBeInTheDocument();
+        expect(screen.getByLabelText("Password")).toBeInTheDocument();
     });
 
     it("handles login and navigates to catalog", async () => {
@@ -41,7 +41,7 @@ describe('Login', () => {
             expect(requestMock.post).toHaveBeenCalledWith(
                 expect.anything(),
                 { email: user.email, password: user.password },
-                expect.anything()
+                expect.anything(),
             );
         });
 
@@ -73,11 +73,11 @@ describe('Login', () => {
                         "X-Parse-Revocable-Session": 1,
                     }),
                     signal: expect.any(Object),
-                })
+                }),
             );
         });
 
         // Verify no navigation
-        expect(screen.getByText('Welcome Back')).toBeInTheDocument();
+        expect(screen.getByText("Welcome Back")).toBeInTheDocument();
     });
 });

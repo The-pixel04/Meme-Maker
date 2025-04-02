@@ -1,10 +1,10 @@
-import { useActionState, useContext } from 'react';
-import { useNavigate } from 'react-router';
-import { Input, Button, Typography } from 'antd';
-import { useRegister } from '../../api/authApi.js';
-import { UserContext } from '../../contexts/UserContext.js';
-import { ErrorContext } from '../../contexts/ErrorContext.js';
-import styles from './Register.module.css'
+import { useActionState, useContext } from "react";
+import { useNavigate } from "react-router";
+import { Input, Button, Typography } from "antd";
+import { useRegister } from "../../api/authApi.js";
+import { UserContext } from "../../contexts/UserContext.js";
+import { ErrorContext } from "../../contexts/ErrorContext.js";
+import styles from "./Register.module.css";
 
 const { Title } = Typography;
 
@@ -12,31 +12,31 @@ export default function Register() {
     const navigate = useNavigate();
     const { register } = useRegister();
     const { userLoginHandler } = useContext(UserContext);
-    const {errorHandler} = useContext(ErrorContext);
+    const { errorHandler } = useContext(ErrorContext);
 
-    const registerHandler = async (_,formData) => {
+    const registerHandler = async (_, formData) => {
         const { userName, email, password } = Object.fromEntries(formData);
 
-        const confirmPassword = formData.get('confirmPassword');
+        const confirmPassword = formData.get("confirmPassword");
 
         if (password !== confirmPassword) {
-            errorHandler('Password missmatch')
+            errorHandler("Password missmatch");
             return;
         }
 
         let authData = await register(userName, email, password);
-        
+
         if (!authData) {
             return null;
         }
 
-        authData= { ...authData, username: userName, email: email };
-        userLoginHandler(authData)
-        navigate('/');
+        authData = { ...authData, username: userName, email };
+        userLoginHandler(authData);
+        navigate("/");
     };
 
-    const [_, registerAction, isPending] = useActionState(registerHandler, { userName: '', email: '', password: '' });
-    
+    const [, registerAction, isPending] = useActionState(registerHandler, { userName: "", email: "", password: "" });
+
     return (
         <div className={styles["register-container"]}>
             <Title level={2} className={styles["form-title"]}>Create Account</Title>

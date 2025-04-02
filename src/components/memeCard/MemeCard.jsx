@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
-import { Card } from 'antd';
-import styles from './MemeCard.module.css'
+import { Link } from "react-router";
+import { Card } from "antd";
+import styles from "./MemeCard.module.css";
 
 const MemeCard = ({ meme }) => {
     return (

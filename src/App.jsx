@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { lazy, useState } from "react";
-import '@ant-design/v5-patch-for-react-19';
+import "@ant-design/v5-patch-for-react-19";
 import usePersistedState from "./hooks/usePersistedSate.js";
 import { ErrorContext } from "./contexts/ErrorContext.js";
 import { UserContext } from "./contexts/UserContext.js";
@@ -13,7 +13,7 @@ import Logout from "./components/logout/Logout.jsx";
 import AboutUs from "./components/aboutUs/AboutUs.jsx";
 import Contact from "./components/cantact/Contact.jsx";
 const HomePage = lazy(() => import("./components/home/HomePage.jsx"));
-const Catalog = lazy(() => import('./components/catalog/Catalog.jsx'));
+const Catalog = lazy(() => import("./components/catalog/Catalog.jsx"));
 const Register = lazy(() => import("./components/register/Register.jsx"));
 const Login = lazy(() => import("./components/login/Login.jsx"));
 const MemeGenerator = lazy(() => import("./components/memeGenerate/MemeGenerator.jsx"));

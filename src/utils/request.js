@@ -3,14 +3,14 @@ const request = async (method, url, data, options = {}) => {
 
     options.headers = {
         "Cache-Control": "no-cache",
-        'X-Parse-Application-Id': import.meta.env.VITE_APP_ID,
-        'X-Parse-REST-API-Key':import.meta.env.VITE_REST_API_KEY,
-        'Content-Type': 'application/json',
+        "X-Parse-Application-Id": import.meta.env.VITE_APP_ID,
+        "X-Parse-REST-API-Key": import.meta.env.VITE_REST_API_KEY,
+        "Content-Type": "application/json",
         ...options.headers,
     };
 
     // Add body only for non-GET requests
-    if (method !== 'GET' && data) {
+    if (method !== "GET" && data) {
         options.body = JSON.stringify(data);
     }
 
@@ -19,8 +19,8 @@ const request = async (method, url, data, options = {}) => {
     if (!response.ok) {
         return;
     }
-    
-    const responseContentType = response.headers.get('Content-Type');
+
+    const responseContentType = response.headers.get("Content-Type");
     if (!responseContentType) {
         return;
     }
@@ -29,11 +29,11 @@ const request = async (method, url, data, options = {}) => {
 
     return result;
 
-}
+};
 export default {
-    get: request.bind(null, 'GET'),
-    post: request.bind(null, 'POST'),
-    put: request.bind(null, 'PUT'),
-    delete: request.bind(null, 'DELETE'),
-    baseRequest: request
-}
+    get: request.bind(null, "GET"),
+    post: request.bind(null, "POST"),
+    put: request.bind(null, "PUT"),
+    delete: request.bind(null, "DELETE"),
+    baseRequest: request,
+};

@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth.js";
 import { ErrorContext } from "../contexts/ErrorContext.js";
 import abortController from "../utils/abortController.js";
 
-const baseUrl = `${import.meta.env.VITE_BASE_URL}/classes`
+const baseUrl = `${import.meta.env.VITE_BASE_URL}/classes`;
 
 export const useCreateMeme = () => {
     const { errorHandler } = useContext(ErrorContext);
@@ -24,14 +24,14 @@ export const useCreateMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error creating meme (every field is required)`);
+            errorHandler("Error creating meme (every field is required)");
             return null;
         }
-    }
+    };
 
     return {
-        create
-    }
+        create,
+    };
 };
 
 export const useMemes = (page, pageSize) => {
@@ -52,27 +52,27 @@ export const useMemes = (page, pageSize) => {
             .then(result => {
                 setCount(result.count);
                 setMemes(result.results);
-                setLoading(false)
+                setLoading(false);
             })
             .catch(error => {
                 if (error.name === "AbortError") {
                     return null;
                 }
-                errorHandler(`Error fetching memes`);
+                errorHandler("Error fetching memes");
                 return null;
             });
 
         return () => {
             abort();
-        }
+        };
 
     }, [page]);
 
     return {
         memes,
         count,
-        loading
-    }
+        loading,
+    };
 };
 
 export const useMeme = (memeId) => {
@@ -91,19 +91,19 @@ export const useMeme = (memeId) => {
                 if (error.name === "AbortError") {
                     return null;
                 }
-                errorHandler(`Error fetching meme`);
+                errorHandler("Error fetching meme");
                 return null;
             });
 
         return () => {
             abort();
-        }
+        };
     }, [memeId]);
 
     return {
         meme,
-        loading
-    }
+        loading,
+    };
 };
 
 export const useEditMeme = () => {
@@ -125,15 +125,15 @@ export const useEditMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error editing meme`);
+            errorHandler("Error editing meme");
             return null;
         }
     };
 
     return {
-        edit
-    }
-}
+        edit,
+    };
+};
 
 export const useDeleteMeme = () => {
     const { request } = useAuth();
@@ -154,15 +154,15 @@ export const useDeleteMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error deleting meme`);
+            errorHandler("Error deleting meme");
             return null;
         }
     };
 
     return {
-        deleteMeme
-    }
-}
+        deleteMeme,
+    };
+};
 
 export const useLast3Memes = () => {
     const [last3Memes, setLast3Memes] = useState([]);
@@ -180,19 +180,19 @@ export const useLast3Memes = () => {
                 if (error.name === "AbortError") {
                     return null;
                 }
-                errorHandler(`Error fetching last 3 memes`);
+                errorHandler("Error fetching last 3 memes");
                 return null;
             });
 
         return () => {
             abort();
-        }
+        };
 
     }, []);
 
     return {
         last3Memes,
-        loading
+        loading,
     };
 };
 
@@ -216,18 +216,18 @@ export const useUserMemes = (ownerId) => {
                 if (error.name === "AbortError") {
                     return null;
                 }
-                errorHandler(`Error fetching user memes`);
+                errorHandler("Error fetching user memes");
                 return null;
             });
 
         return () => {
             abort();
-        }
+        };
     }, [ownerId]);
 
     return {
         userMemes,
-        loading
+        loading,
     };
 };
 
@@ -250,15 +250,15 @@ export const useLikeMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error liking meme`);
+            errorHandler("Error liking meme");
             return null;
         }
     };
 
     return {
-        like
-    }
-}
+        like,
+    };
+};
 
 export const useUnlikeMeme = () => {
     const { signal } = abortController();
@@ -278,7 +278,7 @@ export const useUnlikeMeme = () => {
                 return null;
             }
 
-            errorHandler(`Error unliking meme`);
+            errorHandler("Error unliking meme");
             return null;
         }
     };

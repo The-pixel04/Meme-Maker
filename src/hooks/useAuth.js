@@ -9,20 +9,20 @@ export default function useAuth() {
         const authOptions = {
             ...options,
             headers: {
-                'X-Parse-Session-Token': sessionToken,
-                ...options.headers
-            }
+                "X-Parse-Session-Token": sessionToken,
+                ...options.headers,
+            },
         };
 
         return request.baseRequest(method, url, data, sessionToken ? authOptions : options);
     }, [sessionToken]);
 
     const requestObject = useMemo(() => ({
-        get: requestWrapper.bind(null, 'GET'),
-        post: requestWrapper.bind(null, 'POST'),
-        put: requestWrapper.bind(null, 'PUT'),
-        delete: requestWrapper.bind(null, 'DELETE'),
-    }), [requestWrapper])
+        get: requestWrapper.bind(null, "GET"),
+        post: requestWrapper.bind(null, "POST"),
+        put: requestWrapper.bind(null, "PUT"),
+        delete: requestWrapper.bind(null, "DELETE"),
+    }), [requestWrapper]);
 
     return {
         ...authData,
@@ -30,5 +30,5 @@ export default function useAuth() {
         userId: authData._id,
         isAuthenticated: !!sessionToken,
         request: requestObject,
-    }
+    };
 };

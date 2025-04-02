@@ -1,6 +1,6 @@
-import { Alert } from 'antd';
-import { ExclamationCircleFilled } from '@ant-design/icons';
-import styles from './ErrorPopup.module.css';
+import { Alert } from "antd";
+import { ExclamationCircleFilled } from "@ant-design/icons";
+import styles from "./ErrorPopup.module.css";
 
 const ErrorPopup = ({ message, onClose }) => {
 

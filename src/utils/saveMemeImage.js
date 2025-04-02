@@ -1,8 +1,8 @@
 export default function saveMeme(meme, errorHandler) {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
     const img = new Image();
-    img.crossOrigin = 'anonymous';
+    img.crossOrigin = "anonymous";
     if (!meme.imageUrl) {
         return;
     }
@@ -14,11 +14,11 @@ export default function saveMeme(meme, errorHandler) {
         ctx.drawImage(img, 0, 0);
 
         ctx.font = `${meme.textSize}px Arial`;
-        ctx.textAlign = 'center';
+        ctx.textAlign = "center";
 
         // Draw top text
         ctx.fillStyle = meme.topTextColor;
-        ctx.strokeStyle = 'black';
+        ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
         ctx.fillText(meme.topText, img.width / 2, meme.textSize + 10);
         ctx.strokeText(meme.topText, img.width / 2, meme.textSize + 10);
@@ -29,14 +29,14 @@ export default function saveMeme(meme, errorHandler) {
         ctx.strokeText(meme.bottomText, img.width / 2, img.height - 10);
 
         // Create a download link
-        const link = document.createElement('a');
-        link.download = 'meme.png';
+        const link = document.createElement("a");
+        link.download = "meme.png";
         link.href = canvas.toDataURL();
         link.click();
     };
 
     img.onerror = (error) => {
-       errorHandler('The picture can not be saved, because is protected by the author!')
+        errorHandler("The picture can not be saved, because is protected by the author!");
         return error;
-    }
+    };
 }

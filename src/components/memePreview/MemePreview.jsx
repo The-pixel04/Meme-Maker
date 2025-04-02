@@ -1,5 +1,5 @@
-import { Card } from 'antd';
-import styles from './MemePreview.module.css'
+import { Card } from "antd";
+import styles from "./MemePreview.module.css";
 
 export default function MemePreview({ imageUrl, textSize, topText, topTextColor, bottomText, bottomTextColor }) {
     return (

@@ -1,10 +1,10 @@
-import { useActionState, useContext} from 'react';
-import { useNavigate } from 'react-router';
-import { Input, Button, Typography } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { UserContext } from '../../contexts/UserContext.js';
-import { useLogin } from '../../api/authApi.js';
-import styles from './Login.module.css'
+import { useActionState, useContext } from "react";
+import { useNavigate } from "react-router";
+import { Input, Button, Typography } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { UserContext } from "../../contexts/UserContext.js";
+import { useLogin } from "../../api/authApi.js";
+import styles from "./Login.module.css";
 
 const { Title } = Typography;
 
@@ -17,25 +17,24 @@ export default function Login() {
         const formValues = Object.fromEntries(formData);
 
         const authData = await login(formValues.email, formValues.password);
-        
+
         if (!authData) {
             return null;
         }
 
         userLoginHandler(authData);
-        
 
-        navigate('/catalog');
-        return formValues
+        navigate("/catalog");
+        return formValues;
     };
 
-    const [_, loginAction, isPending] = useActionState(loginHandler, { email: '', password: '' });
+    const [, loginAction, isPending] = useActionState(loginHandler, { email: "", password: "" });
 
     return (
         <div className={styles["login-container"]} >
             <Title level={2} className={styles["form-title"]}>Welcome Back</Title>
 
-            <form className={styles['login-form']} action={loginAction}>
+            <form className={styles["login-form"]} action={loginAction}>
                 <div className={styles["form-group"]}>
                     <label htmlFor="email">Email</label>
                     <Input
