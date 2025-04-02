@@ -10,7 +10,7 @@ const Catalog = () => {
     const navigate = useNavigate();
     const initialPage = parseInt(searchParams.get('page')) || 1;
     const [currentPage, setCurrentPage] = useState(initialPage);
-    const { memes, count, loading } = useMemes(currentPage, 2);
+    const { memes, count, loading } = useMemes(currentPage, 12);
 
     const handlePageChange = useCallback((page) => {
         setCurrentPage(page);
@@ -40,7 +40,7 @@ const Catalog = () => {
 
             <Pagination
                 current={currentPage}
-                pageSize={2}
+                pageSize={12}
                 total={count}
                 onChange={handlePageChange}
                 className={styles["pagination"]}
