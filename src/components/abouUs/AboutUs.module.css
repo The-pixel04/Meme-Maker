@@ -26,9 +26,10 @@
     display: flex;
     justify-content: center; 
     align-items: center; 
-    flex-direction: column; 
+    flex-direction: row; 
     margin-bottom: 40px;
     min-height: 50vh; 
+    gap: 16px;
 }
 
 .feature-card {
