@@ -5,6 +5,7 @@
     justify-content: center;
     padding: 16px;
     position: relative;
+    order: 1;
 }
 
 .meme-preview {
@@ -27,6 +28,7 @@
 .top-text,
 .bottom-text {
     position:absolute;
+    line-height: 1;
     left: 50%;
     transform: translateX(-50%);
     font-weight: bold;
@@ -46,8 +48,9 @@
     bottom: 1%;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 786px) {
     .preview-card {
       width: 100%;
+      order: 0;
     }
   }

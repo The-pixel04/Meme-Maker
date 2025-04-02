@@ -17,7 +17,6 @@
 
 .featured-memes {
     padding: 32px;
-    background-color: #ffffff; /* White background for contrast */
     text-align: center;
 }
 
@@ -43,10 +42,8 @@
     flex: 1 1 calc(33.33% - 16px); 
     max-width: calc(33.33% - 16px);
     height: auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    background-color: #f9f9f9;
 }
 
 @media (max-width: 1024px) {

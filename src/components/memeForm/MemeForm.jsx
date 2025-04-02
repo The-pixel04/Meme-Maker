@@ -20,6 +20,7 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                     <Input
                         name="topText"
                         value={topText}
+                        maxLength={50}
                         onChange={handleInputChange}
                         placeholder="Top Text"
                     />
@@ -36,6 +37,7 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                     <Input
                         name="bottomText"
                         value={bottomText}
+                        maxLength={50}
                         onChange={handleInputChange}
                         placeholder="Bottom Text"
                     />
@@ -52,8 +54,8 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                     <Slider
                         value={textSize}
                         onChange={setTextSize}
-                        min={10}
-                        max={50}
+                        min={16}
+                        max={32}
                     />
                     <Button type="primary" htmlType="submit" disabled={pending}>
                         Save to collection

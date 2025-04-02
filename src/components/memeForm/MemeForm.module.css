@@ -2,6 +2,7 @@
   margin-top: 0px;
   width: 20%;
   padding: 16px;
+  order: 0;
 }
 
 .controls-container {
@@ -13,5 +14,20 @@
 @media (max-width: 576px) {
   .controls-card {
     width: 100%;
+    order: 1;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 786px) {
+  .controls-card {
+    margin: auto;
+    width: 75%;
+    order: 1;
+  }
+}
+
+@media (min-width: 787px) and (max-width: 992px) {
+  .controls-card {
+    width: 30%;
   }
 }

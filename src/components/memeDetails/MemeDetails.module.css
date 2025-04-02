@@ -27,7 +27,7 @@
 .meme-image {
     max-width: 100%;
     height: auto;
-    width: 75%;
+    width: 100%;
 }
 
 .top-text,
@@ -39,7 +39,8 @@
     text-align: center;
     text-shadow: 2px 2px 4px black;
     width: 100%;
-    white-space: nowrap;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 90%;

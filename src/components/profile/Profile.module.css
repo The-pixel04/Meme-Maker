@@ -34,8 +34,27 @@
     flex: 1 1 calc(33.33% - 16px); 
     max-width: calc(33.33% - 16px);
     height: auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    background-color: #f9f9f9; 
+}
+
+@media (max-width: 1024px) {
+    .meme-card-container {
+        flex: 1 1 calc(50% - 16px); /* 2 cards per row for medium screens */
+        max-width: calc(50% - 16px);
+    }
+}
+
+@media (max-width: 786px) {
+    .meme-card-container {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 16px);
+    }
+}
+
+@media (max-width: 576px) {
+    .meme-card-container {
+        flex: 0 0 calc(100% - 20px); 
+        max-width: calc(100% - 16px);
+    }
 }

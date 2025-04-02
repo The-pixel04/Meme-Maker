@@ -17,15 +17,12 @@
 
 .meme-card-container {
     flex: 0 0 calc(33.33% - 20px);
-    /* Fixed size, 3 per row */
     aspect-ratio: 1/1;
-    /* Square cards */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
     border-radius: 8px;
     overflow: hidden;
     position: relative;
     background-color: white;
-    /* White background instead of grey */
     display: flex;
     flex-direction: column;
 }
