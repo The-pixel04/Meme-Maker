@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { lazy, useState } from "react";
+import '@ant-design/v5-patch-for-react-19';
 import usePersistedState from "./hooks/usePersistedSate.js";
 import { ErrorContext } from "./contexts/ErrorContext.js";
 import { UserContext } from "./contexts/UserContext.js";
