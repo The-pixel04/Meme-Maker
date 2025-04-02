@@ -1,5 +1,5 @@
 import { Layout, Typography, Row, Col, Card, Avatar, Divider } from 'antd';
-import { RocketOutlined } from '@ant-design/icons';
+import { RocketOutlined, StarOutlined } from '@ant-design/icons';
 import styles from './AboutUs.module.css';
 
 const { Content } = Layout;
@@ -13,7 +13,7 @@ export default function AboutUs() {
     return (
         <Layout className={styles["about-layout"]}>
             <Content className={styles["about-content"]}>
-                {/* Hero Section */}
+
                 <Row justify="center" className={styles["hero-section"]}>
                     <Col span={24}>
                         <Title level={1} className={styles["hero-title"]}>About Meme Maker</Title>
@@ -32,7 +32,15 @@ export default function AboutUs() {
                             <Paragraph>Choose image Url, add text, and customize memes in seconds.</Paragraph>
                         </Card>
                     </Col>
-                    {/* ...other feature cards... */}
+
+                    <Col xs={24} sm={12} md={8}>
+                        <Card hoverable className={styles["feature-card"]}>
+                            <StarOutlined className={styles["feature-icon"]} />
+                            <Title level={3}>User Frienfly</Title>
+                            <Paragraph>Our intuitive interface ensures a seamless experience for all users.</Paragraph>
+                        </Card>
+                    </Col>
+
                 </Row>
 
                 {/* Team Section */}
