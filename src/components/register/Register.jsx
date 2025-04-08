@@ -20,7 +20,7 @@ export default function Register() {
         const confirmPassword = formData.get("confirmPassword");
 
         if (password !== confirmPassword) {
-            errorHandler("Password missmatch");
+            errorHandler("Password miss match");
             return;
         }
 

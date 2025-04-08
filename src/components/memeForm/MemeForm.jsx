@@ -15,14 +15,17 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                         value={imageUrl}
                         onChange={handleInputChange}
                         placeholder="Enter image URL"
+                        required
                     />
                     <label>Top Text</label>
                     <Input
                         name="topText"
                         value={topText}
+                        minLength={1}
                         maxLength={50}
                         onChange={handleInputChange}
                         placeholder="Top Text"
+                        required
                     />
                     <label>Top Text Color</label>
                     <Radio.Group
@@ -37,9 +40,11 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                     <Input
                         name="bottomText"
                         value={bottomText}
+                        minLength={1}
                         maxLength={50}
                         onChange={handleInputChange}
                         placeholder="Bottom Text"
+                        required
                     />
                     <label>Bottom Text Color</label>
                     <Radio.Group
