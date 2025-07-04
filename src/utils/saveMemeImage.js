@@ -16,19 +16,16 @@ export default function saveMeme(meme, errorHandler) {
         ctx.font = `${meme.textSize}px Arial`;
         ctx.textAlign = "center";
 
-        // Draw top text
         ctx.fillStyle = meme.topTextColor;
         ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
         ctx.fillText(meme.topText, img.width / 2, meme.textSize + 10);
         ctx.strokeText(meme.topText, img.width / 2, meme.textSize + 10);
 
-        // Draw bottom text
         ctx.fillStyle = meme.bottomTextColor;
         ctx.fillText(meme.bottomText, img.width / 2, img.height - 10);
         ctx.strokeText(meme.bottomText, img.width / 2, img.height - 10);
 
-        // Create a download link
         const link = document.createElement("a");
         link.download = "meme.png";
         link.href = canvas.toDataURL();

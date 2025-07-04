@@ -15,7 +15,6 @@ export default function HomePage() {
 
             <AnimatedBanner sessionToken={sessionToken} />
 
-            {/* Featured Memes Section */}
             <section className={styles["featured-memes"]}>
                 <h2>Last Memes</h2>
                 <div className={styles["meme-grid"]}>
@@ -32,7 +31,6 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* How It Works Section */}
             <section className={styles["how-it-works"]}>
                 <h2>How It Works</h2>
                 <Row gutter={[16, 16]}>
@@ -62,8 +60,6 @@ export default function HomePage() {
                     </Col>
                 </Row>
             </section>
-
-            {/* Footer */}
 
         </div>
     );
