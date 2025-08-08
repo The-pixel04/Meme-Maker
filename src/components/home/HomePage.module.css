@@ -16,12 +16,12 @@
 }
 
 .featured-memes {
+    background:#fff;
     padding: 32px;
     text-align: center;
 }
 
 .featured-memes h2 {
-    background:#fff;
     margin-bottom: 24px;
     font-size: 28px; 
     text-transform: uppercase; 
