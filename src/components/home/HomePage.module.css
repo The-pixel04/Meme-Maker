@@ -16,6 +16,7 @@
 }
 
 .featured-memes {
+    background:#fff;
     padding: 32px;
     text-align: center;
 }
@@ -70,6 +71,7 @@
 .how-it-works {
     padding: 32px;
     background-color: #f0f2f5;
+    color: #0b2946;
 }
 
 .how-it-works h2 {
