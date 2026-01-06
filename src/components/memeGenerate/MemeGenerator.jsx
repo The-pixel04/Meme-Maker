@@ -47,7 +47,6 @@ export default function MemeGenerator() {
 
     return (
         <div className="meme-generator-container">
-            {/* ImageUrl, memeRef, textSize, topText, topTextColor, bottomText, bottomTextColor */}
             <MemeForm handleAction={formAction} toptext={topText} handleInputChange={handleInputChange} imageUrl={imageUrl} topTextColor={topTextColor} bottomText={bottomText} bottomTextColor={bottomTextColor} textSize={textSize} setTextSize={setTextSize} setBottomTextColor={setBottomTextColor} setTopTextColor={setTopTextColor} pending={isPending}/>
             <MemePreview imageUrl={imageUrl} textSize={textSize} topText={topText} topTextColor={topTextColor} bottomText={bottomText} bottomTextColor={bottomTextColor} />
         </div>

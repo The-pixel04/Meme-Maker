@@ -1,4 +1,3 @@
-/* HomePage.css */
 .home-page {
     padding: 0px;
     text-align: center;
@@ -49,7 +48,7 @@
 
 @media (max-width: 1024px) {
     .featured-memes .meme-card-container {
-        flex: 1 1 calc(50% - 16px); /* 2 cards per row for medium screens */
+        flex: 1 1 calc(50% - 16px); 
         max-width: calc(50% - 16px);
     }
 }
@@ -76,7 +75,6 @@
 
 .how-it-works h2 {
     text-align: center;
-    /* margin-bottom: 32px; */
 }
 
 .step {

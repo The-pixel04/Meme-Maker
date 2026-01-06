@@ -23,7 +23,6 @@ export default function AboutUs() {
                     </Col>
                 </Row>
 
-                {/* Features Section */}
                 <Row gutter={[24, 24]} className={styles["features-section"]}>
                     <Col xs={24} sm={12} md={8}>
                         <Card hoverable className={styles["feature-card"]}>
@@ -43,7 +42,6 @@ export default function AboutUs() {
 
                 </Row>
 
-                {/* Team Section */}
                 <Divider orientation="center" className={styles["team-divider"]}>
                     <Title level={2}>Meet the Team</Title>
                 </Divider>

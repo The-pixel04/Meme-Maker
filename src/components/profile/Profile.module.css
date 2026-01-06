@@ -40,7 +40,7 @@
 
 @media (max-width: 1024px) {
     .meme-card-container {
-        flex: 1 1 calc(50% - 16px); /* 2 cards per row for medium screens */
+        flex: 1 1 calc(50% - 16px);
         max-width: calc(50% - 16px);
     }
 }

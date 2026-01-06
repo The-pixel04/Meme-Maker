@@ -9,7 +9,7 @@ export default function Contact() {
     return (
         <Layout className={styles["contact-layout"]}>
             <Content className="contact-content">
-                {/* Header Section */}
+
                 <Row justify="center" className={styles["header-section"]}>
                     <Col span={24}>
                         <Title level={1} className={styles["header-title"]}>Contact Us</Title>
@@ -19,7 +19,6 @@ export default function Contact() {
                     </Col>
                 </Row>
 
-                {/* Contact Information */}
                 <Row gutter={[24, 24]} justify="center" className={styles["contact-info-section"]}>
                     <Col xs={24} md={12} lg={8}>
                         <Card className={styles["contact-card"]}>
@@ -53,7 +52,6 @@ export default function Contact() {
                         </Card>
                     </Col>
 
-                    {/* Google Maps Card */}
                     <Col xs={24} md={12} lg={16}>
                         <Card className={styles["map-card"]}>
                             <Title level={4} className={styles["map-title"]}>Find Us in Varna</Title>
