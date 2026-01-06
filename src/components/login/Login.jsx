@@ -18,6 +18,10 @@ export default function Login() {
 
         const authData = await login(formValues.email, formValues.password);
 
+        if (!formValues.email || !formValues.password) {
+            return null;
+        }
+
         if (!authData) {
             return null;
         }

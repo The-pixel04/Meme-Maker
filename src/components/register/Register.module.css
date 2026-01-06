@@ -34,7 +34,6 @@
     font-weight: 500;
 }
 
-/* AntD Input overrides to match your theme */
 .register-form .ant-input,
 .register-form .ant-input-password {
     padding: 5px 12px;
@@ -55,15 +54,30 @@
 
 .register-button {
     height: 40px;
+    width: 100%;
     margin-top: 8px;
     font-weight: 500;
-    /* padding: 16px; */
     background-color: #1890ff;
     border: none;
 }
 
 .register-button:hover {
     background-color: #40a9ff;
+}
+
+.register-button:disabled,
+.register-button[disabled] {
+    background-color: #d9d9d9;
+    color: #777;
+    cursor: not-allowed;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+}
+
+.register-button:disabled:hover,
+.register-button[disabled]:hover {
+    background-color: #d9d9d9;
 }
 
 .login-link {
