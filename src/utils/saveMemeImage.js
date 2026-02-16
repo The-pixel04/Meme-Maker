@@ -27,7 +27,7 @@ export default function saveMeme(meme, errorHandler) {
         const centerX = img.width / 2;
         const padding = 10;
         const maxWidth = img.width - padding * 2;
-        const fontSize = Number(meme.textSize) || 40;
+        const fontSize = Number(meme.textSize) || 60;
         ctx.font = `${fontSize}px Arial`;
 
         const drawMultiline = (text, startY, align = "top", fillStyle = "white") => {

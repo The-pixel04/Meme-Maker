@@ -1,7 +1,7 @@
 .meme-card {
     position: relative;
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     aspect-ratio: 1/1;
     overflow: hidden;
     border: 1px;
@@ -13,14 +13,14 @@
 
 .meme-card :global(.ant-card-body) {
     padding: 48px;
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
 }
 
 .meme-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .meme-text-overlay {
@@ -31,8 +31,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    pointer-events: none; 
+    justify-content: space-between;
+    pointer-events: none;
     padding: 48px;
     box-sizing: border-box;
 }
@@ -40,28 +40,30 @@
 .top-text,
 .bottom-text {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: clamp(12px, var(--meme-text-size, 1.2rem), 48px);
     color: white;
-    text-align: center; 
+    text-align: center;
     text-shadow: 2px 2px 4px black;
     text-transform: uppercase;
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     line-height: 1.2;
     display: block;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     padding: 5px;
-    max-width: 100%; 
+    max-width: 100%;
     box-sizing: border-box;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .top-text {
-    align-self: center; 
+    align-self: center;
     margin-top: 0;
 }
 
 .bottom-text {
-    align-self: center; 
-    margin-bottom: 0; 
+    align-self: center;
+    margin-bottom: 0;
 }

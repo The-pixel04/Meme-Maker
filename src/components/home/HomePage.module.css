@@ -15,6 +15,7 @@
 }
 
 .featured-memes {
+    max-height: fit-content;
     background:#fff;
     padding: 32px;
     text-align: center;
@@ -44,6 +45,23 @@
     height: auto;
     border-radius: 8px;
     overflow: hidden;
+}
+
+@media (min-width: 1025px) {
+    .featured-memes .meme-grid {
+        gap: 24px;
+    }
+    .featured-memes .meme-card-container {
+        flex: 1 1 calc(33% - 24px);
+        max-width: calc(33% - 24px);
+    }
+}
+
+@media (min-width: 1440px) {
+    .featured-memes .meme-card-container {
+        flex: 1 1 calc(20% - 28px);
+        max-width: calc(20% - 28px);
+    }
 }
 
 @media (max-width: 1024px) {

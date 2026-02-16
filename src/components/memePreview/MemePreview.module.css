@@ -11,7 +11,7 @@
 .meme-preview {
     position: relative;
     display: inline-block;
-    width:auto;
+    width: auto;
     max-width: 120%;
     text-align: center;
     justify-content: center;
@@ -27,17 +27,20 @@
 
 .top-text,
 .bottom-text {
-    position:absolute;
+    position: absolute;
     line-height: 1;
     left: 50%;
     transform: translateX(-50%);
     font-weight: bold;
     text-align: center;
     text-shadow: 2px 2px 4px black;
-    width:100%;
-    word-wrap: break-word; 
+    width: 100%;
+    word-wrap: break-word;
     pointer-events: none;
     overflow: hidden;
+    font-size: clamp(12px, var(--meme-text-size, 20px), 48px);
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .top-text {
@@ -50,7 +53,7 @@
 
 @media (max-width: 786px) {
     .preview-card {
-      width: 100%;
-      order: 0;
+        width: 100%;
+        order: 0;
     }
-  }
+}

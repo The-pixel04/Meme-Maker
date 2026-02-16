@@ -5,7 +5,7 @@ export default function MemePreview({ imageUrl, textSize, topText, topTextColor,
     return (
         <Card className={styles["preview-card"]}>
             {imageUrl && (
-                <div className={styles["meme-preview"]}>
+                <div className={styles["meme-preview"]} style={{ ['--meme-text-size']: `${textSize}px` }}>
                     <img
                         src={imageUrl}
                         alt="Meme Preview"
@@ -13,13 +13,13 @@ export default function MemePreview({ imageUrl, textSize, topText, topTextColor,
                     />
                     <div
                         className={styles["top-text"]}
-                        style={{ fontSize: `${textSize}px`, color: topTextColor }}
+                        style={{ color: topTextColor }}
                     >
                         {topText}
                     </div>
                     <div
                         className={styles["bottom-text"]}
-                        style={{ fontSize: `${textSize}px`, color: bottomTextColor }}
+                        style={{ color: bottomTextColor }}
                     >
                         {bottomText}
                     </div>
