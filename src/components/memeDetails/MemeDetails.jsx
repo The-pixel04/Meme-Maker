@@ -39,7 +39,6 @@ export default function MemeDetail( ) {
 
     const likeMemeHandler = async () => {
         setLodingLike(true);
-        // eslint-disable-next-line no-unused-vars
         const { createdAt, updatedAt, ...restMeme } = meme;
         const updatedLikes = [...(meme.likes || []), objectId];
         const updatedMeme = {
@@ -55,7 +54,6 @@ export default function MemeDetail( ) {
 
     const unlikeMemeHandler = async () => {
         setLodingLike(true);
-        // eslint-disable-next-line no-unused-vars
         const { createdAt, updatedAt, ...restMeme } = meme;
         const updatedLikes = meme.likes.filter((userId) => userId !== objectId);
         const updatedMeme = {

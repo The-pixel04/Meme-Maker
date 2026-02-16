@@ -9,7 +9,6 @@ const request = async (method, url, data, options = {}) => {
         ...options.headers,
     };
 
-    // Add body only for non-GET requests
     if (method !== "GET" && data) {
         options.body = JSON.stringify(data);
     }
