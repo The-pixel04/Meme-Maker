@@ -1,8 +1,13 @@
 .footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #0b2946;
     text-align: center;
     padding: 10px 0;
     border-top: 1px solid #ddd;
+    margin: 0;
 }
 
 .quick-links a {
