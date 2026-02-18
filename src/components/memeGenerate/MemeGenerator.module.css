@@ -1,0 +1,35 @@
+.meme-ideas-generator {
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.response-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #000;
+    text-align: center;
+}
+
+input[name="generate"] {
+    width: fit-content;
+}
+
+#generate-button {
+    padding: 10px 20px;
+}
+
+h2 {
+    color: #333;
+    font-weight: 500;
+}

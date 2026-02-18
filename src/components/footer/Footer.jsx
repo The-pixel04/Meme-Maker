@@ -10,7 +10,7 @@ export default function Footer() {
                     <Link to="/contactus">Contact</Link>
                 </div>
                 <div className={styles.copyright}>
-                    © 2025 Meme Generator. All rights reserved.
+                    © 2026 Meme Generator. All rights reserved.
                 </div>
             </footer>
         </>

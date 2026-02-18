@@ -287,3 +287,53 @@ export const useUnlikeMeme = () => {
         unlike,
     };
 };
+
+export const useGenerateIdea = () => {
+    const { errorHandler } = useContext(ErrorContext);
+    const { signal } = abortController();
+
+    const generateIdea = async (prompt) => {
+        try {
+            const response = await fetch("https://api.jina.ai/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer jina_74f913e0eb2942c583a258523045ad545WaOGPmDC5yZaIFU7XFl9k_4hB6T"
+                },
+                body: JSON.stringify({
+                    model: "jina-chat",
+                    messages: [
+                        {
+                            role: "system",
+                            content: "You generate short funny meme captions. Return only plain text."
+                        },
+                        {
+                            role: "user",
+                            content: `Generate a funny short meme text: ${prompt}`
+                        }
+                    ],
+                    temperature: 0.8
+                }),
+                signal
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to generate meme idea");
+            }
+
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            if (error.name === "AbortError") {
+                return null;
+            }
+
+            errorHandler("Error generating meme idea");
+            return null;
+        }
+    };
+
+    return {
+        generateIdea,
+    };
+}

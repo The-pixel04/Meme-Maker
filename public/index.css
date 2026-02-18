@@ -52,7 +52,7 @@ button {
   font-size: 1em;
   font-weight: 400;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #1677ff;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -86,7 +86,7 @@ button:focus-visible {
   flex-direction: row;
   gap: 16px;
   padding: 16px;
-  height: 60%;
+  flex: 1; 
 }
 
 @media (min-width: 1024px) {

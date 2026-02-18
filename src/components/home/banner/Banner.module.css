@@ -1,7 +1,7 @@
 .banner-container {
     background: linear-gradient(135deg, #383886 0%,  #7a88b7 100%);
     color: white;
-    padding: 2rem;
+    padding: 4rem;
     border-radius: 12px;
     margin: 2rem 0;
     text-align: center;
@@ -10,7 +10,7 @@
 }
 
 .banner-content h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
@@ -21,12 +21,6 @@
 .banner-content p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
-}
-
-.emoji-wave {
-    display: inline-block;
-    animation: wave 2s infinite;
-    transform-origin: 70% 70%;
 }
 
 .emoji-jump {
@@ -42,7 +36,7 @@
 
 .emoji-float {
     font-size: 1.8rem;
-    letter-spacing: 1rem;
+    letter-spacing: 1.4rem;
     animation: float 6s ease-in-out infinite;
 }
 

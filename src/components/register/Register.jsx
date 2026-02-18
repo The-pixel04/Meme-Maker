@@ -79,7 +79,7 @@ export default function Register() {
                 </Button>
 
                 <div className={styles["login-link"]}>
-                    Already have an account? <a href="/login">Login here</a>
+                    Already have an account? <a onClick={() => navigate("/login")}>Login here</a>
                 </div>
             </form>
         </div>

@@ -74,7 +74,7 @@ export default function Login() {
                 </Button>
 
                 <div className={styles["register-link"]}>
-                    Don not have an account? <a href="/register">Sign up</a>
+                    Don not have an account? <a onClick={() => navigate("/register")}>Sign up</a>
                 </div>
             </form>
         </div>
