@@ -11,6 +11,25 @@
   gap: 16px;
 }
 
+.color-picker-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-input {
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.color-value {
+  font-weight: 500;
+  font-family: monospace;
+}
+
 @media (max-width: 576px) {
   .controls-card {
     width: 100%;

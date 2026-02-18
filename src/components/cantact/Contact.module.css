@@ -24,10 +24,17 @@
 
 .contact-info-section {
     margin-bottom: 40px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.contact-credentials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-card {
-    height: 100%;
     padding: 24px;
 }
 

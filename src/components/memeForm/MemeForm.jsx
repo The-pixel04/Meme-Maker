@@ -1,9 +1,17 @@
-import { Card, Input, Slider, Button, Radio } from "antd";
+import { Card, Input, Button } from "antd";
 import styles from "./MemeForm.module.css";
 
-export default function MemeForm({ handleAction, topText, handleInputChange,
-    imageUrl, topTextColor, bottomText, bottomTextColor,
-    textSize, setTextSize, setBottomTextColor, setTopTextColor, pending,
+export default function MemeForm({
+    handleAction,
+    topText,
+    bottomText,
+    imageUrl,
+    topTextColor,
+    bottomTextColor,
+    setTopTextColor,
+    setBottomTextColor,
+    handleInputChange,
+    pending,
 }) {
     return (
         <Card className={styles["controls-card"]}>
@@ -17,6 +25,7 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                         placeholder="Enter image URL"
                         required
                     />
+
                     <label>Top Text</label>
                     <Input
                         name="topText"
@@ -27,15 +36,22 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                         placeholder="Top Text"
                         required
                     />
+
                     <label>Top Text Color</label>
-                    <Radio.Group
-                        name="topTextColor"
-                        value={topTextColor}
-                        onChange={(e) => setTopTextColor(e.target.value)}
-                    >
-                        <Radio value="#000000">Black</Radio>
-                        <Radio value="#FFFFFF">White</Radio>
-                    </Radio.Group>
+                    <div className={styles["color-picker-container"]}>
+                        <input
+                            type="color"
+                            value={topTextColor}
+                            name="topTextColor"
+                            onInput={(e) => setTopTextColor(e.target.value)}
+                            onChange={(e) => setTopTextColor(e.target.value)}
+                            className={styles["color-input"]}
+                        />
+                        <span className={styles["color-value"]}>
+                            {topTextColor}
+                        </span>
+                    </div>
+
                     <label>Bottom Text</label>
                     <Input
                         name="bottomText"
@@ -46,24 +62,24 @@ export default function MemeForm({ handleAction, topText, handleInputChange,
                         placeholder="Bottom Text"
                         required
                     />
+
                     <label>Bottom Text Color</label>
-                    <Radio.Group
-                        name="bottomTextColor"
-                        value={bottomTextColor}
-                        onChange={(e) => setBottomTextColor(e.target.value)}
-                    >
-                        <Radio value="#000000">Black</Radio>
-                        <Radio value="#FFFFFF">White</Radio>
-                    </Radio.Group>
-                    <label>Text Size</label>
-                    <Slider
-                        value={textSize}
-                        onChange={setTextSize}
-                        min={16}
-                        max={32}
-                    />
+                    <div className={styles["color-picker-container"]}>
+                        <input
+                            type="color"
+                            value={bottomTextColor}
+                            onInput={(e) => setBottomTextColor(e.target.value)}
+                            onChange={(e) => setBottomTextColor(e.target.value)}
+                            className={styles["color-input"]}
+                            name="bottomTextColor"
+                        />
+                        <span className={styles["color-value"]}>
+                            {bottomTextColor}
+                        </span>
+                    </div>
+
                     <Button type="primary" htmlType="submit" disabled={pending}>
-                        Save to collection
+                        {pending ? "Saving..." : "Save to collection"}
                     </Button>
                 </div>
             </form>

@@ -22,7 +22,7 @@
 }
 
 input[name="generate"] {
-    width: fit-content;
+    max-width: 500px;
 }
 
 #generate-button {

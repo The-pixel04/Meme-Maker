@@ -27,9 +27,9 @@ export default function MemeGenerator() {
         if (prompt.trim()) {
             setGeneratePending(true);
             try {
+                setPrompt("");
                 const result = await generateIdea(prompt);
                 setResponse(result.choices[0].message.content);
-                console.log(result.choices[0].message.content);
             } finally {
                 setGeneratePending(false);
             }
@@ -81,15 +81,11 @@ export default function MemeGenerator() {
                         {generatePending ? "Generating..." : "View response"}
                     </Button>
 
-                    {isPending ?
-                        <div className="spinner-container">
-                            <Spin size="large" />
+                    {response &&
+                        <div className={styles["response-container"]}>
+                            <p>{response}</p>
                         </div>
-                        : (
-                            <div className={styles["response-container"]}>
-                                <p>{response}</p>
-                            </div>
-                        )}
+                    }
                 </div>
             </div>
 

@@ -8,7 +8,7 @@ const { Title, Paragraph } = Typography;
 export default function Contact() {
     return (
         <Layout className={styles["contact-layout"]}>
-            <Content className="contact-content">
+            <Content className={styles["contact-content"]}>
 
                 <Row justify="center" className={styles["header-section"]}>
                     <Col span={24}>
@@ -20,10 +20,10 @@ export default function Contact() {
                 </Row>
 
                 <Row gutter={[24, 24]} justify="center" className={styles["contact-info-section"]}>
-                    <Col xs={24} md={12} lg={8}>
-                        <Card className={styles["contact-card"]}>
+                    <Col xs={24} lg={8} className={styles['contact-credentials']}>
+                        <Card className={styles["contact-card"]} >
                             <div className={styles["contact-item"]}>
-                                <EnvironmentOutlined className="contact-icon" />
+                                <EnvironmentOutlined className={styles["contact-icon"]} />
                                 <div>
                                     <Title level={4} className={styles["contact-title"]}>Our Location</Title>
                                     <Paragraph>ул. „Шейново“, Varna 9000, Bulgaria</Paragraph>
@@ -33,7 +33,7 @@ export default function Contact() {
                             <Divider />
 
                             <div className={styles["contact-item"]}>
-                                <PhoneOutlined className="contact-icon" />
+                                <PhoneOutlined className={styles["contact-icon"]} />
                                 <div>
                                     <Title level={4} className={styles["contact-title"]}>Call Us</Title>
                                     <Paragraph>+359 123 456 789</Paragraph>

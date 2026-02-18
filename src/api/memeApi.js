@@ -305,11 +305,11 @@ export const useGenerateIdea = () => {
                     messages: [
                         {
                             role: "system",
-                            content: "You generate short funny meme captions. Return only plain text."
+                            content: "Give me responses based on the following prompt."
                         },
                         {
                             role: "user",
-                            content: `Generate a funny short meme text: ${prompt}`
+                            content: `${prompt}`
                         }
                     ],
                     temperature: 0.8
