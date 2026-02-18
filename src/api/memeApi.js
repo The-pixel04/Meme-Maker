@@ -298,7 +298,7 @@ export const useGenerateIdea = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer jina_74f913e0eb2942c583a258523045ad545WaOGPmDC5yZaIFU7XFl9k_4hB6T"
+                    "Authorization": `Bearer ${import.meta.env.VITE_AI_TOKEN}`
                 },
                 body: JSON.stringify({
                     model: "jina-chat",
