@@ -1,4 +1,4 @@
-# Meme Maker 🎨🧬
+# Meme Maker 🤡
 
 Meme Maker is a fun and interactive web application that allows users to create, edit, save  and share hilarious memes effortlessly! Built with modern web technologies, it provides a seamless user experience for meme enthusiasts. [Meme-Maker](https://mememake.netlify.app/)
 
@@ -64,7 +64,7 @@ The application communicates with the Back4App REST API to perform CRUD operatio
 ### Endpoints
 
 1. **Get Memes (Paginated)**
-   - **Endpoint**: `GET /classes/slass`
+   - **Endpoint**: `GET /classes/class`
    - **Description**: Fetches a paginated list of memes.
    - **Example**:
      ```json
@@ -150,9 +150,13 @@ The application communicates with the Back4App REST API to perform CRUD operatio
 
 All requests include the following headers:
 - **Application ID**: `X-Parse-Application-Id: YOUR_APP_ID`
-- **REST  KeyAPI**: `X-Parse-REST-API-Key: YOUR_API_KEY`
+- **REST API Key**: `X-Parse-REST-API-Key: YOUR_API_KEY`
 - **Content-Type**: `application/json`
 
 ### Error Handling
 
 The application handles API errors gracefully by displaying user-friendly pop-up.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
