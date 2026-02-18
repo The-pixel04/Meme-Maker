@@ -25,6 +25,7 @@ Meme Maker is a fun and interactive web application that allows users to create,
 - **API Integration**: Communicates with Back4App REST API with CRUD operations.
 - **Reusable Components**: Modular and reusable React components for scalability.
 - **Abortable Requests**: Uses `AbortController` to handle request cancellations.
+- **AI-Powered Meme Ideas Generator**: Generate creative meme text ideas using AI-powered prompts.
 
 ## How It Works 🛠️
 
@@ -32,6 +33,21 @@ Meme Maker is a fun and interactive web application that allows users to create,
 2. **Add Text**: Customize your meme with top and bottom text.
 3. **Customize**: Adjust text size and color.
 4. **Save & Share**: Save your meme and share it with the world!
+
+## Meme Generator Ideas 💡
+
+The application includes an **AI-powered Meme Ideas Generator** that helps users create funny meme text suggestions:
+
+1. **Enter a Prompt**: Type a meme topic or idea as a text prompt (e.g., "funny cat moments", "office humor").
+2. **Generate Ideas**: Click the "View response" button to send the prompt to the AI API.
+3. **View Results**: The AI returns creative meme text suggestions with top and bottom text ideas.
+
+### API Integration
+
+- **Endpoint**: Integrates with [Jina AI](https://jina.ai/) API via `useGenerateIdea()` hook
+- **Service**: Jina AI's generative models for creative text generation
+- **Request**: Sends user's prompt to generate meme ideas
+- **Loading State**: Shows "Generating..." status while waiting for AI response
 
 ## Tech Stack 🧰
 
@@ -85,7 +101,31 @@ The application communicates with the Back4App REST API to perform CRUD operatio
    - **Endpoint**: `DELETE /classes/class/:objectId`
    - **Description**: Deletes a meme by its `objectId`.
 
-5. **User Authentication**
+5. **Generate Meme Ideas (Jina AI)**
+   - **Endpoint**: Jina AI API
+   - **Description**: Generates creative meme text suggestions based on a user prompt using Jina AI.
+   - **Request Body**:
+     ```json
+     {
+       "prompt": "funny cat moments"
+     }
+     ```
+   - **Response Body**:
+     ```json
+     {
+       "choices": [
+         {
+           "message": {
+             "content": {
+               "Response"
+             }
+           }
+         }
+       ]
+     }
+     ```
+
+6. **User Authentication**
    - **Login**:
      - **Endpoint**: `POST /login`
      - **Request Body**:
