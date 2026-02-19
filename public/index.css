@@ -86,7 +86,7 @@ button:focus-visible {
   flex-direction: row;
   gap: 16px;
   padding: 16px;
-  flex: 1; 
+  margin-bottom: 5em;
 }
 
 @media (min-width: 1024px) {

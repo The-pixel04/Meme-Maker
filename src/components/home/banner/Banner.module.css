@@ -41,7 +41,6 @@
 }
 
 .banner-button {
-    display: flexbox;
     justify-content: center;
     align-items: center;
     color: rgb(255, 255, 255);
@@ -54,7 +53,7 @@
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .banner-button:hover {

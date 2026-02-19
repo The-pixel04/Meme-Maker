@@ -57,6 +57,41 @@ The application includes an **AI-powered Meme Ideas Generator** that helps users
 - **Styling**: CSS Modules
 - **API**: REST API with Back4App
 
+## Architecture 🏗️
+
+### Project Structure
+
+The application follows a modular component-based architecture:
+
+```
+src/
+├── api/                    # API layer (Back4App & Jina AI integration)
+│   ├── authApi.js         # Authentication API calls
+│   └── memeApi.js         # Meme operations & AI idea generation
+├── components/            # Reusable React components
+│   ├── home/              # Home page with banner
+│   ├── catalog/           # Meme listing with pagination
+│   ├── memeForm/          # Form for creating/editing memes
+│   ├── memePreview/       # Real-time meme preview
+│   ├── memeDetails/       # Individual meme view
+│   ├── memeGenerate/      # AI-powered meme idea generator
+│   ├── login/register/    # Authentication components
+│   └── ...                # Other UI components
+├── contexts/              # React Context for state management
+│   ├── UserContext.js     # User authentication state
+│   └── ErrorContext.js    # Error handling
+├── hooks/                 # Custom React hooks
+│   ├── useAuth.js         # Authentication hook
+│   └── usePersistedState.js # Persisted state hook
+├── guards/                # Route protection
+│   ├── AuthGard.jsx       # Protected routes
+│   └── GuestGard.jsx      # Guest-only routes
+└── utils/                 # Helper utilities
+    ├── request.js         # API request handler
+    ├── abortController.js # Request cancellation
+    └── saveMemeImage.js   # Image download utility
+```
+
 ## API Requests 🌐
 
 The application communicates with the Back4App REST API to perform CRUD operations for managing memes and user data. Below are the key API requests used in the application:

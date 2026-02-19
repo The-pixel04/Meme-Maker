@@ -1,7 +1,7 @@
 .home-page {
     padding: 0px;
     text-align: center;
-    height: 100%;
+    flex: 1;
 }
 
 .home-page h1 {
