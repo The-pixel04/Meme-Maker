@@ -288,7 +288,7 @@ export const useUnlikeMeme = () => {
     };
 };
 
-export const useGenerateIdea = () => {
+export const useGenerateIdea = (responses=[]) => {
     const { errorHandler } = useContext(ErrorContext);
     const { signal } = abortController();
 
@@ -304,8 +304,8 @@ export const useGenerateIdea = () => {
                     model: "jina-chat",
                     messages: [
                         {
-                            role: "system",
-                            content: "Give me responses based on the following prompt."
+                            role: "assistant",
+                            content: `previous responses: ${responses.join('\n')}`
                         },
                         {
                             role: "user",

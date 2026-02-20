@@ -6,6 +6,7 @@ import MemePreview from "../memePreview/MemePreview.jsx";
 import { UserContext } from "../../contexts/UserContext.js";
 import styles from "./MemeGenerator.module.css";
 import { Button, Input, Spin } from "antd";
+import useResponses from "../../hooks/useResponses.js";
 
 export default function MemeGenerator() {
     const [imageUrl, setImageUrl] = useState("");
@@ -18,10 +19,12 @@ export default function MemeGenerator() {
     const { create } = useCreateMeme();
     const navigate = useNavigate();
 
-    const { generateIdea } = useGenerateIdea();
     const [prompt, setPrompt] = useState("");
-    const [response, setResponse] = useState(null);
+    const [response, setResponse] = useState("");
+    const { responses, addResponse } = useResponses();
+    const { generateIdea } = useGenerateIdea(responses);
     const [generatePending, setGeneratePending] = useState(false);
+
 
     const handleGenerateMeme = async () => {
         if (prompt.trim()) {
@@ -30,6 +33,7 @@ export default function MemeGenerator() {
                 setPrompt("");
                 const result = await generateIdea(prompt);
                 setResponse(result.choices[0].message.content);
+                addResponse(result.choices[0].message.content);
             } finally {
                 setGeneratePending(false);
             }
