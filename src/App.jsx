@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
 import { lazy, useState } from "react";
 import "@ant-design/v5-patch-for-react-19";
 import usePersistedState from "./hooks/usePersistedSate.js";
@@ -9,13 +9,13 @@ import GuestGuard from "./guards/GuestGard.jsx";
 import ErrorPopup from "./components/errorPopup/ErrorPopup.jsx";
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
-import Logout from "./components/logout/Logout.jsx";
 import AboutUs from "./components/aboutUs/AboutUs.jsx";
 import Contact from "./components/cantact/Contact.jsx";
 const HomePage = lazy(() => import("./components/home/HomePage.jsx"));
 const Catalog = lazy(() => import("./components/catalog/Catalog.jsx"));
 const Register = lazy(() => import("./components/register/Register.jsx"));
 const Login = lazy(() => import("./components/login/Login.jsx"));
+const Logout = lazy(() => import("./components/logout/Logout.jsx"));
 const MemeGenerator = lazy(() => import("./components/memeGenerate/MemeGenerator.jsx"));
 const MemeEdit = lazy(() => import("./components/memeEdit/MemeEdit.jsx"));
 const Profile = lazy(() => import("./components/profile/Profile.jsx"));
@@ -51,6 +51,7 @@ export default function App() {
                     <Header />
                     <main>
                         <Routes>
+                            <Route path="*" element={<Navigate to="/" />} />
                             <Route path="/" element={<HomePage />} />
                             <Route path="/catalog" element={<Catalog />} />
                             <Route path="/memes/:memeId/details" element={<MemeDetail />} />

@@ -33,7 +33,7 @@ export default function HomePage() {
 
             <section className={styles["how-it-works"]}>
                 <h2>How It Works</h2>
-                <Row gutter={[16, 16]} style={{ marginBottom: "15px" }}>
+                <Row gutter={[16, 16]} className={styles["steps-row"]}>
                     <Col xs={24} sm={12} md={6}>
                         <div className={styles.step}>
                             <h3>1. Upload an Image</h3>

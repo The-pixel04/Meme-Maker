@@ -55,6 +55,7 @@ export default function Login() {
                     <label htmlFor="password">Password</label>
                     <Input.Password
                         name="password"
+                        type="password"
                         id="password"
                         placeholder="Enter your password"
                         prefix={<LockOutlined />}

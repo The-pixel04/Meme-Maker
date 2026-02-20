@@ -1,5 +1,5 @@
 .banner-container {
-    background: linear-gradient(135deg, #383886 0%,  #7a88b7 100%);
+    background: linear-gradient(135deg, #383886 0%, #7a88b7 100%);
     color: white;
     padding: 4rem;
     border-radius: 12px;
@@ -10,7 +10,7 @@
 }
 
 .banner-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
@@ -35,6 +35,7 @@
 }
 
 .emoji-float {
+    padding: 0.5em;
     font-size: 1.8rem;
     letter-spacing: 1.4rem;
     animation: float 6s ease-in-out infinite;
