@@ -192,6 +192,6 @@ All requests include the following headers:
 
 The application handles API errors gracefully by displaying user-friendly pop-up.
 
-## License
+## License ⚖️
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
