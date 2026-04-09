@@ -15,7 +15,7 @@ export default function saveMeme(meme, errorHandler) {
             try {
                 await document.fonts.ready;
             } catch (e) {
-                
+
             }
         }
 

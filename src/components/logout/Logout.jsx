@@ -7,5 +7,5 @@ export default function Logout() {
 
     return isLoggedOut
         ? <Navigate to="/" />
-        : <Spin/>;
+        : <Spin />;
 }

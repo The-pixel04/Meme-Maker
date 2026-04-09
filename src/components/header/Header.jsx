@@ -80,12 +80,12 @@ export default function Header() {
 function getSelectedKey(location) {
     const path = location.pathname;
 
-    if (path === "/") {return "home";}
-    if (path.startsWith("/catalog")) {return "catalog";}
-    if (path.startsWith("/profile")) {return "profile";}
-    if (path.startsWith("/create")) {return "create";}
-    if (path.startsWith("/register")) {return "register";}
-    if (path.startsWith("/login")) {return "login";}
-    if (path.startsWith("/logout")) {return "logout";}
+    if (path === "/") { return "home"; }
+    if (path.startsWith("/catalog")) { return "catalog"; }
+    if (path.startsWith("/profile")) { return "profile"; }
+    if (path.startsWith("/create")) { return "create"; }
+    if (path.startsWith("/register")) { return "register"; }
+    if (path.startsWith("/login")) { return "login"; }
+    if (path.startsWith("/logout")) { return "logout"; }
     return null;
 }

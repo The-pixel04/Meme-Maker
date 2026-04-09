@@ -8,7 +8,7 @@ import saveMeme from "../../utils/saveMemeImage.js";
 import styles from "./MemeDetails.module.css";
 import { ErrorContext } from "../../contexts/ErrorContext.js";
 
-export default function MemeDetail( ) {
+export default function MemeDetail() {
     const navigate = useNavigate();
     const { memeId } = useParams();
     const { deleteMeme } = useDeleteMeme();

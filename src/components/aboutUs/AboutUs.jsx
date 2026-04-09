@@ -18,7 +18,7 @@ export default function AboutUs() {
                     <Col span={24}>
                         <Title level={1} className={styles["hero-title"]}>About Meme Maker</Title>
                         <Paragraph className={styles["hero-description"]}>
-                            We’re on a mission to spread joy, one meme at a time.
+                            We are on a mission to spread joy, one meme at a time.
                         </Paragraph>
                     </Col>
                 </Row>
