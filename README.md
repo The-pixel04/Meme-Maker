@@ -166,7 +166,7 @@ The application communicates with the Back4App REST API to perform CRUD operatio
      - **Request Body**:
        ```json
        {
-         "username": "user123",
+         "email": "user@example.com",
          "password": "password123"
        }
        ```

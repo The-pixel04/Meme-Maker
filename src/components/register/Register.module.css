@@ -95,3 +95,11 @@
 .login-link a:hover {
     text-decoration: underline;
 }
+
+button{
+    background: none;
+    color: #1890ff;
+    outline: none;
+    border: none !important;
+    padding: 0;
+}
